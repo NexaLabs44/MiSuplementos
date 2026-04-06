@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MisSuplementos</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c0582a'/%3E%3Crect x='10' y='5' width='12' height='7' rx='2.5' fill='white' opacity='.9'/%3E%3Cpath d='M6 13h20l-3.5 14H9.5z' fill='white' opacity='.85'/%3E%3Cline x1='6' y1='13' x2='26' y2='13' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg-root:#ede8df;--bg-primary:#f5f0e8;--bg-card:#ffffff;--bg-card2:#faf7f3;--bg-input:#faf7f3;
+      --accent:#c0582a;--accent-light:#d96b38;--accent-dim:rgba(192,88,42,.1);--accent-glow:rgba(192,88,42,.2);
+      --amber:#b87319;--amber-dim:rgba(184,115,25,.1);
+      --green:#2e7d5e;--green-dim:rgba(46,125,94,.1);
+      --danger:#b83232;--danger-dim:rgba(184,50,50,.1);
+      --text-1:#1c1510;--text-2:#6b5744;--text-3:#b0998a;
+      --border:rgba(0,0,0,.07);--border-strong:rgba(0,0,0,.13);
+      --radius-sm:8px;--radius:12px;--radius-lg:16px;
+      --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.07);
+      --shadow-hover:0 2px 6px rgba(0,0,0,.09),0 8px 24px rgba(0,0,0,.1);
+      --font:-apple-system,'Segoe UI',system-ui,BlinkMacSystemFont,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg-root);color:var(--text-1);min-height:100vh;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+    ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:var(--bg-root)}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:99px}
+
+    /* HEADER */
+    .app-header{background:var(--bg-primary);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:100}
+    .logo{font-size:17px;font-weight:700;letter-spacing:-.3px;color:var(--text-1);display:flex;align-items:center;gap:9px}
+    .logo-emblem{width:28px;height:28px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .logo-emblem svg{width:15px;height:15px}
+    .header-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+    .header-date{color:var(--text-3);font-size:12px}
+    .drive-badge{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:99px;border:1px solid var(--border-strong);color:var(--text-2);cursor:pointer;transition:all .15s;background:none}
+    .drive-badge:hover{border-color:var(--accent);color:var(--accent)}
+    .drive-badge.connected{border-color:rgba(46,125,94,.3);color:var(--green);background:var(--green-dim)}
+    .drive-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+    /* TABS */
+    .tab-nav{background:var(--bg-primary);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;padding:0 20px}
+    .tab-nav::-webkit-scrollbar{display:none}
+    .tab-btn{padding:13px 18px;background:none;border:none;color:var(--text-2);cursor:pointer;font-family:var(--font);font-size:13px;font-weight:500;white-space:nowrap;transition:color .16s;border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:7px}
+    .tab-btn:hover{color:var(--text-1)}
+    .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+
+    /* MAIN */
+    .main{max-width:1100px;margin:0 auto;padding:24px 16px 80px}
+    .tab-content{display:none;animation:fadeIn .22s ease}
+    .tab-content.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+    /* CARDS */
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+    .card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--text-2);margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+    .section-title{font-size:18px;font-weight:700;color:var(--text-1);letter-spacing:-.3px}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--radius-sm);border:1px solid transparent;font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap}
+    .btn:disabled{opacity:.45;cursor:not-allowed}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-primary:not(:disabled):hover{background:var(--accent-light);box-shadow:0 2px 8px var(--accent-glow)}
+    .btn-ghost{background:var(--bg-card);border-color:var(--border-strong);color:var(--text-2);box-shadow:var(--shadow)}
+    .btn-ghost:hover{background:var(--bg-card2);color:var(--text-1);border-color:var(--accent)}
+    .btn-danger{background:var(--danger-dim);border-color:rgba(184,50,50,.3);color:var(--danger)}
+    .btn-danger:hover{background:var(--danger);color:#fff}
+    .btn-amber{background:var(--amber-dim);border-color:rgba(184,115,25,.3);color:var(--amber)}
+    .btn-amber:hover{background:var(--amber);color:#fff}
+    .btn-green{background:var(--green-dim);border-color:rgba(46,125,94,.3);color:var(--green)}
+    .btn-green:hover{background:var(--green);color:#fff}
+    .btn-sm{padding:5px 10px;font-size:12px}
+    .btn-icon{width:30px;height:30px;padding:0;justify-content:center}
+
+    /* FORMS */
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:12px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+    .form-control{width:100%;background:var(--bg-input);border:1px solid var(--border-strong);border-radius:var(--radius-sm);color:var(--text-1);font-family:var(--font);font-size:14px;padding:8px 11px;transition:border-color .16s,box-shadow .16s;outline:none}
+    .form-control:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim);background:#fff}
+    .form-control::placeholder{color:var(--text-3)}
+    select.form-control{cursor:pointer;background:var(--bg-card)}
+    select.form-control option{background:#fff;color:var(--text-1)}
+    textarea.form-control{resize:vertical;min-height:80px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:480px){.form-row{grid-template-columns:1fr}}
+
+    /* STATS */
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+    @media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-2);margin-bottom:6px;font-weight:600}
+    .stat-value{font-size:28px;font-weight:700;letter-spacing:-.5px}
+    .stat-value.accent{color:var(--accent)}.stat-value.amber{color:var(--amber)}.stat-value.green{color:var(--green)}.stat-value.normal{color:var(--text-1)}
+    .stat-sub{font-size:11px;color:var(--text-3);margin-top:2px}
+
+    /* PROGRESS */
+    .progress-bar-wrap{background:#f0ece7;border-radius:99px;height:6px;overflow:hidden;margin-top:6px}
+    .progress-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--amber));transition:width .6s cubic-bezier(.16,1,.3,1)}
+
+    /* DASHBOARD DOSES */
+    .today-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+    .dose-item{display:flex;align-items:center;gap:12px;padding:11px 13px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius-sm);transition:box-shadow .14s}
+    .dose-item:hover{box-shadow:var(--shadow)}
+    .dose-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fef0e7}
+    .dose-info{flex:1;min-width:0}
+    .dose-name{font-weight:600;font-size:13px}
+    .dose-meta{font-size:11px;color:var(--text-2)}
+    .dose-status-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--text-3);background:none;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .14s}
+    .dose-status-btn.taken{border-color:var(--green);background:var(--green);color:#fff}
+    .dose-status-btn.omitted{border-color:var(--danger);background:var(--danger);color:#fff}
+    .dose-actions{display:flex;gap:4px}
+
+    /* ACTIVITY */
+    .activity-item{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)}
+    .activity-item:last-child{border-bottom:none;padding-bottom:0}
+    .activity-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .activity-dot.taken{background:var(--green)}.activity-dot.omitted{background:var(--danger)}.activity-dot.pending{background:var(--text-3)}
+    .activity-info{flex:1;min-width:0}
+    .activity-name{font-size:13px;font-weight:500}
+    .activity-date{font-size:11px;color:var(--text-3)}
+    .activity-right{font-size:11px;color:var(--text-2);white-space:nowrap}
+
+    /* CHART */
+    .chart-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+    canvas{width:100%;display:block}
+
+    /* TABLE */
+    .filters-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse}
+    thead th{background:var(--bg-card2);padding:9px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-2);white-space:nowrap;border-bottom:1px solid var(--border);font-weight:600}
+    tbody td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;background:#fff}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:var(--bg-card2)}
+
+    /* BADGES */
+    .badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600}
+    .badge-success{background:var(--green-dim);color:var(--green)}
+    .badge-danger{background:var(--danger-dim);color:var(--danger)}
+    .badge-amber{background:var(--amber-dim);color:var(--amber)}
+    .badge-neutral{background:#f0ece7;color:var(--text-2)}
+
+    /* SUPP CARDS */
+    .supp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+    .supp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+    .supp-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:rgba(192,88,42,.2)}
+    .supp-card-img{height:100px;background:#f5f0e8;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .supp-card-img img{width:100%;height:100%;object-fit:cover}
+    .supp-card-body{padding:14px}
+    .supp-card-name{font-weight:700;font-size:14px;margin-bottom:2px}
+    .supp-card-brand{font-size:11px;color:var(--text-2);margin-bottom:8px}
+    .supp-card-footer{display:flex;justify-content:space-between;align-items:center}
+
+    /* CATEGORY */
+    .cat-vitaminas{background:#fef0e7;color:#b84c1a}.cat-minerales{background:#fdf7e3;color:#8b6010}
+    .cat-proteinas{background:#e8f4ef;color:#1e6b48}.cat-aminoacidos{background:#eaf5f0;color:#1c6641}
+    .cat-adaptogenos{background:#fdecea;color:#9b2020}.cat-otro{background:#f0ece7;color:var(--text-2)}
+
+    /* DETAIL */
+    .detail-header{display:flex;gap:20px;margin-bottom:20px;align-items:flex-start;flex-wrap:wrap}
+    .detail-img{width:100px;height:100px;flex-shrink:0;background:#f5f0e8;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border)}
+    .detail-img img{width:100%;height:100%;object-fit:cover}
+    .detail-meta{flex:1;min-width:180px}
+    .detail-name{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:3px}
+    .detail-brand{color:var(--text-2);font-size:13px;margin-bottom:10px}
+    .detail-section{margin-bottom:16px}
+    .detail-section-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);margin-bottom:6px;font-weight:600}
+    .ingredient-pill{display:inline-block;background:#fef0e7;color:var(--accent);border-radius:6px;padding:3px 10px;font-size:12px;font-weight:500;margin:2px}
+
+    /* PROFILE */
+    .profile-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+    .profile-section-title{font-size:14px;font-weight:700;margin-bottom:16px;color:var(--text-1)}
+    .api-key-row{display:flex;gap:8px;align-items:center}
+    .api-key-row .form-control{flex:1}
+    .key-status{display:flex;align-items:center;gap:6px;font-size:12px;margin-top:8px}
+    .key-dot{width:7px;height:7px;border-radius:50%}
+    .key-dot.set{background:var(--green)}.key-dot.empty{background:var(--text-3)}
+    .privacy-note{font-size:12px;color:var(--text-2);background:#f5f0e8;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-top:10px;line-height:1.6}
+    .backup-btns{display:flex;gap:10px;flex-wrap:wrap}
+    .drive-info-box{background:var(--green-dim);border:1px solid rgba(46,125,94,.2);border-radius:var(--radius-sm);padding:12px 14px;font-size:13px;line-height:1.6;margin-bottom:14px}
+    .drive-info-box strong{color:var(--green)}
+    .drive-last-backup{font-size:12px;color:var(--text-2);margin-top:10px}
+
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(3px);z-index:500;display:none;align-items:center;justify-content:center;padding:16px}
+    .modal-overlay.open{display:flex;animation:fadeIn .18s ease}
+    .modal{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.18);animation:modalIn .2s cubic-bezier(.16,1,.3,1)}
+    @keyframes modalIn{from{opacity:0;transform:scale(.96) translateY(6px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .modal-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .modal-title{font-size:15px;font-weight:700}
+    .modal-close{width:26px;height:26px;border-radius:50%;background:var(--bg-card2);border:1px solid var(--border);color:var(--text-2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .14s}
+    .modal-close:hover{background:var(--danger-dim);color:var(--danger)}
+    .modal-body{padding:20px}
+    .modal-footer{padding:12px 20px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;background:var(--bg-card2);border-radius:0 0 var(--radius-lg) var(--radius-lg)}
+
+    /* AI */
+    .ai-section{background:#faf7f2;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px}
+    .ai-row{display:flex;gap:8px}
+    .ai-row .form-control{flex:1}
+    .divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+
+    /* SPINNER / TOAST */
+    .spinner{width:16px;height:16px;border:2px solid var(--border-strong);border-top-color:var(--accent);border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .loading-row{display:flex;align-items:center;gap:10px;color:var(--text-2);font-size:13px;padding:6px 0}
+    #toast-container{position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+    .toast{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:10px 16px;font-size:13px;box-shadow:0 4px 20px rgba(0,0,0,.15);display:flex;align-items:center;gap:8px;pointer-events:all;animation:toastIn .28s cubic-bezier(.16,1,.3,1);max-width:300px}
+    @keyframes toastIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .toast.success{border-left:3px solid var(--green)}.toast.error{border-left:3px solid var(--danger)}.toast.info{border-left:3px solid var(--accent)}
+
+    /* EMPTY */
+    .empty-state{text-align:center;padding:28px 16px;color:var(--text-2)}
+    .empty-state p{font-size:13px;line-height:1.7;margin-top:10px}
+
+    /* PAGINATION */
+    .pagination{display:flex;gap:6px;align-items:center;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
+    .page-info{font-size:12px;color:var(--text-2)}
+
+    /* FAB */
+    .fab{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;box-shadow:0 4px 16px var(--accent-glow);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;transition:all .15s;z-index:200}
+    .fab:hover{background:var(--accent-light);transform:scale(1.07)}
+
+    @media(max-width:640px){.main{padding:14px 12px 80px}.modal{max-width:100%}}
+    @media(max-width:640px){.dash-two-col{grid-template-columns:1fr!important}}
+  </style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="logo">
+    <div class="logo-emblem">
+      <svg viewBox="0 0 16 16" fill="none">
+        <rect x="5" y="1" width="6" height="4" rx="1.5" fill="white" opacity=".9"/>
+        <path d="M2.5 5.5h11l-1.5 9h-8z" fill="white" opacity=".85"/>
+        <line x1="2.5" y1="5.5" x2="13.5" y2="5.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    MisSuplementos
+  </div>
+  <div class="header-right">
+    <div class="header-date" id="headerDate"></div>
+    <button class="drive-badge" id="driveBadge" title="Google Drive backup">
+      <div class="drive-dot"></div>
+      <span id="driveBadgeLabel">Drive</span>
+    </button>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="dashboard">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><rect x="7" y="1" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><rect x="1" y="7" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><rect x="7" y="7" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.3"/></svg>
+    Dashboard
+  </button>
+  <button class="tab-btn" data-tab="historical">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="8" width="3" height="4" rx="1" fill="currentColor" opacity=".5"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor" opacity=".7"/><rect x="9" y="2" width="3" height="10" rx="1" fill="currentColor"/></svg>
+    Histórico
+  </button>
+  <button class="tab-btn" data-tab="fichas">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2" y="1" width="9" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><line x1="4" y1="4.5" x2="9" y2="4.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="4" y1="6.5" x2="9" y2="6.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="4" y1="8.5" x2="7" y2="8.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+    Fichas
+  </button>
+  <button class="tab-btn" data-tab="perfil">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 12c0-2.8 2.5-4 5.5-4s5.5 1.2 5.5 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    Perfil
+  </button>
+</nav>
+
+<main class="main">
+
+  <!-- ======== DASHBOARD ======== -->
+  <div class="tab-content active" id="tab-dashboard">
+
+    <!-- RECOVERY BANNER -->
+    <div id="recoveryBanner" style="display:none;margin-bottom:18px">
+      <div style="background:#fff;border:1.5px solid rgba(46,125,94,.3);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow)">
+        <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">
+          <div style="width:38px;height:38px;border-radius:10px;background:var(--green-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v5l3-3" stroke="#2e7d5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 3v5l-3-3" stroke="#2e7d5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12a7 7 0 1 0 7-9" stroke="#2e7d5e" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-weight:700;font-size:15px;margin-bottom:4px">¿Perdiste tus datos?</div>
+            <div style="color:var(--text-2);font-size:13px;line-height:1.6;margin-bottom:14px">No hay datos en este dispositivo. Si tienes copia en Google Drive puedes restaurarla automáticamente. También puedes importar un archivo JSON.</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+              <input type="text" class="form-control" id="recoveryClientId" placeholder="Google Client ID" style="flex:1;min-width:220px;font-size:12px">
+              <button class="btn btn-green" id="btnRecoveryDrive">Restaurar desde Drive</button>
+              <label class="btn btn-ghost btn-sm" for="recoveryImport" style="cursor:pointer">Importar JSON</label>
+              <input type="file" id="recoveryImport" accept=".json" style="display:none">
+              <button class="btn btn-ghost btn-sm" id="btnDismissRecovery">Empezar de cero</button>
+            </div>
+            <div id="recoveryStatus" style="margin-top:10px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:18px">
+      <div style="font-size:20px;font-weight:700;letter-spacing:-.3px" id="greetingText">Buenas</div>
+      <div style="color:var(--text-2);font-size:13px;margin-top:2px" id="greetingSub"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-label">Tomas este mes</div><div class="stat-value accent" id="kpiMonth">0</div><div class="stat-sub">registros</div></div>
+      <div class="stat-card"><div class="stat-label">Hoy</div><div class="stat-value normal" id="kpiToday">0</div><div class="stat-sub" id="kpiTodaySub">tomas</div></div>
+      <div class="stat-card"><div class="stat-label">Adherencia</div><div class="stat-value green" id="kpiAdherence">—</div><div class="progress-bar-wrap" style="margin-top:8px"><div class="progress-bar-fill" id="kpiAdherenceBar" style="width:0%"></div></div></div>
+      <div class="stat-card"><div class="stat-label">Suplementos</div><div class="stat-value amber" id="kpiSupps">0</div><div class="stat-sub">en catálogo</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span>Tomas de hoy</span>
+        <button class="btn btn-primary btn-sm" id="btnDashAddLog">+ Registrar toma</button>
+      </div>
+      <div id="dashTodayList"></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" class="dash-two-col">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title"><span>Actividad reciente</span></div>
+        <div id="dashActivity"></div>
+      </div>
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div class="card-title"><span>Últimos 14 días</span></div>
+        <canvas id="dashChart" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== HISTÓRICO ======== -->
+  <div class="tab-content" id="tab-historical">
+    <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat-card"><div class="stat-label">Tomas este mes</div><div class="stat-value accent" id="statTotal">0</div><div class="stat-sub">registros</div></div>
+      <div class="stat-card"><div class="stat-label">Más tomado</div><div class="stat-value amber" id="statTop" style="font-size:15px;margin-top:4px">—</div><div class="stat-sub" id="statTopCount"></div></div>
+      <div class="stat-card"><div class="stat-label">Adherencia</div><div class="stat-value green" id="statAdherence">0%</div><div class="progress-bar-wrap" style="margin-top:8px"><div class="progress-bar-fill" id="adherenceBar" style="width:0%"></div></div></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="card-title"><span>Tomas por día — últimas 2 semanas</span></div>
+      <canvas id="weekChart" height="160"></canvas>
+    </div>
+    <div class="card">
+      <div class="card-title">
+        <span>Todos los registros</span>
+        <button class="btn btn-primary btn-sm" id="btnHistAddLog">+ Nueva toma</button>
+      </div>
+      <div class="filters-bar">
+        <select class="form-control" id="filterSupp" style="max-width:200px"><option value="">Todos los suplementos</option></select>
+        <input type="date" class="form-control" id="filterFrom" style="max-width:145px">
+        <input type="date" class="form-control" id="filterTo" style="max-width:145px">
+        <select class="form-control" id="filterStatus" style="max-width:145px">
+          <option value="">Todos los estados</option>
+          <option value="taken">Tomado</option>
+          <option value="omitted">Omitido</option>
+          <option value="pending">Pendiente</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" id="btnClearFilters">Limpiar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Fecha</th><th>Hora</th><th>Suplemento</th><th>Cantidad</th><th>Estado</th><th>Notas</th><th></th></tr></thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination" id="histPagination"></div>
+    </div>
+  </div>
+
+  <!-- ======== FICHAS ======== -->
+  <div class="tab-content" id="tab-fichas">
+    <div class="section-header">
+      <div class="section-title">Catálogo de Suplementos</div>
+      <button class="btn btn-primary" id="btnAddSupp">+ Añadir suplemento</button>
+    </div>
+    <div id="fichasContent"><div class="supp-grid" id="suppGrid"></div></div>
+    <div id="fichaDetail" style="display:none">
+      <button class="btn btn-ghost btn-sm" id="btnBackFichas" style="margin-bottom:16px">← Volver</button>
+      <div id="fichaDetailContent"></div>
+    </div>
+  </div>
+
+  <!-- ======== PERFIL ======== -->
+  <div class="tab-content" id="tab-perfil">
+    <div class="profile-section">
+      <div class="profile-section-title">Mis datos personales</div>
+      <div class="form-row">
+        <div class="form-group"><label>Nombre</label><input type="text" class="form-control" id="profName" placeholder="Tu nombre"></div>
+        <div class="form-group"><label>Edad</label><input type="number" class="form-control" id="profAge" placeholder="Años" min="1" max="120"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Peso (kg)</label><input type="number" class="form-control" id="profWeight" placeholder="kg"></div>
+        <div class="form-group"><label>Altura (cm)</label><input type="number" class="form-control" id="profHeight" placeholder="cm"></div>
+      </div>
+      <div class="form-group"><label>Próxima analítica</label><input type="date" class="form-control" id="profNextAnalytic"></div>
+      <div class="form-group"><label>Objetivos</label><textarea class="form-control" id="profGoals" placeholder="Describe tus objetivos de suplementación..." rows="3"></textarea></div>
+      <button class="btn btn-primary" id="btnSaveProfile">Guardar perfil</button>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-section-title">Anthropic API Key (Claude Haiku)</div>
+      <div class="api-key-row">
+        <input type="password" class="form-control" id="apiKeyInput" placeholder="sk-ant-...">
+        <button class="btn btn-primary" id="btnSaveKey">Guardar</button>
+        <button class="btn btn-danger" id="btnDeleteKey">Borrar</button>
+      </div>
+      <div class="key-status"><div class="key-dot" id="keyDot"></div><span id="keyStatus">—</span></div>
+      <div class="privacy-note">Tu API Key se guarda únicamente en tu dispositivo (localStorage) y nunca se envía a ningún servidor propio. Se usa exclusivamente para analizar fichas con Claude Haiku.</div>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-section-title">Google Drive — Automatic backup &amp; restore</div>
+      <div class="api-key-row">
+        <input type="password" class="form-control" id="driveClientId" placeholder="Google Client ID (*.apps.googleusercontent.com)">
+        <button class="btn btn-primary" id="btnSaveClientId">Guardar</button>
+        <button class="btn btn-danger" id="btnDeleteClientId">Borrar</button>
+      </div>
+      <div class="key-status"><div class="key-dot" id="driveClientDot"></div><span id="driveClientStatus">—</span></div>
+      <div style="margin-top:14px">
+        <div class="backup-btns">
+          <button class="btn btn-green" id="btnDriveConnect">Conectar con Google</button>
+          <button class="btn btn-ghost" id="btnDriveBackupNow" style="display:none">Guardar ahora en Drive</button>
+          <button class="btn btn-danger btn-sm" id="btnDriveDisconnect" style="display:none">Desconectar</button>
+        </div>
+        <div class="drive-last-backup" id="driveLastBackup"></div>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-section-title">Copia de seguridad manual</div>
+      <div class="backup-btns">
+        <button class="btn btn-ghost" id="btnExport">Exportar (JSON)</button>
+        <label class="btn btn-ghost" for="importInput" style="cursor:pointer">Importar JSON</label>
+        <input type="file" id="importInput" accept=".json" style="display:none">
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<button class="fab" id="fabAddLog" title="Registrar toma">+</button>
+
+<!-- MODAL: LOG -->
+<div class="modal-overlay" id="logModal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title" id="logModalTitle">Registrar toma</div><button class="modal-close" data-close="logModal">×</button></div>
+    <div class="modal-body">
+      <input type="hidden" id="logEditId">
+      <div class="form-group"><label>Suplemento *</label><select class="form-control" id="logSupp"><option value="">Seleccionar...</option></select></div>
+      <div class="form-row">
+        <div class="form-group"><label>Cantidad</label><input type="number" class="form-control" id="logQty" placeholder="500" min="0" step="any"></div>
+        <div class="form-group"><label>Unidad</label>
+          <select class="form-control" id="logUnit">
+            <option value="mg">mg</option><option value="g">g</option><option value="ml">ml</option>
+            <option value="cápsulas">cápsulas</option><option value="comprimidos">comprimidos</option>
+            <option value="gotas">gotas</option><option value="uds">uds</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Fecha</label><input type="date" class="form-control" id="logDate"></div>
+        <div class="form-group"><label>Hora</label><input type="time" class="form-control" id="logTime"></div>
+      </div>
+      <div class="form-group"><label>Estado</label>
+        <select class="form-control" id="logStatus">
+          <option value="taken">Tomado ✔</option><option value="pending">Pendiente</option><option value="omitted">Omitido ✘</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Notas</label><textarea class="form-control" id="logNotes" placeholder="Notas opcionales..." rows="2"></textarea></div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-ghost" data-close="logModal">Cancelar</button><button class="btn btn-primary" id="btnSaveLog">Guardar toma</button></div>
+  </div>
+</div>
+
+<!-- MODAL: SUPLEMENTO -->
+<div class="modal-overlay" id="suppModal">
+  <div class="modal" style="max-width:600px">
+    <div class="modal-header"><div class="modal-title" id="suppModalTitle">Añadir suplemento</div><button class="modal-close" data-close="suppModal">×</button></div>
+    <div class="modal-body">
+      <input type="hidden" id="suppEditId">
+      <div class="ai-section">
+        <div class="card-title" style="margin-bottom:10px;justify-content:flex-start">Analizar con IA (Claude Haiku)</div>
+        <div class="ai-row">
+          <input type="url" class="form-control" id="suppUrl" placeholder="https://url-del-producto.com">
+          <button class="btn btn-amber" id="btnAnalyze">Analizar</button>
+        </div>
+        <div id="aiStatus" style="margin-top:8px"></div>
+      </div>
+      <hr class="divider">
+      <div class="form-row">
+        <div class="form-group"><label>Nombre *</label><input type="text" class="form-control" id="suppName" placeholder="Vitamina D3"></div>
+        <div class="form-group"><label>Marca</label><input type="text" class="form-control" id="suppBrand" placeholder="Marca"></div>
+      </div>
+      <div class="form-group"><label>Categoría</label>
+        <select class="form-control" id="suppCategory">
+          <option value="vitaminas">Vitaminas</option><option value="minerales">Minerales</option>
+          <option value="proteinas">Proteínas</option><option value="aminoacidos">Aminoácidos</option>
+          <option value="adaptogenos">Adaptógenos</option><option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Descripción</label><textarea class="form-control" id="suppDesc" placeholder="Descripción breve..." rows="2"></textarea></div>
+      <div class="form-group"><label>Ingredientes activos (separados por coma)</label><input type="text" class="form-control" id="suppIngredients" placeholder="Vitamina D3, K2..."></div>
+      <div class="form-group"><label>Dosis recomendada</label><input type="text" class="form-control" id="suppDosis" placeholder="1 cápsula/día con comida"></div>
+      <div class="form-group"><label>Advertencias</label><textarea class="form-control" id="suppWarnings" placeholder="Advertencias..." rows="2"></textarea></div>
+      <div class="form-group"><label>URL imagen</label><input type="url" class="form-control" id="suppImgUrl" placeholder="https://..."></div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-ghost" data-close="suppModal">Cancelar</button><button class="btn btn-primary" id="btnSaveSupp">Guardar</button></div>
+  </div>
+</div>
+
+<!-- MODAL: CONFIRM -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal" style="max-width:400px">
+    <div class="modal-header"><div class="modal-title">Confirmar</div><button class="modal-close" data-close="confirmModal">×</button></div>
+    <div class="modal-body"><p id="confirmMsg" style="color:var(--text-2);line-height:1.7"></p></div>
+    <div class="modal-footer"><button class="btn btn-ghost" data-close="confirmModal">Cancelar</button><button class="btn btn-danger" id="btnConfirmOk">Confirmar</button></div>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script>
+/* ================================================================
+   MisSuplementos — Vanilla JS · localStorage · GitHub Pages ready
+   ================================================================ */
+const KEYS={profile:'supplements_profile',catalog:'supplements_catalog',logs:'supplements_logs'};
+const State={
+  profile:load(KEYS.profile,{}),
+  catalog:load(KEYS.catalog,[]),
+  logs:load(KEYS.logs,[]),
+  histPage:1,histPageSize:15,
+  driveToken:null
+};
+
+// SVG icons
+const PILL_SVG=`<svg width="26" height="26" viewBox="0 0 26 26" fill="none" opacity=".35"><rect x="7" y="3" width="12" height="6" rx="2" stroke="#6b5744" stroke-width="1.7"/><path d="M4 10h18l-3 13H7z" stroke="#6b5744" stroke-width="1.7" stroke-linejoin="round"/></svg>`;
+const EDIT_SVG=`<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M9 2l2 2-6 6H3V8l6-6z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const DEL_SVG=`<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 3.5h9M5 3.5V2.5h3v1M3.5 3.5l.5 7h5l.5-7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CHECK_SVG=`<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const X_SVG=`<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2.5 2.5l6 6M8.5 2.5l-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+
+// Utils
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch{return d;}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v));}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function todayISO(){return new Date().toISOString().slice(0,10);}
+function formatDate(d){const[y,m,day]=d.split('-');return`${day}/${m}/${y}`;}
+function monthName(m){return['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'][m];}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function statusBadge(s){if(s==='taken')return'<span class="badge badge-success">Tomado</span>';if(s==='omitted')return'<span class="badge badge-danger">Omitido</span>';return'<span class="badge badge-neutral">Pendiente</span>';}
+function getCatClass(c){return'cat-'+({'vitaminas':'vitaminas','minerales':'minerales','proteinas':'proteinas','aminoacidos':'aminoacidos','adaptogenos':'adaptogenos'}[c]||'otro');}
+function getCatLabel(c){return({'vitaminas':'Vitaminas','minerales':'Minerales','proteinas':'Proteínas','aminoacidos':'Aminoácidos','adaptogenos':'Adaptógenos','otro':'Otro'})[c]||'Otro';}
+
+// Toast
+function toast(msg,type='info'){
+  const icons={success:'✓',error:'✕',info:'·'};
+  const el=document.createElement('div');
+  el.className=`toast ${type}`;
+  el.innerHTML=`<span class="toast-icon">${icons[type]||'·'}</span><span>${msg}</span>`;
+  document.getElementById('toast-container').appendChild(el);
+  setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity .35s';setTimeout(()=>el.remove(),350);},3000);
+}
+
+// Confirm
+function confirmDlg(msg){
+  return new Promise(res=>{
+    document.getElementById('confirmMsg').textContent=msg;
+    openModal('confirmModal');
+    const btn=document.getElementById('btnConfirmOk');
+    const h=()=>{closeModal('confirmModal');res(true);btn.removeEventListener('click',h);};
+    btn.addEventListener('click',h);
+  });
+}
+
+// Modals
+function openModal(id){const m=document.getElementById(id);if(m){m.classList.add('open');document.body.style.overflow='hidden';}}
+function closeModal(id){const m=document.getElementById(id);if(m){m.classList.remove('open');document.body.style.overflow='';}}
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeModal(b.dataset.close)));
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeModal(o.id);}));
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    if(btn.dataset.tab==='historical') renderHistorical();
+    if(btn.dataset.tab==='fichas')     renderFichas();
+    if(btn.dataset.tab==='perfil')     renderProfile();
+    if(btn.dataset.tab==='dashboard')  renderDashboard();
+  });
+});
+
+// Header date
+(function(){
+  const d=new Date();
+  const days=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  document.getElementById('headerDate').textContent=`${days[d.getDay()]} ${d.getDate()} ${monthName(d.getMonth())}`;
+})();
+
+/* ===== DASHBOARD ===== */
+function renderDashboard(){
+  const today=todayISO(),now=new Date();
+  const prefix=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  const name=State.profile.name||'';
+  const hour=now.getHours();
+  const gr=hour<13?'Buenos días':hour<20?'Buenas tardes':'Buenas noches';
+  document.getElementById('greetingText').textContent=name?`${gr}, ${name}`:gr;
+
+  const mLogs=State.logs.filter(l=>l.date.startsWith(prefix));
+  const todayLogs=State.logs.filter(l=>l.date===today);
+  const taken=mLogs.filter(l=>l.status==='taken').length;
+  const total=mLogs.length;
+  const pct=total>0?Math.round((taken/total)*100):0;
+
+  document.getElementById('kpiMonth').textContent=total;
+  document.getElementById('kpiToday').textContent=todayLogs.length;
+  document.getElementById('kpiTodaySub').textContent=todayLogs.length===1?'toma':'tomas';
+  document.getElementById('kpiAdherence').textContent=total>0?pct+'%':'—';
+  document.getElementById('kpiAdherenceBar').style.width=pct+'%';
+  document.getElementById('kpiSupps').textContent=State.catalog.length;
+
+  const nextA=State.profile.nextAnalytic;
+  const daysLeft=nextA?Math.round((new Date(nextA)-now)/86400000):null;
+  document.getElementById('greetingSub').textContent=daysLeft!==null
+    ?(daysLeft>=0?`Próxima analítica en ${daysLeft} días — ${formatDate(nextA)}`:`Analítica pasada hace ${Math.abs(daysLeft)} días`)
+    :'Registra tus suplementos diariamente.';
+
+  // Today doses
+  const el=document.getElementById('dashTodayList');
+  if(!todayLogs.length){
+    el.innerHTML=`<div class="empty-state" style="padding:18px 0">${PILL_SVG}<p>Sin tomas registradas hoy.</p></div>`;
+  } else {
+    const sorted=[...todayLogs].sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+    el.innerHTML=`<div class="today-grid">${sorted.map(lg=>{
+      const s=State.catalog.find(x=>x.id===lg.suppId);
+      const nm=s?s.name:(lg.suppName||'Suplemento');
+      const sc=lg.status==='taken'?'taken':lg.status==='omitted'?'omitted':'';
+      const ic=lg.status==='taken'?CHECK_SVG:lg.status==='omitted'?X_SVG:'';
+      return`<div class="dose-item">
+        <div class="dose-icon">${PILL_SVG}</div>
+        <div class="dose-info">
+          <div class="dose-name">${esc(nm)}</div>
+          <div class="dose-meta">${lg.qty?esc(lg.qty)+' '+esc(lg.unit):''}${lg.time?' · '+esc(lg.time):''}</div>
+        </div>
+        <div class="dose-actions">
+          <button class="dose-status-btn ${sc}" data-logid="${lg.id}">${ic}</button>
+          <button class="btn btn-ghost btn-icon btn-sm" data-edit-log="${lg.id}">${EDIT_SVG}</button>
+          <button class="btn btn-danger btn-icon btn-sm" data-del-log="${lg.id}">${DEL_SVG}</button>
+        </div>
+      </div>`;
+    }).join('')}</div>`;
+    el.querySelectorAll('[data-logid]').forEach(b=>b.addEventListener('click',()=>{toggleLogStatus(b.dataset.logid);renderDashboard();}));
+    el.querySelectorAll('[data-edit-log]').forEach(b=>b.addEventListener('click',()=>openLogModal(b.dataset.editLog)));
+    el.querySelectorAll('[data-del-log]').forEach(b=>b.addEventListener('click',async()=>{
+      if(await confirmDlg('¿Eliminar esta toma?')){State.logs=State.logs.filter(l=>l.id!==b.dataset.delLog);save(KEYS.logs,State.logs);renderDashboard();toast('Eliminado','success');}
+    }));
+  }
+
+  // Activity
+  const recent=[...State.logs].sort((a,b)=>b.date.localeCompare(a.date)||(b.time||'').localeCompare(a.time||'')).slice(0,8);
+  const actEl=document.getElementById('dashActivity');
+  if(!recent.length){actEl.innerHTML=`<div class="empty-state" style="padding:12px 0">${PILL_SVG}<p>Sin actividad aún.</p></div>`;}
+  else actEl.innerHTML=recent.map(lg=>{
+    const s=State.catalog.find(x=>x.id===lg.suppId);
+    const nm=s?s.name:(lg.suppName||'Suplemento');
+    const dl=lg.date===today?'Hoy':formatDate(lg.date);
+    return`<div class="activity-item">
+      <div class="activity-dot ${lg.status||'pending'}"></div>
+      <div class="activity-info"><div class="activity-name">${esc(nm)}</div><div class="activity-date">${dl}${lg.time?' · '+esc(lg.time):''}</div></div>
+      <div class="activity-right">${statusBadge(lg.status)}</div>
+    </div>`;
+  }).join('');
+
+  renderMiniChart();
+}
+
+function toggleLogStatus(id){
+  const l=State.logs.find(x=>x.id===id);if(!l)return;
+  const c={pending:'taken',taken:'omitted',omitted:'pending'};
+  l.status=c[l.status]||'pending';save(KEYS.logs,State.logs);
+}
+
+function renderMiniChart(){
+  const canvas=document.getElementById('dashChart');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.offsetWidth||400;
+  canvas.width=W*devicePixelRatio;canvas.height=140*devicePixelRatio;
+  ctx.scale(devicePixelRatio,devicePixelRatio);
+  const days=[];for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d.toISOString().slice(0,10));}
+  const counts=days.map(d=>State.logs.filter(l=>l.date===d).length);
+  const maxV=Math.max(...counts,1);
+  const P={t:12,r:8,b:22,l:20};
+  const cW=W-P.l-P.r,cH=140-P.t-P.b;
+  const bW=(cW/days.length)*.58,gap=(cW/days.length)*.42;
+  ctx.clearRect(0,0,W,140);
+  ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=1;
+  [0,.5,1].forEach(p=>{const y=P.t+cH-p*cH;ctx.beginPath();ctx.moveTo(P.l,y);ctx.lineTo(P.l+cW,y);ctx.stroke();});
+  days.forEach((date,i)=>{
+    const v=counts[i],bh=Math.max((v/maxV)*cH,0);
+    const x=P.l+i*(bW+gap)+gap/2,y=P.t+cH-bh;
+    const g=ctx.createLinearGradient(0,y,0,y+bh);
+    g.addColorStop(0,'#c0582a');g.addColorStop(1,'rgba(192,88,42,.28)');
+    ctx.fillStyle=g;ctx.beginPath();if(bh>0)ctx.roundRect(x,y,bW,bh,[2,2,0,0]);ctx.fill();
+    if(i%3===0){ctx.fillStyle='rgba(107,87,68,.55)';ctx.font=`9px -apple-system,sans-serif`;ctx.textAlign='center';ctx.fillText(date.slice(8),x+bW/2,P.t+cH+14);}
+  });
+}
+
+document.getElementById('fabAddLog').addEventListener('click',()=>openLogModal(null));
+document.getElementById('btnDashAddLog').addEventListener('click',()=>openLogModal(null));
+document.getElementById('btnHistAddLog').addEventListener('click',()=>openLogModal(null));
+
+/* ===== LOG MODAL ===== */
+function openLogModal(editId){
+  const sel=document.getElementById('logSupp');
+  sel.innerHTML='<option value="">Seleccionar suplemento...</option>'+
+    State.catalog.map(s=>`<option value="${s.id}">${esc(s.name)}${s.brand?' ('+esc(s.brand)+')':''}</option>`).join('');
+  if(editId){
+    const lg=State.logs.find(l=>l.id===editId);
+    if(lg){
+      document.getElementById('logModalTitle').textContent='Editar toma';
+      document.getElementById('logEditId').value=editId;
+      sel.value=lg.suppId||'';
+      document.getElementById('logQty').value=lg.qty||'';
+      document.getElementById('logUnit').value=lg.unit||'mg';
+      document.getElementById('logDate').value=lg.date||todayISO();
+      document.getElementById('logTime').value=lg.time||'';
+      document.getElementById('logStatus').value=lg.status||'pending';
+      document.getElementById('logNotes').value=lg.notes||'';
+    }
+  } else {
+    document.getElementById('logModalTitle').textContent='Registrar toma';
+    document.getElementById('logEditId').value='';
+    sel.value='';
+    document.getElementById('logQty').value='';
+    document.getElementById('logUnit').value='mg';
+    document.getElementById('logDate').value=todayISO();
+    document.getElementById('logTime').value=new Date().toTimeString().slice(0,5);
+    document.getElementById('logStatus').value='taken';
+    document.getElementById('logNotes').value='';
+  }
+  openModal('logModal');
+}
+
+document.getElementById('btnSaveLog').addEventListener('click',()=>{
+  const suppId=document.getElementById('logSupp').value;
+  if(!suppId){toast('Selecciona un suplemento','error');return;}
+  const editId=document.getElementById('logEditId').value;
+  const supp=State.catalog.find(s=>s.id===suppId);
+  const entry={
+    id:editId||uid(),
+    date:document.getElementById('logDate').value||todayISO(),
+    suppId,suppName:supp?supp.name:'',
+    qty:document.getElementById('logQty').value,
+    unit:document.getElementById('logUnit').value,
+    time:document.getElementById('logTime').value,
+    status:document.getElementById('logStatus').value,
+    notes:document.getElementById('logNotes').value,
+    createdAt:editId?(State.logs.find(l=>l.id===editId)||{}).createdAt:new Date().toISOString()
+  };
+  if(editId){const idx=State.logs.findIndex(l=>l.id===editId);if(idx>-1)State.logs[idx]=entry;}
+  else State.logs.push(entry);
+  save(KEYS.logs,State.logs);
+  closeModal('logModal');
+  const active=document.querySelector('.tab-btn.active')?.dataset.tab;
+  if(active==='dashboard')renderDashboard();
+  if(active==='historical')renderHistorical();
+  toast('Toma guardada','success');
+});
+
+/* ===== HISTÓRICO ===== */
+function renderHistorical(){
+  renderStats();renderWeekChart();populateFilterSelects();renderHistoryTable();
+}
+function renderStats(){
+  const now=new Date();
+  const prefix=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  const mL=State.logs.filter(l=>l.date.startsWith(prefix));
+  const taken=mL.filter(l=>l.status==='taken').length,total=mL.length;
+  const c={};mL.forEach(l=>{const n=(State.catalog.find(s=>s.id===l.suppId)||{name:l.suppName||'?'}).name;c[n]=(c[n]||0)+1;});
+  const top=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];
+  const pct=total>0?Math.round((taken/total)*100):0;
+  document.getElementById('statTotal').textContent=total;
+  document.getElementById('statTop').textContent=top?top[0]:'—';
+  document.getElementById('statTopCount').textContent=top?top[1]+' tomas':'';
+  document.getElementById('statAdherence').textContent=pct+'%';
+  document.getElementById('adherenceBar').style.width=pct+'%';
+}
+function renderWeekChart(){
+  const canvas=document.getElementById('weekChart');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.offsetWidth||600;
+  canvas.width=W*devicePixelRatio;canvas.height=160*devicePixelRatio;
+  ctx.scale(devicePixelRatio,devicePixelRatio);
+  const days=[];for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d.toISOString().slice(0,10));}
+  const counts=days.map(d=>State.logs.filter(l=>l.date===d).length);
+  const maxV=Math.max(...counts,1);
+  const P={t:14,r:14,b:28,l:28};
+  const cW=W-P.l-P.r,cH=160-P.t-P.b;
+  const bW=(cW/days.length)*.6,gap=(cW/days.length)*.4;
+  ctx.clearRect(0,0,W,160);
+  ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=1;
+  [0,.25,.5,.75,1].forEach(p=>{const y=P.t+cH-p*cH;ctx.beginPath();ctx.moveTo(P.l,y);ctx.lineTo(P.l+cW,y);ctx.stroke();});
+  days.forEach((date,i)=>{
+    const v=counts[i],bh=Math.max((v/maxV)*cH,0);
+    const x=P.l+i*(bW+gap)+gap/2,y=P.t+cH-bh;
+    const g=ctx.createLinearGradient(0,y,0,y+bh);
+    g.addColorStop(0,'#c0582a');g.addColorStop(1,'rgba(192,88,42,.3)');
+    ctx.fillStyle=g;ctx.beginPath();if(bh>0)ctx.roundRect(x,y,bW,bh,[3,3,0,0]);ctx.fill();
+    ctx.fillStyle='rgba(107,87,68,.6)';ctx.font=`10px -apple-system,sans-serif`;ctx.textAlign='center';
+    if(i%2===0||days.length<=7)ctx.fillText(date.slice(5).replace('-','/'),x+bW/2,P.t+cH+16);
+    if(v>0){ctx.fillStyle='#c0582a';ctx.font=`bold 10px -apple-system,sans-serif`;ctx.fillText(v,x+bW/2,y-4);}
+  });
+}
+function populateFilterSelects(){
+  const sel=document.getElementById('filterSupp'),cur=sel.value;
+  sel.innerHTML='<option value="">Todos los suplementos</option>'+
+    State.catalog.map(s=>`<option value="${s.id}"${cur===s.id?' selected':''}>${esc(s.name)}</option>`).join('');
+}
+function getFilteredLogs(){
+  const suppId=document.getElementById('filterSupp').value;
+  const from=document.getElementById('filterFrom').value;
+  const to=document.getElementById('filterTo').value;
+  const status=document.getElementById('filterStatus').value;
+  return State.logs.filter(l=>{
+    if(suppId&&l.suppId!==suppId)return false;
+    if(from&&l.date<from)return false;
+    if(to&&l.date>to)return false;
+    if(status&&l.status!==status)return false;
+    return true;
+  }).sort((a,b)=>b.date.localeCompare(a.date)||(b.time||'').localeCompare(a.time||''));
+}
+function renderHistoryTable(){
+  const logs=getFilteredLogs(),total=logs.length;
+  const pages=Math.max(1,Math.ceil(total/State.histPageSize));
+  State.histPage=Math.min(State.histPage,pages);
+  const slice=logs.slice((State.histPage-1)*State.histPageSize,State.histPage*State.histPageSize);
+  const tbody=document.getElementById('historyTableBody');
+  if(!slice.length){tbody.innerHTML=`<tr><td colspan="7" style="text-align:center;color:var(--text-2);padding:28px">Sin registros</td></tr>`;return;}
+  tbody.innerHTML=slice.map(lg=>{
+    const s=State.catalog.find(x=>x.id===lg.suppId);
+    const nm=s?s.name:(lg.suppName||'—');
+    return`<tr>
+      <td>${formatDate(lg.date)}</td><td>${lg.time||'—'}</td>
+      <td><strong>${esc(nm)}</strong></td>
+      <td>${lg.qty?esc(lg.qty)+' '+esc(lg.unit):'—'}</td>
+      <td>${statusBadge(lg.status)}</td>
+      <td style="max-width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(lg.notes)||'—'}</td>
+      <td><div style="display:flex;gap:4px">
+        <button class="btn btn-ghost btn-icon btn-sm" data-hist-edit="${lg.id}">${EDIT_SVG}</button>
+        <button class="btn btn-danger btn-icon btn-sm" data-hist-del="${lg.id}">${DEL_SVG}</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+  tbody.querySelectorAll('[data-hist-edit]').forEach(b=>b.addEventListener('click',()=>openLogModal(b.dataset.histEdit)));
+  tbody.querySelectorAll('[data-hist-del]').forEach(b=>b.addEventListener('click',async()=>{
+    if(await confirmDlg('¿Eliminar este registro?')){State.logs=State.logs.filter(l=>l.id!==b.dataset.histDel);save(KEYS.logs,State.logs);renderHistorical();toast('Eliminado','success');}
+  }));
+  const pagEl=document.getElementById('histPagination');
+  pagEl.innerHTML=`<span class="page-info">${total} registros · Pág ${State.histPage}/${pages}</span>`;
+  if(State.histPage>1)pagEl.innerHTML+=`<button class="btn btn-ghost btn-sm" id="pagPrev">‹ Anterior</button>`;
+  if(State.histPage<pages)pagEl.innerHTML+=`<button class="btn btn-ghost btn-sm" id="pagNext">Siguiente ›</button>`;
+  pagEl.querySelector('#pagPrev')?.addEventListener('click',()=>{State.histPage--;renderHistoryTable();});
+  pagEl.querySelector('#pagNext')?.addEventListener('click',()=>{State.histPage++;renderHistoryTable();});
+}
+['filterSupp','filterFrom','filterTo','filterStatus'].forEach(id=>{
+  document.getElementById(id)?.addEventListener('change',()=>{State.histPage=1;renderHistoryTable();});
+});
+document.getElementById('btnClearFilters').addEventListener('click',()=>{
+  ['filterSupp','filterFrom','filterTo','filterStatus'].forEach(id=>document.getElementById(id).value='');
+  State.histPage=1;renderHistoryTable();
+});
+window.addEventListener('resize',()=>{
+  if(document.getElementById('tab-historical').classList.contains('active'))renderWeekChart();
+  if(document.getElementById('tab-dashboard').classList.contains('active'))renderMiniChart();
+});
+
+/* ===== FICHAS ===== */
+function renderFichas(){
+  document.getElementById('fichaDetail').style.display='none';
+  document.getElementById('fichasContent').style.display='block';
+  const grid=document.getElementById('suppGrid');
+  if(!State.catalog.length){
+    grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1">${PILL_SVG}<p>Sin suplementos en el catálogo.<br>Pulsa <strong>+ Añadir suplemento</strong> para comenzar.</p></div>`;
+    return;
+  }
+  grid.innerHTML=State.catalog.map(s=>{
+    const cc=getCatClass(s.category),cl=getCatLabel(s.category);
+    return`<div class="supp-card" data-supp-id="${s.id}">
+      <div class="supp-card-img">${s.imgUrl?`<img src="${esc(s.imgUrl)}" alt="${esc(s.name)}" onerror="this.parentElement.innerHTML='${PILL_SVG.replace(/'/g,'&apos;')}'">`:PILL_SVG}</div>
+      <div class="supp-card-body">
+        <div class="supp-card-name">${esc(s.name)}</div>
+        <div class="supp-card-brand">${esc(s.brand||'Sin marca')}</div>
+        <div class="supp-card-footer">
+          <span class="badge ${cc}">${cl}</span>
+          <div style="display:flex;gap:4px">
+            <button class="btn btn-ghost btn-icon btn-sm" data-edit-supp="${s.id}">${EDIT_SVG}</button>
+            <button class="btn btn-danger btn-icon btn-sm" data-del-supp="${s.id}">${DEL_SVG}</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  grid.querySelectorAll('.supp-card').forEach(c=>{
+    c.addEventListener('click',e=>{if(e.target.closest('[data-edit-supp]')||e.target.closest('[data-del-supp]'))return;showFichaDetail(c.dataset.suppId);});
+  });
+  grid.querySelectorAll('[data-edit-supp]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openSuppModal(b.dataset.editSupp);}));
+  grid.querySelectorAll('[data-del-supp]').forEach(b=>b.addEventListener('click',async e=>{
+    e.stopPropagation();
+    const s=State.catalog.find(x=>x.id===b.dataset.delSupp);
+    if(await confirmDlg(`¿Eliminar "${s?.name||'suplemento'}"?`)){
+      State.catalog=State.catalog.filter(x=>x.id!==b.dataset.delSupp);
+      save(KEYS.catalog,State.catalog);renderFichas();toast('Eliminado','success');
+    }
+  }));
+}
+
+function showFichaDetail(id){
+  const s=State.catalog.find(x=>x.id===id);if(!s)return;
+  document.getElementById('fichasContent').style.display='none';
+  document.getElementById('fichaDetail').style.display='block';
+  const cc=getCatClass(s.category),cl=getCatLabel(s.category);
+  const ings=Array.isArray(s.ingredients)?s.ingredients:(s.ingredients||'').split(',').map(x=>x.trim()).filter(Boolean);
+  document.getElementById('fichaDetailContent').innerHTML=`
+    <div class="card">
+      <div class="detail-header">
+        <div class="detail-img">${s.imgUrl?`<img src="${esc(s.imgUrl)}" alt="${esc(s.name)}" onerror="this.parentElement.innerHTML='${PILL_SVG.replace(/'/g,'&apos;')}'">`:PILL_SVG}</div>
+        <div class="detail-meta">
+          <div class="detail-name">${esc(s.name)}</div>
+          <div class="detail-brand">${esc(s.brand||'Sin marca')}</div>
+          <span class="badge ${cc}">${cl}</span>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-ghost btn-sm" id="detailEditBtn">Editar ficha</button>
+            ${s.productUrl?`<a href="${esc(s.productUrl)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Ver producto</a>`:''}
+          </div>
+        </div>
+      </div>
+      ${s.description?`<div class="detail-section"><div class="detail-section-title">Descripción</div><p style="color:var(--text-2);font-size:13px;line-height:1.7">${esc(s.description)}</p></div>`:''}
+      ${ings.length?`<div class="detail-section"><div class="detail-section-title">Ingredientes activos</div><div>${ings.map(i=>`<span class="ingredient-pill">${esc(i)}</span>`).join('')}</div></div>`:''}
+      ${s.dosis?`<div class="detail-section"><div class="detail-section-title">Dosis recomendada</div><p style="color:var(--text-2);font-size:13px">${esc(s.dosis)}</p></div>`:''}
+      ${s.warnings?`<div class="detail-section"><div class="detail-section-title">Advertencias</div><p style="color:var(--amber);font-size:13px;background:var(--amber-dim);border:1px solid rgba(184,115,25,.2);padding:10px;border-radius:var(--radius-sm)">${esc(s.warnings)}</p></div>`:''}
+    </div>`;
+  document.getElementById('detailEditBtn')?.addEventListener('click',()=>openSuppModal(id));
+}
+
+document.getElementById('btnBackFichas').addEventListener('click',renderFichas);
+document.getElementById('btnAddSupp').addEventListener('click',()=>openSuppModal(null));
+
+function openSuppModal(editId){
+  document.getElementById('suppModalTitle').textContent=editId?'Editar suplemento':'Añadir suplemento';
+  document.getElementById('suppEditId').value=editId||'';
+  document.getElementById('aiStatus').innerHTML='';
+  if(editId){
+    const s=State.catalog.find(x=>x.id===editId);
+    if(s){
+      document.getElementById('suppName').value=s.name||'';
+      document.getElementById('suppBrand').value=s.brand||'';
+      document.getElementById('suppCategory').value=s.category||'otro';
+      document.getElementById('suppDesc').value=s.description||'';
+      document.getElementById('suppIngredients').value=Array.isArray(s.ingredients)?s.ingredients.join(', '):(s.ingredients||'');
+      document.getElementById('suppDosis').value=s.dosis||'';
+      document.getElementById('suppWarnings').value=s.warnings||'';
+      document.getElementById('suppImgUrl').value=s.imgUrl||'';
+      document.getElementById('suppUrl').value=s.productUrl||'';
+    }
+  } else {
+    ['suppName','suppBrand','suppDesc','suppIngredients','suppDosis','suppWarnings','suppImgUrl','suppUrl'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('suppCategory').value='vitaminas';
+  }
+  openModal('suppModal');
+}
+
+document.getElementById('btnSaveSupp').addEventListener('click',()=>{
+  const name=document.getElementById('suppName').value.trim();
+  if(!name){toast('El nombre es obligatorio','error');return;}
+  const editId=document.getElementById('suppEditId').value;
+  const ings=document.getElementById('suppIngredients').value.split(',').map(x=>x.trim()).filter(Boolean);
+  const entry={
+    id:editId||uid(),name,
+    brand:document.getElementById('suppBrand').value.trim(),
+    category:document.getElementById('suppCategory').value,
+    description:document.getElementById('suppDesc').value.trim(),
+    ingredients:ings,
+    dosis:document.getElementById('suppDosis').value.trim(),
+    warnings:document.getElementById('suppWarnings').value.trim(),
+    imgUrl:document.getElementById('suppImgUrl').value.trim(),
+    productUrl:document.getElementById('suppUrl').value.trim(),
+    createdAt:editId?(State.catalog.find(s=>s.id===editId)||{}).createdAt:new Date().toISOString()
+  };
+  if(editId){const i=State.catalog.findIndex(s=>s.id===editId);if(i>-1)State.catalog[i]=entry;}
+  else State.catalog.push(entry);
+  save(KEYS.catalog,State.catalog);
+  closeModal('suppModal');renderFichas();
+  renderDashboard();
+  toast('Suplemento guardado','success');
+});
+
+/* ===== IA — CLAUDE HAIKU ===== */
+const CORS_PROXIES=[
+  u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+  u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,
+  u=>`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
+];
+
+async function fetchPageText(url,statusEl){
+  // 1. Direct
+  try{
+    statusEl.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Accediendo a la página...</span></div>`;
+    const r=await fetch(url,{signal:AbortSignal.timeout(7000)});
+    if(r.ok){const t=await r.text();if(t.length>200)return t;}
+  }catch{}
+  // 2. CORS proxies
+  for(let i=0;i<CORS_PROXIES.length;i++){
+    try{
+      statusEl.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Proxy ${i+1}/3...</span></div>`;
+      const r=await fetch(CORS_PROXIES[i](url),{signal:AbortSignal.timeout(11000)});
+      if(r.ok){const t=await r.text();if(t.length>200)return t;}
+    }catch{}
+  }
+  return null;
+}
+
+document.getElementById('btnAnalyze').addEventListener('click',async()=>{
+  const url=document.getElementById('suppUrl').value.trim();
+  const apiKey=State.profile.apiKey;
+  const statusEl=document.getElementById('aiStatus');
+  const btn=document.getElementById('btnAnalyze');
+  if(!url){toast('Introduce una URL','error');return;}
+  if(!apiKey){
+    statusEl.innerHTML=`<p style="color:var(--danger);font-size:12px">Guarda tu Anthropic API Key en Perfil primero.</p>`;
+    return;
+  }
+  btn.disabled=true;
+
+  const html=await fetchPageText(url,statusEl);
+  let userContent,urlOnly=false;
+
+  if(html){
+    const text=html
+      .replace(/<script[\s\S]*?<\/script>/gi,'')
+      .replace(/<style[\s\S]*?<\/style>/gi,'')
+      .replace(/<[^>]+>/g,' ')
+      .replace(/\s+/g,' ').trim().slice(0,14000);
+    userContent=`URL: ${url}\n\nContenido:\n${text}`;
+  } else {
+    // Página bloqueada: Claude infiere del slug de la URL
+    urlOnly=true;
+    userContent=`No se pudo obtener el HTML. URL del producto: ${url}\n\nInfiere nombre, marca e ingredientes a partir de la URL y tu conocimiento sobre suplementos. Rellena todo lo que puedas.`;
+    statusEl.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Página bloqueada — infiriendo datos de la URL...</span></div>`;
+  }
+
+  statusEl.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Analizando con Claude Haiku${urlOnly?' (modo URL)':''}...</span></div>`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01'},
+      body:JSON.stringify({
+        model:'claude-haiku-4-5-20251001',
+        max_tokens:1024,
+        system:`Eres un extractor de datos de suplementos nutricionales. Devuelve ÚNICAMENTE un JSON válido con estos campos (sin markdown, sin texto adicional):
+{"nombre":string|null,"marca":string|null,"descripcion":string|null,"ingredientes_activos":string[],"dosis_recomendada":string|null,"advertencias":string|null,"url_imagen":string|null}
+Para url_imagen busca URLs que terminen en .jpg .jpeg .png .webp. Si un campo es desconocido pon null.`,
+        messages:[{role:'user',content:userContent}]
+      })
+    });
+    if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'Error '+res.status);}
+    const data=await res.json();
+    const text=(data.content||[]).find(b=>b.type==='text')?.text||'';
+    fillSuppForm(text,statusEl,btn,urlOnly);
+  }catch(e){
+    statusEl.innerHTML=`<p style="color:var(--danger);font-size:12px">Error: ${esc(e.message)}</p>`;
+    btn.disabled=false;
+  }
+});
+
+function fillSuppForm(jsonText,statusEl,btn,urlOnly=false){
+  try{
+    const clean=jsonText.replace(/```json|```/g,'').trim();
+    const d=JSON.parse(clean);
+    if(d.nombre)document.getElementById('suppName').value=d.nombre;
+    if(d.marca)document.getElementById('suppBrand').value=d.marca;
+    if(d.descripcion)document.getElementById('suppDesc').value=d.descripcion;
+    if(d.ingredientes_activos?.length)document.getElementById('suppIngredients').value=d.ingredientes_activos.join(', ');
+    if(d.dosis_recomendada)document.getElementById('suppDosis').value=d.dosis_recomendada;
+    if(d.advertencias)document.getElementById('suppWarnings').value=d.advertencias;
+    if(d.url_imagen)document.getElementById('suppImgUrl').value=d.url_imagen;
+    const note=urlOnly?' (datos inferidos de la URL, verifica)':'';
+    statusEl.innerHTML=`<p style="color:var(--green);font-size:12px">✓ Datos extraídos${note}. Revísalos antes de guardar.</p>`;
+    toast('Datos extraídos con IA','success');
+  }catch{
+    statusEl.innerHTML=`<p style="color:var(--amber);font-size:12px">No se pudo parsear la respuesta. Rellena el formulario manualmente.</p>`;
+  }
+  btn.disabled=false;
+}
+
+/* ===== PERFIL ===== */
+function renderProfile(){
+  const p=State.profile;
+  document.getElementById('profName').value=p.name||'';
+  document.getElementById('profAge').value=p.age||'';
+  document.getElementById('profWeight').value=p.weight||'';
+  document.getElementById('profHeight').value=p.height||'';
+  document.getElementById('profGoals').value=p.goals||'';
+  document.getElementById('profNextAnalytic').value=p.nextAnalytic||'';
+  // Don't pre-fill password fields — show status instead
+  document.getElementById('driveClientId').value='';
+  updateKeyStatus();updateClientIdStatus();updateDriveUI();
+}
+function updateKeyStatus(){
+  const key=State.profile.apiKey;
+  const dot=document.getElementById('keyDot'),lbl=document.getElementById('keyStatus');
+  if(key){dot.className='key-dot set';lbl.textContent='Guardada ('+key.slice(0,14)+'***)';lbl.style.color='var(--green)';}
+  else{dot.className='key-dot empty';lbl.textContent='Sin API Key guardada';lbl.style.color='var(--text-2)';}
+}
+function updateClientIdStatus(){
+  const cid=State.profile.driveClientId;
+  const dot=document.getElementById('driveClientDot'),lbl=document.getElementById('driveClientStatus');
+  if(cid){dot.className='key-dot set';lbl.textContent='Client ID guardado ('+cid.slice(0,12)+'***)';lbl.style.color='var(--green)';}
+  else{dot.className='key-dot empty';lbl.textContent='Sin Client ID guardado';lbl.style.color='var(--text-2)';}
+}
+document.getElementById('btnSaveClientId').addEventListener('click',()=>{
+  const cid=document.getElementById('driveClientId').value.trim();
+  if(!cid){toast('Introduce un Google Client ID','error');return;}
+  State.profile.driveClientId=cid;save(KEYS.profile,State.profile);
+  document.getElementById('driveClientId').value='';
+  updateClientIdStatus();toast('Client ID guardado','success');
+});
+document.getElementById('btnDeleteClientId').addEventListener('click',async()=>{
+  if(await confirmDlg('¿Borrar el Google Client ID?')){
+    delete State.profile.driveClientId;save(KEYS.profile,State.profile);
+    updateClientIdStatus();toast('Client ID eliminado','success');
+  }
+});
+document.getElementById('btnSaveProfile').addEventListener('click',()=>{
+  State.profile.name=document.getElementById('profName').value.trim();
+  State.profile.age=document.getElementById('profAge').value;
+  State.profile.weight=document.getElementById('profWeight').value;
+  State.profile.height=document.getElementById('profHeight').value;
+  State.profile.goals=document.getElementById('profGoals').value.trim();
+  State.profile.nextAnalytic=document.getElementById('profNextAnalytic').value;
+  save(KEYS.profile,State.profile);toast('Perfil guardado','success');renderDashboard();
+});
+document.getElementById('btnSaveKey').addEventListener('click',()=>{
+  const key=document.getElementById('apiKeyInput').value.trim();
+  if(!key){toast('Introduce una API Key','error');return;}
+  State.profile.apiKey=key;save(KEYS.profile,State.profile);
+  document.getElementById('apiKeyInput').value='';updateKeyStatus();toast('API Key guardada','success');
+});
+document.getElementById('btnDeleteKey').addEventListener('click',async()=>{
+  if(await confirmDlg('¿Borrar la API Key?')){delete State.profile.apiKey;save(KEYS.profile,State.profile);updateKeyStatus();toast('API Key eliminada','success');}
+});
+
+/* ===== EXPORT / IMPORT ===== */
+document.getElementById('btnExport').addEventListener('click',()=>{
+  const blob=new Blob([JSON.stringify({exportedAt:new Date().toISOString(),profile:State.profile,catalog:State.catalog,logs:State.logs},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`missupelementos_backup_${todayISO()}.json`;a.click();URL.revokeObjectURL(a.href);
+  toast('Backup exportado','success');
+});
+document.getElementById('importInput').addEventListener('change',async e=>{
+  const file=e.target.files[0];if(!file)return;
+  if(!await confirmDlg('Esto sobreescribirá tus datos. ¿Continuar?')){e.target.value='';return;}
+  try{
+    const d=JSON.parse(await file.text());
+    if(d.profile){State.profile=d.profile;save(KEYS.profile,State.profile);}
+    if(d.catalog){State.catalog=d.catalog;save(KEYS.catalog,State.catalog);}
+    if(d.logs){State.logs=d.logs;save(KEYS.logs,State.logs);}
+    renderProfile();toast('Datos importados','success');
+  }catch{toast('Error al leer el archivo','error');}
+  e.target.value='';
+});
+
+/* ===== GOOGLE DRIVE BACKUP — Google Identity Services (GIS) ===== */
+// Uses the modern accounts.google.com/gsi/client library (gapi.auth2 deprecated)
+const DRIVE_FILE='missupelementos_backup.json';
+const DRIVE_LAST='supp_drive_last_backup';
+const DRIVE_TOK='supp_drive_token';
+const DRIVE_SCOPE='https://www.googleapis.com/auth/drive.file';
+
+let _tokenClient=null; // GIS token client instance
+
+function updateDriveUI(){
+  const ok=!!State.driveToken;
+  document.getElementById('driveBadge').classList.toggle('connected',ok);
+  document.getElementById('driveBadgeLabel').textContent=ok?'Drive ✓':'Drive';
+  document.getElementById('btnDriveBackupNow').style.display=ok?'inline-flex':'none';
+  document.getElementById('btnDriveDisconnect').style.display=ok?'inline-flex':'none';
+  document.getElementById('btnDriveConnect').style.display=ok?'none':'inline-flex';
+  const last=localStorage.getItem(DRIVE_LAST);
+  document.getElementById('driveLastBackup').textContent=last
+    ?`Último backup: ${new Date(last).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}`
+    :'';
+}
+
+document.getElementById('driveBadge').addEventListener('click',()=>{
+  document.querySelector('[data-tab="perfil"]').click();
+  setTimeout(()=>document.getElementById('driveClientId').scrollIntoView({behavior:'smooth'}),200);
+});
+
+// Load the new GIS script
+function loadGIS(){
+  return new Promise((res,rej)=>{
+    if(window.google?.accounts?.oauth2){res();return;}
+    const s=document.createElement('script');
+    s.src='https://accounts.google.com/gsi/client';
+    s.onload=res; s.onerror=rej;
+    document.head.appendChild(s);
+  });
+}
+
+// Request a fresh access token via popup
+function requestToken(clientId){
+  return new Promise((res,rej)=>{
+    _tokenClient=google.accounts.oauth2.initTokenClient({
+      client_id: clientId,
+      scope: DRIVE_SCOPE,
+      callback:(resp)=>{
+        if(resp.error){rej(new Error(resp.error));return;}
+        res(resp.access_token);
+      },
+      error_callback:(e)=>rej(new Error(e.message||e.type||'auth_error'))
+    });
+    _tokenClient.requestAccessToken({prompt:'consent'});
+  });
+}
+
+document.getElementById('btnDriveConnect').addEventListener('click',async()=>{
+  const clientId=document.getElementById('driveClientId').value.trim();
+  if(!clientId){toast('Introduce tu Google Client ID primero','error');return;}
+  State.profile.driveClientId=clientId;
+  save(KEYS.profile,State.profile);
+  const btn=document.getElementById('btnDriveConnect');
+  btn.disabled=true; btn.textContent='Conectando...';
+  try{
+    await loadGIS();
+    const token=await requestToken(clientId);
+    State.driveToken=token;
+    localStorage.setItem(DRIVE_TOK,token);
+    updateDriveUI();
+    toast('Google Drive conectado','success');
+    driveDailyBackup();
+  }catch(e){
+    toast('Error Google: '+(e.message||e),'error');
+    console.error('GIS error:',e);
+  }finally{
+    btn.disabled=false; btn.textContent='Conectar con Google';
+  }
+});
+
+document.getElementById('btnDriveBackupNow').addEventListener('click',async()=>{
+  // Token may have expired — request a fresh one silently if client ID is known
+  const clientId=State.profile.driveClientId;
+  if(clientId && window.google?.accounts?.oauth2){
+    try{
+      const token=await new Promise((res,rej)=>{
+        const tc=google.accounts.oauth2.initTokenClient({
+          client_id:clientId,scope:DRIVE_SCOPE,
+          callback:(r)=>r.error?rej(new Error(r.error)):res(r.access_token),
+          error_callback:(e)=>rej(new Error(e.type))
+        });
+        tc.requestAccessToken({prompt:''}); // empty prompt = silent if already authorized
+      });
+      State.driveToken=token;
+      localStorage.setItem(DRIVE_TOK,token);
+    }catch{ /* use existing token */ }
+  }
+  driveDailyBackup(true);
+});
+
+document.getElementById('btnDriveDisconnect').addEventListener('click',async()=>{
+  if(await confirmDlg('¿Desconectar Google Drive?')){
+    // Revoke token
+    if(State.driveToken){
+      try{google.accounts.oauth2.revoke(State.driveToken,()=>{});}catch{}
+    }
+    State.driveToken=null;
+    localStorage.removeItem(DRIVE_TOK);
+    _tokenClient=null;
+    updateDriveUI();
+    toast('Drive desconectado','success');
+  }
+});
+
+async function driveDailyBackup(force=false){
+  if(!State.driveToken)return;
+  const last=localStorage.getItem(DRIVE_LAST);
+  const today=new Date().toISOString().slice(0,10);
+  if(!force&&last&&last.startsWith(today))return;
+
+  const content=JSON.stringify({
+    exportedAt:new Date().toISOString(),
+    profile:State.profile,catalog:State.catalog,logs:State.logs
+  },null,2);
+
+  try{
+    // Find existing file
+    const listRes=await fetch(
+      `https://www.googleapis.com/drive/v3/files?q=name%3D'${DRIVE_FILE}'+and+trashed%3Dfalse&fields=files(id)`,
+      {headers:{Authorization:`Bearer ${State.driveToken}`}}
+    );
+    if(listRes.status===401){
+      // Token expired — clear and ask user to reconnect
+      State.driveToken=null; localStorage.removeItem(DRIVE_TOK);
+      updateDriveUI();
+      if(force)toast('Sesión Drive expirada. Reconecta en Perfil.','error');
+      return;
+    }
+    const listData=await listRes.json();
+    const fileId=listData.files?.[0]?.id;
+
+    const meta=JSON.stringify({name:DRIVE_FILE,mimeType:'application/json'});
+    const bound='----MisSuplBoundary';
+    const body=[
+      `--${bound}`,
+      'Content-Type: application/json; charset=UTF-8',
+      '',
+      meta,
+      `--${bound}`,
+      'Content-Type: application/json',
+      '',
+      content,
+      `--${bound}--`
+    ].join('\r\n');
+
+    const url=fileId
+      ?`https://www.googleapis.com/upload/drive/v3/files/${fileId}?uploadType=multipart`
+      :'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
+
+    const r=await fetch(url,{
+      method:fileId?'PATCH':'POST',
+      headers:{
+        Authorization:`Bearer ${State.driveToken}`,
+        'Content-Type':`multipart/related; boundary=${bound}`
+      },
+      body
+    });
+    if(!r.ok) throw new Error('Drive API '+r.status);
+
+    const now=new Date().toISOString();
+    localStorage.setItem(DRIVE_LAST,now);
+    const formatted=new Date(now).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    document.getElementById('driveLastBackup').textContent=`Último backup: ${formatted}`;
+    if(force) toast('Backup guardado en Drive ✓','success');
+  }catch(e){
+    if(force) toast('Error Drive: '+e.message,'error');
+    console.warn('Drive backup failed:',e);
+  }
+}
+
+// On load: restore token state
+(()=>{const t=localStorage.getItem(DRIVE_TOK);if(t)State.driveToken=t;})();
+
+/* ===== RECOVERY FROM DRIVE ===== */
+function isDataEmpty(){
+  return State.catalog.length===0&&State.logs.length===0;
+}
+function showRecoveryBanner(){
+  const b=document.getElementById('recoveryBanner');if(!b)return;
+  document.getElementById('recoveryClientId').value=State.profile.driveClientId||'';
+  b.style.display='block';
+}
+function hideRecoveryBanner(){
+  const b=document.getElementById('recoveryBanner');if(b)b.style.display='none';
+}
+async function restoreFromDrive(token){
+  const lr=await fetch(`https://www.googleapis.com/drive/v3/files?q=name%3D'${DRIVE_FILE}'+and+trashed%3Dfalse&fields=files(id,name,modifiedTime)`,
+    {headers:{Authorization:`Bearer ${token}`}});
+  if(!lr.ok)throw new Error('Drive API '+lr.status);
+  const ld=await lr.json();
+  const file=ld.files?.[0];
+  if(!file)throw new Error('No se encontró el backup en Drive');
+  const fr=await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`,
+    {headers:{Authorization:`Bearer ${token}`}});
+  if(!fr.ok)throw new Error('Error descargando backup');
+  const d=await fr.json();
+  if(d.profile){State.profile={...State.profile,...d.profile};save(KEYS.profile,State.profile);}
+  if(d.catalog){State.catalog=d.catalog;save(KEYS.catalog,State.catalog);}
+  if(d.logs){State.logs=d.logs;save(KEYS.logs,State.logs);}
+  return file.modifiedTime;
+}
+
+document.getElementById('btnRecoveryDrive')?.addEventListener('click',async()=>{
+  const clientId=document.getElementById('recoveryClientId').value.trim()||State.profile.driveClientId;
+  const statusEl=document.getElementById('recoveryStatus');
+  const btn=document.getElementById('btnRecoveryDrive');
+  if(!clientId){statusEl.innerHTML=`<p style="color:var(--danger);font-size:12px">Introduce tu Google Client ID.</p>`;return;}
+  State.profile.driveClientId=clientId;save(KEYS.profile,State.profile);
+  btn.disabled=true;
+  statusEl.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Conectando con Google...</span></div>`;
+  try{
+    await loadGIS();
+    const token=await new Promise((res,rej)=>{
+      const tc=google.accounts.oauth2.initTokenClient({
+        client_id:clientId,scope:DRIVE_SCOPE,
+        callback:(r)=>r.error?rej(new Error(r.error)):res(r.access_token),
+        error_callback:(e)=>rej(new Error(e.type||'auth_error'))
+      });
+      tc.requestAccessToken({prompt:'consent'});
+    });
+    statusEl.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Buscando backup en Drive...</span></div>`;
+    const modifiedTime=await restoreFromDrive(token);
+    State.driveToken=token;localStorage.setItem(DRIVE_TOK,token);
+    hideRecoveryBanner();updateDriveUI();renderDashboard();
+    const ds=new Date(modifiedTime).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    toast(`Datos restaurados desde Drive (backup del ${ds})`,'success');
+  }catch(e){
+    statusEl.innerHTML=`<p style="color:var(--danger);font-size:12px">Error: ${esc(e.message)}</p>`;
+    btn.disabled=false;
+  }
+});
+
+document.getElementById('recoveryImport')?.addEventListener('change',async e=>{
+  const file=e.target.files[0];if(!file)return;
+  try{
+    const d=JSON.parse(await file.text());
+    if(d.profile){State.profile=d.profile;save(KEYS.profile,State.profile);}
+    if(d.catalog){State.catalog=d.catalog;save(KEYS.catalog,State.catalog);}
+    if(d.logs){State.logs=d.logs;save(KEYS.logs,State.logs);}
+    hideRecoveryBanner();renderDashboard();
+    toast('Datos restaurados desde JSON','success');
+  }catch{toast('Error al leer el archivo','error');}
+  e.target.value='';
+});
+
+document.getElementById('btnDismissRecovery')?.addEventListener('click',()=>{
+  hideRecoveryBanner();
+  sessionStorage.setItem('recoveryDismissed','1');
+});
+
+/* ===== INIT ===== */
+function init(){
+  updateDriveUI();
+  if(isDataEmpty()&&!sessionStorage.getItem('recoveryDismissed')) showRecoveryBanner();
+  renderDashboard();
+  if(State.driveToken) driveDailyBackup();
+}
+init();
+</script>
+</body>
+</html>
