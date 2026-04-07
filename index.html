@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiSuplementos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — Warm Sand Light Theme
+    ============================================================ */
+    :root {
+      --bg:            #ebe4d8;
+      --bg-card:       #ffffff;
+      --bg-card2:      #faf7f3;
+      --bg-input:      #f4efe8;
+      --accent:        #c45e2a;
+      --accent-light:  #d9763e;
+      --accent-pale:   #e8936a;
+      --accent-dim:    rgba(196,94,42,.10);
+      --accent-glow:   rgba(196,94,42,.22);
+      --olive:         #5a8a60;
+      --olive-dim:     rgba(90,138,96,.12);
+      --olive-light:   #7aac80;
+      --sand:          #c8a060;
+      --danger:        #c03528;
+      --danger-dim:    rgba(192,53,40,.09);
+      --text-1:        #1a0e06;
+      --text-2:        #7a5a38;
+      --text-3:        #b8a088;
+      --border:        rgba(0,0,0,.07);
+      --border-mid:    rgba(0,0,0,.10);
+      --border-strong: rgba(0,0,0,.14);
+      --shadow-sm:     0 1px 6px rgba(0,0,0,.06);
+      --shadow:        0 3px 16px rgba(0,0,0,.08);
+      --shadow-lg:     0 8px 40px rgba(0,0,0,.12);
+      --radius-sm:     6px;
+      --radius:        10px;
+      --radius-lg:     14px;
+      --radius-xl:     20px;
+      --font-display:  'Cinzel', Georgia, serif;
+      --font-body:     'Raleway', 'Trebuchet MS', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-1);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+
+    /* ============================================================
+       LOGIN SCREEN
+    ============================================================ */
+    #loginScreen {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      background: var(--bg);
+    }
+
+    .login-card {
+      width: 100%; max-width: 400px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-xl);
+      padding: 44px 36px 36px;
+      box-shadow: var(--shadow-lg);
+      animation: fadeUp .4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-logo { text-align: center; margin-bottom: 32px; }
+    .login-logo-icon {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin: 0 auto 14px;
+      box-shadow: 0 4px 18px var(--accent-glow);
+    }
+    .login-logo h1 {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      color: var(--accent); letter-spacing: .04em;
+    }
+    .login-logo p { font-size: 11px; color: var(--text-3); margin-top: 3px; letter-spacing: .06em; text-transform: uppercase; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--text-2); margin-bottom: 6px; }
+
+    .form-input {
+      width: 100%; padding: 11px 14px;
+      background: var(--bg-input); border: 1px solid var(--border-mid);
+      border-radius: var(--radius); color: var(--text-1);
+      font-family: var(--font-body); font-size: 14px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-input::placeholder { color: var(--text-3); }
+    .form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+
+    .btn-primary {
+      width: 100%; padding: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border: none; border-radius: var(--radius);
+      color: #fff; font-family: var(--font-display);
+      font-size: 13px; font-weight: 600; letter-spacing: .06em;
+      cursor: pointer; transition: all .2s;
+      box-shadow: 0 3px 14px var(--accent-dim); margin-top: 6px;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 22px var(--accent-glow); }
+    .btn-primary:active { transform: none; }
+    .btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+    .btn-ghost {
+      width: 100%; padding: 11px;
+      background: transparent; border: 1px solid var(--border-strong);
+      border-radius: var(--radius); color: var(--text-2);
+      font-family: var(--font-body); font-size: 13px;
+      cursor: pointer; transition: all .2s; margin-top: 8px;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .auth-msg {
+      margin-top: 12px; padding: 10px 14px;
+      border-radius: var(--radius); font-size: 12px; text-align: center; display: none;
+    }
+    .auth-msg.error { background: var(--danger-dim); color: var(--danger); border: 1px solid rgba(192,53,40,.2); display: block; }
+    .auth-msg.success { background: var(--olive-dim); color: var(--olive); border: 1px solid rgba(90,138,96,.25); display: block; }
+
+    .login-divider {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text-3); font-size: 11px; margin: 18px 0;
+    }
+    .login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-mid); }
+
+    /* ============================================================
+       APP SHELL
+    ============================================================ */
+    #appShell { display: none; flex-direction: column; min-height: 100vh; }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      height: 58px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-mid);
+      display: flex; align-items: center; padding: 0 24px; gap: 16px;
+    }
+    .topbar-brand { display: flex; align-items: center; gap: 9px; flex: 1; }
+    .topbar-icon {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .topbar-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .topbar-date { font-size: 12px; color: var(--text-3); display: none; }
+    @media (min-width: 480px) { .topbar-date { display: block; } }
+    .topbar-avatar {
+      width: 32px; height: 32px;
+      background: var(--accent-dim);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      color: var(--accent); cursor: pointer; transition: border-color .2s;
+    }
+    .topbar-avatar:hover { border-color: var(--accent); }
+    .btn-logout {
+      padding: 6px 13px;
+      background: transparent; border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm); color: var(--text-2);
+      font-size: 12px; cursor: pointer; transition: all .2s;
+    }
+    .btn-logout:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-dim); }
+
+    /* TAB NAV */
+    .tab-nav {
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-mid);
+      display: flex; padding: 0 20px;
+      position: sticky; top: 58px; z-index: 99;
+      overflow-x: auto;
+    }
+    .tab-nav::-webkit-scrollbar { height: 0; }
+    .tab-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 14px 16px 12px;
+      background: none; border: none; border-bottom: 2px solid transparent;
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      color: var(--text-3); cursor: pointer; white-space: nowrap;
+      transition: color .2s, border-color .2s;
+    }
+    .tab-btn:hover { color: var(--text-2); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+    .tab-icon { font-size: 15px; }
+
+    /* CONTENT */
+    .content { flex: 1; }
+    .section { display: none; max-width: 780px; margin: 0 auto; padding: 28px 20px 60px; }
+    .section.active { display: block; animation: fadeUp .3s ease both; }
+
+    /* SECTION HEADER */
+    .sec-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 22px; flex-wrap: wrap; gap: 10px;
+    }
+    .sec-head h2 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text-1); letter-spacing: .02em; }
+    .sec-head p { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+    /* STAT CARDS */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (min-width: 560px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 18px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); margin-bottom: 8px; }
+    .stat-value { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .stat-sub { font-size: 11px; color: var(--text-3); margin-top: 4px; }
+
+    /* CARD */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px; overflow: hidden;
+    }
+    .card-head {
+      padding: 16px 20px 13px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .card-head-left { display: flex; align-items: center; gap: 10px; }
+    .card-head-icon {
+      width: 32px; height: 32px;
+      background: var(--accent-dim); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+    }
+    .card-head-title { font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--text-1); letter-spacing: .02em; }
+    .card-head-sub { font-size: 11px; color: var(--text-3); margin-top: 1px; }
+    .card-body { padding: 20px; }
+
+    /* BUTTON VARIANTS */
+    .btn-accent {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 9px 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border: none; border-radius: var(--radius); color: #fff;
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      cursor: pointer; transition: all .2s; box-shadow: 0 2px 10px var(--accent-dim);
+      white-space: nowrap;
+    }
+    .btn-accent:hover { transform: translateY(-1px); box-shadow: 0 4px 18px var(--accent-glow); }
+    .btn-accent:active { transform: none; }
+
+    .btn-sm {
+      padding: 5px 11px; font-size: 11px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong); background: transparent;
+      color: var(--text-2); cursor: pointer; transition: all .2s; font-family: var(--font-body);
+    }
+    .btn-sm:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-sm.danger:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-dim); }
+    .btn-sm.stop:hover { border-color: var(--olive); color: var(--olive); background: var(--olive-dim); }
+
+    /* EMPTY STATE */
+    .empty {
+      text-align: center; padding: 40px 20px; color: var(--text-3);
+    }
+    .empty-icon { font-size: 36px; margin-bottom: 10px; opacity: .5; }
+    .empty p { font-size: 13px; }
+
+    /* INTAKE LIST ITEM */
+    .intake-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .intake-item:last-child { border-bottom: none; }
+    .intake-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .intake-info { flex: 1; min-width: 0; }
+    .intake-name { font-weight: 600; font-size: 14px; color: var(--text-1); }
+    .intake-meta { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+    .intake-dates { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+    .intake-actions { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; align-items: center; }
+
+    /* BADGE */
+    .badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 600;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .badge-active { background: var(--olive-dim); color: var(--olive); border: 1px solid rgba(90,138,96,.2); }
+    .badge-stopped { background: rgba(0,0,0,.05); color: var(--text-3); border: 1px solid var(--border-mid); }
+    .badge-cat {
+      background: var(--accent-dim); color: var(--accent);
+      border: 1px solid rgba(196,94,42,.15); padding: 2px 8px;
+      border-radius: 99px; font-size: 10px; font-weight: 600; text-transform: uppercase;
+    }
+
+    /* FICHA CARDS GRID */
+    .fichas-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px;
+    }
+    .ficha-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s;
+    }
+    .ficha-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .ficha-card-bar { height: 4px; }
+    .ficha-card-body { padding: 16px 16px 14px; }
+    .ficha-card-name { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--text-1); }
+    .ficha-card-brand { font-size: 11px; color: var(--text-3); margin-top: 1px; }
+    .ficha-card-badges { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+    .ficha-card-dose { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+    .ficha-card-benefits { font-size: 12px; color: var(--text-3); margin-top: 6px; line-height: 1.5; }
+    .ficha-card-footer {
+      border-top: 1px solid var(--border); padding: 10px 16px;
+      display: flex; justify-content: flex-end; gap: 6px;
+    }
+
+    /* PROFILE */
+    .profile-avatar-block { display: flex; align-items: center; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .profile-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--sand));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 22px; font-weight: 700; color: #fff;
+      border: 2px solid var(--border-strong); flex-shrink: 0;
+    }
+    .profile-name { font-family: var(--font-display); font-size: 16px; color: var(--text-1); }
+    .profile-email { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+    .profile-badge {
+      display: inline-flex; align-items: center; gap: 4px; margin-top: 6px;
+      padding: 3px 10px; background: var(--olive-dim);
+      border: 1px solid rgba(90,138,96,.2); border-radius: 99px;
+      font-size: 10px; color: var(--olive); font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .fg { margin-bottom: 14px; }
+
+    .fi {
+      width: 100%; padding: 10px 14px;
+      background: var(--bg-input); border: 1px solid var(--border-mid);
+      border-radius: var(--radius); color: var(--text-1);
+      font-family: var(--font-body); font-size: 14px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .fi::placeholder { color: var(--text-3); }
+    .fi:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+    select.fi {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a5a38' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; cursor: pointer;
+    }
+    select.fi option { background: #fff; }
+
+    .info-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .info-row:last-child { border-bottom: none; }
+    .info-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .info-val { font-weight: 500; color: var(--text-1); }
+
+    .save-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .save-status { font-size: 12px; color: var(--text-3); }
+    .save-status.ok { color: var(--olive); }
+    .save-status.err { color: var(--danger); }
+    .btn-save {
+      padding: 10px 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border: none; border-radius: var(--radius); color: #fff;
+      font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: .05em;
+      cursor: pointer; transition: all .2s; box-shadow: 0 2px 10px var(--accent-dim);
+    }
+    .btn-save:hover { transform: translateY(-1px); box-shadow: 0 4px 18px var(--accent-glow); }
+    .btn-save:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+    /* FILTER CHIPS */
+    .filters { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+    .filter-chip {
+      padding: 5px 14px; border-radius: 99px;
+      border: 1px solid var(--border-strong); background: transparent;
+      font-family: var(--font-body); font-size: 12px; color: var(--text-2);
+      cursor: pointer; transition: all .2s;
+    }
+    .filter-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* 14-DAY CHART */
+    .chart-wrap { padding: 8px 4px 0; }
+    .chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 60px; }
+    .chart-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .chart-bar {
+      width: 100%; background: var(--accent-dim); border-radius: 3px 3px 0 0;
+      min-height: 2px; transition: background .2s;
+    }
+    .chart-bar.has-data { background: var(--accent); }
+    .chart-labels { display: flex; gap: 4px; margin-top: 4px; }
+    .chart-label { flex: 1; text-align: center; font-size: 9px; color: var(--text-3); }
+
+    /* AI ANALYSIS */
+    .ai-result {
+      background: linear-gradient(135deg, rgba(196,94,42,.04), rgba(196,94,42,.08));
+      border: 1px solid rgba(196,94,42,.18);
+      border-radius: var(--radius); padding: 18px 20px;
+      font-size: 13px; color: var(--text-1); line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .ai-typing::after { content: '▋'; animation: blink .8s infinite; color: var(--accent); }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+    .ai-placeholder { color: var(--text-3); font-size: 13px; text-align: center; padding: 20px; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.35);
+      display: none; align-items: center; justify-content: center;
+      z-index: 500; padding: 20px; backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn .2s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal {
+      background: var(--bg-card); border-radius: var(--radius-xl);
+      width: 100%; max-width: 500px; max-height: 90vh;
+      overflow-y: auto; box-shadow: var(--shadow-lg);
+      animation: fadeUp .25s ease both;
+    }
+    .modal-head {
+      padding: 18px 22px 15px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; background: var(--bg-card); z-index: 1;
+    }
+    .modal-head h3 { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text-1); }
+    .modal-close {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--bg-input); border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--text-2); cursor: pointer; transition: background .2s;
+    }
+    .modal-close:hover { background: var(--danger-dim); color: var(--danger); }
+    #modalBody { padding: 22px; }
+    .modal-foot { padding: 14px 22px 20px; display: flex; gap: 10px; justify-content: flex-end; }
+    .modal-foot .btn-accent { padding: 10px 22px; }
+    .modal-foot .btn-sm { padding: 10px 18px; font-size: 12px; }
+
+    /* COLOR PICKER */
+    .color-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+    .color-chip {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid transparent; cursor: pointer; transition: transform .15s, border-color .15s;
+    }
+    .color-chip:hover { transform: scale(1.15); }
+    .color-chip.selected { border-color: var(--text-1); transform: scale(1.1); }
+
+    /* SPINNER */
+    .spinner-wrap { display: flex; align-items: center; justify-content: center; min-height: 50vh; }
+    .spinner { width: 32px; height: 32px; border: 2px solid var(--border-mid); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ACTIVE STACK CHIPS */
+    .stack-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 99px;
+      border: 1px solid var(--border-mid); background: var(--bg-card2);
+      font-size: 12px; font-weight: 500; color: var(--text-1);
+    }
+    .stack-chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .stack-chip-days { font-size: 10px; color: var(--text-3); }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 22px; right: 22px; z-index: 9999;
+      padding: 11px 18px; border-radius: var(--radius); font-size: 13px; font-weight: 500;
+      box-shadow: var(--shadow); display: none;
+    }
+    .toast.show { display: block; animation: fadeUp .25s ease; }
+    .toast.ok { background: #edf7f0; border: 1px solid rgba(90,138,96,.4); color: var(--olive); }
+    .toast.err { background: #fdecea; border: 1px solid rgba(192,53,40,.3); color: var(--danger); }
+
+    /* FAB */
+    .fab {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border: none; color: #fff; font-size: 24px; cursor: pointer;
+      box-shadow: 0 4px 20px var(--accent-glow); transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fab:hover { transform: scale(1.07); }
+
+    /* MISC */
+    .divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .text-muted { color: var(--text-3); font-size: 12px; }
+    .mt-12 { margin-top: 12px; }
+    .fw-6 { font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== LOGIN ==================== -->
+  <div id="loginScreen">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-logo-icon">🌿</div>
+        <h1>MiSuplementos</h1>
+
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="loginEmail">Correo electrónico</label>
+        <input type="email" id="loginEmail" class="form-input" placeholder="tu@correo.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="loginPassword">Contraseña</label>
+        <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" autocomplete="current-password"
+          onkeydown="if(event.key==='Enter') handleLogin()">
+      </div>
+      <div id="authMsg" class="auth-msg"></div>
+      <button id="btnLogin" class="btn-primary" onclick="handleLogin()">Entrar</button>
+      <div class="login-divider">¿No tienes cuenta?</div>
+      <button id="btnRegister" class="btn-ghost" onclick="handleRegister()">Crear cuenta nueva</button>
+    </div>
+  </div>
+
+  <!-- ==================== APP SHELL ==================== -->
+  <div id="appShell" style="display:flex; flex-direction:column; min-height:100vh">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-icon">🌿</div>
+        <span class="topbar-title">MiSuplementos</span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-date" id="topbarDate"></span>
+        <div class="topbar-avatar" id="topbarAvatar">?</div>
+        <button class="btn-logout" onclick="handleLogout()">Salir</button>
+      </div>
+    </header>
+
+    <!-- TAB NAV -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="dashboard" onclick="showTab('dashboard')">
+        <span class="tab-icon">📊</span> Dashboard
+      </button>
+      <button class="tab-btn" data-tab="historial" onclick="showTab('historial')">
+        <span class="tab-icon">📋</span> Historial
+      </button>
+      <button class="tab-btn" data-tab="fichas" onclick="showTab('fichas')">
+        <span class="tab-icon">💊</span> Fichas
+      </button>
+      <button class="tab-btn" data-tab="perfil" onclick="showTab('perfil')">
+        <span class="tab-icon">👤</span> Perfil
+      </button>
+    </nav>
+
+    <!-- SPINNER -->
+    <div id="appSpinner" class="spinner-wrap"><div class="spinner"></div></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="content" id="mainContent" style="display:none">
+
+      <!-- ========== DASHBOARD ========== -->
+      <section id="sec-dashboard" class="section active">
+        <div class="sec-head">
+          <div>
+            <h2 id="dashGreeting">Buenas tardes</h2>
+            <p>Tu resumen de suplementación</p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Activos ahora</div>
+            <div class="stat-value" id="statActive">0</div>
+            <div class="stat-sub">suplementos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Fichas</div>
+            <div class="stat-value" id="statFichas">0</div>
+            <div class="stat-sub">en catálogo</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Días activo</div>
+            <div class="stat-value" id="statDays">0</div>
+            <div class="stat-sub">ciclo más largo</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Tomas totales</div>
+            <div class="stat-value" id="statTotal">0</div>
+            <div class="stat-sub">en historial</div>
+          </div>
+        </div>
+
+        <!-- Stack activo -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon">⚡</div>
+              <div>
+                <div class="card-head-title">Stack Activo</div>
+                <div class="card-head-sub">Suplementos en curso</div>
+              </div>
+            </div>
+            <button class="btn-accent" onclick="showTab('historial'); setTimeout(openIntakeModal,150)">
+              + Añadir toma
+            </button>
+          </div>
+          <div class="card-body">
+            <div id="activeStack" class="stack-chips">
+              <div class="empty"><div class="empty-icon">💊</div><p>Sin tomas activas. Añade una desde Historial.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Análisis -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon">🤖</div>
+              <div>
+                <div class="card-head-title">Análisis de tu Stack</div>
+                <div class="card-head-sub">Análisis con IA de tus suplementos activos</div>
+              </div>
+            </div>
+            <button class="btn-accent" onclick="analyzeStack()" id="btnAnalyze">Analizar</button>
+          </div>
+          <div class="card-body">
+            <div id="aiResult" class="ai-placeholder">
+              Pulsa "Analizar" para obtener un análisis personalizado de tu stack actual.
+            </div>
+          </div>
+        </div>
+
+        <!-- 14-day chart -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon">📈</div>
+              <div>
+                <div class="card-head-title">Últimos 14 días</div>
+                <div class="card-head-sub">Suplementos activos por día</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-wrap" id="chart14"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== HISTORIAL ========== -->
+      <section id="sec-historial" class="section">
+        <div class="sec-head">
+          <div>
+            <h2>Historial</h2>
+            <p>Ciclos de suplementación registrados</p>
+          </div>
+          <button class="btn-accent" onclick="openIntakeModal()">+ Nueva toma</button>
+        </div>
+
+        <div class="filters">
+          <button class="filter-chip active" data-filter="all" onclick="setFilter(this,'all')">Todos</button>
+          <button class="filter-chip" data-filter="active" onclick="setFilter(this,'active')">Activos</button>
+          <button class="filter-chip" data-filter="stopped" onclick="setFilter(this,'stopped')">Finalizados</button>
+        </div>
+
+        <div class="card">
+          <div class="card-body" style="padding: 4px 20px">
+            <div id="intakeList">
+              <div class="empty"><div class="empty-icon">📋</div><p>Sin registros aún.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FICHAS ========== -->
+      <section id="sec-fichas" class="section">
+        <div class="sec-head">
+          <div>
+            <h2>Fichas de Suplementos</h2>
+            <p>Tu catálogo personal</p>
+          </div>
+          <button class="btn-accent" onclick="openFichaModal()">+ Nueva ficha</button>
+        </div>
+        <div class="fichas-grid" id="fichasGrid">
+          <div class="card" style="grid-column: 1/-1; text-align:center">
+            <div class="card-body"><div class="empty"><div class="empty-icon">💊</div><p>Crea tu primera ficha de suplemento.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PERFIL ========== -->
+      <section id="sec-perfil" class="section">
+        <div class="sec-head">
+          <div>
+            <h2>Perfil</h2>
+            <p>Tus datos personales y preferencias</p>
+          </div>
+        </div>
+
+        <!-- Auth info -->
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon">🔐</div>
+              <div><div class="card-head-title">Cuenta</div></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="profile-avatar-block">
+              <div class="profile-avatar" id="profileAvatar">?</div>
+              <div>
+                <div class="profile-name" id="profileDisplayName">—</div>
+                <div class="profile-email" id="profileEmail">—</div>
+                <span class="profile-badge">✅ Verificado</span>
+              </div>
+            </div>
+            <div class="info-row"><span class="info-lbl">Email</span><span class="info-val" id="infoEmail">—</span></div>
+            <div class="info-row"><span class="info-lbl">ID</span><span class="info-val" id="infoUID" style="font-size:11px; color:var(--text-3)">—</span></div>
+            <div class="info-row"><span class="info-lbl">Miembro desde</span><span class="info-val" id="infoSince">—</span></div>
+          </div>
+        </div>
+
+        <!-- Personal data -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon">👤</div>
+              <div><div class="card-head-title">Datos Personales</div></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="fg"><label class="form-label">Nombre</label><input type="text" id="fName" class="fi" placeholder="Tu nombre"></div>
+              <div class="fg"><label class="form-label">Apellidos</label><input type="text" id="fSurname" class="fi" placeholder="Tus apellidos"></div>
+            </div>
+            <div class="form-row">
+              <div class="fg"><label class="form-label">Edad</label><input type="number" id="fAge" class="fi" placeholder="Ej: 32" min="10" max="120"></div>
+              <div class="fg"><label class="form-label">Peso (kg)</label><input type="number" id="fWeight" class="fi" placeholder="Ej: 70.5" step="0.1"></div>
+            </div>
+            <div class="form-row">
+              <div class="fg"><label class="form-label">Altura (cm)</label><input type="number" id="fHeight" class="fi" placeholder="Ej: 175"></div>
+              <div class="fg"><label class="form-label">Sexo</label>
+                <select id="fGender" class="fi">
+                  <option value="">— Seleccionar —</option>
+                  <option value="hombre">Hombre</option>
+                  <option value="mujer">Mujer</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="fg"><label class="form-label">Objetivo</label>
+              <select id="fGoal" class="fi">
+                <option value="">— Seleccionar —</option>
+                <option value="rendimiento">Rendimiento deportivo</option>
+                <option value="salud">Salud general</option>
+                <option value="perdida_peso">Pérdida de peso</option>
+                <option value="ganancia_muscular">Ganancia muscular</option>
+                <option value="energia">Energía y vitalidad</option>
+                <option value="inmunidad">Reforzar inmunidad</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="fg"><label class="form-label">Notas personales</label>
+              <textarea id="fNotes" class="fi" rows="3" placeholder="Alergias, condiciones, información relevante…" style="resize:vertical"></textarea>
+            </div>
+            <div class="save-row">
+              <span class="save-status" id="saveStatus"></span>
+              <button class="btn-save" id="btnSave" onclick="saveProfile()">Guardar cambios</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main><!-- /mainContent -->
+  </div><!-- /appShell -->
+
+  <!-- ==================== MODAL ==================== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal">
+      <div class="modal-head">
+        <h3 id="modalTitle">—</h3>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <div id="modalBody"></div>
+      <div class="modal-foot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    /* ============================================================
+       ⚙️  CONFIG — Edita estas líneas con tus credenciales
+    ============================================================ */
+    const SUPABASE_URL  = 'https://TU_PROYECTO.supabase.co';
+    const SUPABASE_ANON = 'TU_ANON_KEY_AQUI';
+    // ⚠️ Para análisis IA: pon aquí tu API Key de Anthropic
+    // Nota: en producción usa un backend para no exponer la key
+    const ANTHROPIC_KEY = '';
+    /* ============================================================ */
+
+    const { createClient } = supabase;
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+    /* ---- State ---- */
+    let currentUser = null;
+    let supplements  = [];   // fichas
+    let intakes      = [];   // historial de tomas
+    let activeFilter = 'all';
+
+    /* ---- Constants ---- */
+    const COLORS = ['#c45e2a','#5a8a60','#5a6aa0','#8a5a9a','#c4922a','#2a7c8a','#c42a5a','#7a7a2a'];
+    const CATS = {
+      vitamina:    { label: 'Vitamina',    icon: '🌟' },
+      mineral:     { label: 'Mineral',     icon: '⛏️' },
+      proteina:    { label: 'Proteína',    icon: '💪' },
+      adaptogeno:  { label: 'Adaptógeno',  icon: '🌿' },
+      omega:       { label: 'Omega',       icon: '🐟' },
+      probiotico:  { label: 'Probiótico',  icon: '🦠' },
+      antioxidante:{ label: 'Antioxidante',icon: '🍇' },
+      energia:     { label: 'Energía',     icon: '⚡' },
+      otro:        { label: 'Otro',        icon: '💊' },
+    };
+    const FREQS = ['Diaria','Cada 2 días','Semanal','Según necesidad','Otra'];
+
+    /* ---- Helpers ---- */
+    function toast(msg, type='ok') {
+      const t = document.getElementById('toast');
+      t.textContent = (type==='ok'?'✅ ':'❌ ') + msg;
+      t.className = `toast show ${type}`;
+      clearTimeout(t._to);
+      t._to = setTimeout(() => t.classList.remove('show'), 3200);
+    }
+
+    function initials(str) {
+      return (str||'').split(/[\s@.]+/).filter(Boolean).slice(0,2).map(s=>s[0].toUpperCase()).join('') || '?';
+    }
+
+    function fmtDate(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso + (iso.length===10?'T12:00:00':''));
+      return d.toLocaleDateString('es-ES',{day:'numeric',month:'short',year:'numeric'});
+    }
+
+    function daysBetween(from, to=null) {
+      const a = new Date(from + (from.length===10?'T12:00:00':''));
+      const b = to ? new Date(to + (to.length===10?'T12:00:00':'')) : new Date();
+      return Math.max(0, Math.floor((b - a) / 86400000));
+    }
+
+    function today() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    function greet() {
+      const h = new Date().getHours();
+      if (h < 14) return 'Buenos días';
+      if (h < 20) return 'Buenas tardes';
+      return 'Buenas noches';
+    }
+
+    /* ============================================================
+       AUTH
+    ============================================================ */
+    async function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass  = document.getElementById('loginPassword').value;
+      const btn   = document.getElementById('btnLogin');
+      if (!email || !pass) { showAuthMsg('Rellena todos los campos.','error'); return; }
+      btn.disabled = true; btn.textContent = 'Entrando…';
+      const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+      if (error) {
+        showAuthMsg(error.message.includes('Invalid') ? 'Email o contraseña incorrectos.' : error.message, 'error');
+        btn.disabled = false; btn.textContent = 'Entrar';
+      }
+    }
+
+    async function handleRegister() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass  = document.getElementById('loginPassword').value;
+      const btn   = document.getElementById('btnRegister');
+      if (!email || !pass) { showAuthMsg('Rellena email y contraseña.','error'); return; }
+      if (pass.length < 6) { showAuthMsg('Contraseña mínimo 6 caracteres.','error'); return; }
+      btn.disabled = true; btn.textContent = 'Creando…';
+      const { error } = await sb.auth.signUp({ email, password: pass });
+      if (error) { showAuthMsg(error.message,'error'); }
+      else { showAuthMsg('✅ Cuenta creada. Revisa tu email.','success'); }
+      btn.disabled = false; btn.textContent = 'Crear cuenta nueva';
+    }
+
+    async function handleLogout() { await sb.auth.signOut(); }
+
+    function showAuthMsg(txt, type) {
+      const el = document.getElementById('authMsg');
+      el.textContent = txt; el.className = `auth-msg ${type}`;
+    }
+
+    /* ============================================================
+       APP INIT
+    ============================================================ */
+    function showLogin() {
+      document.getElementById('loginScreen').style.display = 'flex';
+      document.getElementById('appShell').style.display    = 'none';
+      document.getElementById('btnLogin').disabled = false;
+      document.getElementById('btnLogin').textContent = 'Entrar';
+    }
+
+    async function showApp(user) {
+      currentUser = user;
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('appShell').style.display    = 'flex';
+      document.getElementById('appSpinner').style.display  = 'flex';
+      document.getElementById('mainContent').style.display = 'none';
+
+      // Topbar
+      document.getElementById('topbarAvatar').textContent = initials(user.email);
+      const now = new Date();
+      document.getElementById('topbarDate').textContent =
+        now.toLocaleDateString('es-ES',{weekday:'short',day:'numeric',month:'short'}).replace(/^\w/,c=>c.toUpperCase());
+
+      // Dashboard greeting
+      document.getElementById('dashGreeting').textContent = greet();
+
+      // Auth info
+      document.getElementById('infoEmail').textContent = user.email;
+      document.getElementById('infoUID').textContent   = user.id;
+      document.getElementById('infoSince').textContent = fmtDate(user.created_at);
+      document.getElementById('profileEmail').textContent = user.email;
+
+      await loadAll();
+
+      document.getElementById('appSpinner').style.display  = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }
+
+    /* ============================================================
+       LOAD DATA
+    ============================================================ */
+    async function loadAll() {
+      const uid = currentUser.id;
+      const [rs, ri, rp] = await Promise.all([
+        sb.from('supplements').select('*').eq('user_id',uid).order('created_at'),
+        sb.from('supplement_intakes').select(`*, supplement:supplement_id(id,name,category,dose,color,brand)`).eq('user_id',uid).order('started_at',{ascending:false}),
+        sb.from('profiles').select('*').eq('id',uid).single()
+      ]);
+
+      supplements = rs.data || [];
+      intakes     = ri.data || [];
+
+      // Profile
+      const p = rp.data;
+      if (p) {
+        document.getElementById('fName').value    = p.name    || '';
+        document.getElementById('fSurname').value = p.surname || '';
+        document.getElementById('fAge').value     = p.age     || '';
+        document.getElementById('fWeight').value  = p.weight  || '';
+        document.getElementById('fHeight').value  = p.height  || '';
+        document.getElementById('fGender').value  = p.gender  || '';
+        document.getElementById('fGoal').value    = p.goal    || '';
+        document.getElementById('fNotes').value   = p.notes   || '';
+        const name = p.name || currentUser.email.split('@')[0];
+        document.getElementById('profileAvatar').textContent     = initials(name);
+        document.getElementById('profileDisplayName').textContent = p.name ? `${p.name} ${p.surname||''}`.trim() : name;
+        document.getElementById('topbarAvatar').textContent      = initials(name);
+      }
+
+      renderDashboard();
+      renderHistorial();
+      renderFichas();
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    function showTab(name) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab===name));
+      document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id===`sec-${name}`));
+    }
+
+    function setFilter(el, filter) {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      activeFilter = filter;
+      renderHistorial();
+    }
+
+    /* ============================================================
+       DASHBOARD
+    ============================================================ */
+    function renderDashboard() {
+      const activeIntakes = intakes.filter(i => !i.stopped_at);
+
+      // Stats
+      document.getElementById('statActive').textContent  = activeIntakes.length;
+      document.getElementById('statFichas').textContent  = supplements.length;
+      document.getElementById('statTotal').textContent   = intakes.length;
+
+      // Longest active cycle
+      let maxDays = 0;
+      activeIntakes.forEach(i => {
+        const d = daysBetween(i.started_at);
+        if (d > maxDays) maxDays = d;
+      });
+      document.getElementById('statDays').textContent = maxDays;
+
+      // Active stack chips
+      const stackEl = document.getElementById('activeStack');
+      if (activeIntakes.length === 0) {
+        stackEl.innerHTML = `<div class="empty"><div class="empty-icon">💊</div><p>Sin tomas activas. Añade una desde Historial.</p></div>`;
+      } else {
+        stackEl.innerHTML = activeIntakes.map(i => {
+          const s   = i.supplement || {};
+          const col = s.color || '#c45e2a';
+          const days = daysBetween(i.started_at);
+          const cat  = CATS[s.category] || CATS.otro;
+          return `
+            <div class="stack-chip">
+              <span class="stack-chip-dot" style="background:${col}"></span>
+              <span>${s.name||'—'}</span>
+              <span class="stack-chip-days">${days}d</span>
+            </div>`;
+        }).join('');
+      }
+
+      // 14-day chart
+      render14Chart();
+    }
+
+    function render14Chart() {
+      const days = 14;
+      const today_str = today();
+      const dates = [];
+      for (let i = days-1; i >= 0; i--) {
+        const d = new Date(); d.setDate(d.getDate() - i);
+        dates.push(d.toISOString().split('T')[0]);
+      }
+
+      const counts = dates.map(date => {
+        return intakes.filter(i => {
+          const start = i.started_at;
+          const stop  = i.stopped_at || today_str;
+          return start <= date && stop >= date;
+        }).length;
+      });
+
+      const maxCount = Math.max(...counts, 1);
+
+      const barsHtml = counts.map((c,i) => {
+        const h = Math.max(4, Math.round((c/maxCount)*54));
+        const d = new Date(dates[i] + 'T12:00:00');
+        const lbl = d.getDate() + '/' + (d.getMonth()+1);
+        return `
+          <div class="chart-bar-col">
+            <div class="chart-bar${c>0?' has-data':''}" style="height:${h}px" title="${lbl}: ${c} suplementos"></div>
+          </div>`;
+      }).join('');
+
+      const labelsHtml = dates.map((d,i) => {
+        const dd = new Date(d + 'T12:00:00');
+        // Only show every 3 labels
+        const lbl = (i % 3 === 0) ? (dd.getDate() + '/' + (dd.getMonth()+1)) : '';
+        return `<div class="chart-label">${lbl}</div>`;
+      }).join('');
+
+      document.getElementById('chart14').innerHTML = `
+        <div class="chart-bars">${barsHtml}</div>
+        <div class="chart-labels">${labelsHtml}</div>`;
+    }
+
+    /* ============================================================
+       HISTORIAL
+    ============================================================ */
+    function renderHistorial() {
+      let list = [...intakes];
+      if (activeFilter === 'active')  list = list.filter(i => !i.stopped_at);
+      if (activeFilter === 'stopped') list = list.filter(i => i.stopped_at);
+
+      const el = document.getElementById('intakeList');
+      if (list.length === 0) {
+        el.innerHTML = `<div class="empty"><div class="empty-icon">📋</div><p>Sin registros para este filtro.</p></div>`;
+        return;
+      }
+
+      el.innerHTML = list.map(i => {
+        const s    = i.supplement || {};
+        const col  = s.color || '#c45e2a';
+        const cat  = CATS[s.category] || CATS.otro;
+        const days = daysBetween(i.started_at, i.stopped_at || null);
+        const dateLine = i.stopped_at
+          ? `${fmtDate(i.started_at)} → ${fmtDate(i.stopped_at)} · ${days} días`
+          : `Desde ${fmtDate(i.started_at)} · ${days} días en curso`;
+        const badge = i.stopped_at
+          ? `<span class="badge badge-stopped">Finalizado</span>`
+          : `<span class="badge badge-active">● Activo</span>`;
+        const actions = i.stopped_at ? '' : `
+          <button class="btn-sm stop" onclick="openStopModal('${i.id}')">⏹ Parar</button>`;
+        return `
+          <div class="intake-item" id="intake-${i.id}">
+            <div class="intake-dot" style="background:${col}"></div>
+            <div class="intake-info">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <span class="intake-name">${s.name||'Suplemento eliminado'}</span>
+                ${badge}
+                <span class="badge-cat">${cat.icon} ${cat.label}</span>
+              </div>
+              ${s.dose ? `<div class="intake-meta">Dosis: ${s.dose}</div>` : ''}
+              <div class="intake-dates">${dateLine}</div>
+              ${i.notes ? `<div class="intake-meta" style="margin-top:4px; color:var(--text-3)">${i.notes}</div>` : ''}
+            </div>
+            <div class="intake-actions">
+              ${actions}
+              <button class="btn-sm danger" onclick="deleteIntake('${i.id}')">🗑</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ============================================================
+       FICHAS
+    ============================================================ */
+    function renderFichas() {
+      const el = document.getElementById('fichasGrid');
+      if (supplements.length === 0) {
+        el.innerHTML = `<div class="card" style="grid-column:1/-1"><div class="card-body"><div class="empty"><div class="empty-icon">💊</div><p>Crea tu primera ficha de suplemento.</p></div></div></div>`;
+        return;
+      }
+      el.innerHTML = supplements.map(s => {
+        const col = s.color || '#c45e2a';
+        const cat = CATS[s.category] || CATS.otro;
+        const activeCount = intakes.filter(i => i.supplement_id === s.id && !i.stopped_at).length;
+        return `
+          <div class="ficha-card">
+            <div class="ficha-card-bar" style="background:${col}"></div>
+            <div class="ficha-card-body">
+              <div class="ficha-card-name">${s.name}</div>
+              ${s.brand ? `<div class="ficha-card-brand">${s.brand}</div>` : ''}
+              <div class="ficha-card-badges">
+                <span class="badge-cat">${cat.icon} ${cat.label}</span>
+                ${activeCount > 0 ? `<span class="badge badge-active">● Activo</span>` : ''}
+              </div>
+              ${s.dose ? `<div class="ficha-card-dose">💊 ${s.dose}${s.frequency ? ' · ' + s.frequency : ''}</div>` : ''}
+              ${s.benefits ? `<div class="ficha-card-benefits">${s.benefits.slice(0,100)}${s.benefits.length>100?'…':''}</div>` : ''}
+            </div>
+            <div class="ficha-card-footer">
+              <button class="btn-sm" onclick="openFichaModal('${s.id}')">✏️ Editar</button>
+              <button class="btn-sm danger" onclick="deleteFicha('${s.id}')">🗑</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ============================================================
+       MODALS — FICHAS
+    ============================================================ */
+    function openFichaModal(id = null) {
+      const ficha = id ? supplements.find(s => s.id === id) : null;
+      const title = ficha ? 'Editar Ficha' : 'Nueva Ficha de Suplemento';
+      const selectedColor = ficha?.color || COLORS[0];
+
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').innerHTML = `
+        <div class="fg"><label class="form-label">Nombre *</label>
+          <input type="text" id="mfName" class="fi" placeholder="Ej: Vitamina D3" value="${ficha?.name||''}"></div>
+        <div class="form-row">
+          <div class="fg"><label class="form-label">Marca</label>
+            <input type="text" id="mfBrand" class="fi" placeholder="Ej: NOW Foods" value="${ficha?.brand||''}"></div>
+          <div class="fg"><label class="form-label">Categoría</label>
+            <select id="mfCat" class="fi">
+              <option value="">— Seleccionar —</option>
+              ${Object.entries(CATS).map(([k,v]) => `<option value="${k}" ${ficha?.category===k?'selected':''}>${v.icon} ${v.label}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label class="form-label">Dosis</label>
+            <input type="text" id="mfDose" class="fi" placeholder="Ej: 1 cápsula / 5g" value="${ficha?.dose||''}"></div>
+          <div class="fg"><label class="form-label">Frecuencia</label>
+            <select id="mfFreq" class="fi">
+              <option value="">— Seleccionar —</option>
+              ${FREQS.map(f => `<option ${ficha?.frequency===f?'selected':''}>${f}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label class="form-label">Beneficios / uso</label>
+          <textarea id="mfBenefits" class="fi" rows="2" placeholder="Ej: Soporte inmune, huesos, estado de ánimo">${ficha?.benefits||''}</textarea></div>
+        <div class="fg"><label class="form-label">Notas</label>
+          <textarea id="mfNotes" class="fi" rows="2" placeholder="Información adicional, fuente, etc.">${ficha?.notes||''}</textarea></div>
+        <div class="fg"><label class="form-label">Color identificativo</label>
+          <div class="color-row" id="colorRow">
+            ${COLORS.map(c => `<div class="color-chip${c===selectedColor?' selected':''}" style="background:${c}" data-color="${c}" onclick="selectColor(this)"></div>`).join('')}
+          </div>
+          <input type="hidden" id="mfColor" value="${selectedColor}">
+        </div>`;
+
+      document.getElementById('modalFoot').innerHTML = `
+        <button class="btn-sm" onclick="closeModal()">Cancelar</button>
+        <button class="btn-accent" onclick="saveFicha('${id||''}')">
+          ${ficha ? 'Guardar cambios' : 'Crear ficha'}
+        </button>`;
+
+      document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    function selectColor(el) {
+      document.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('mfColor').value = el.dataset.color;
+    }
+
+    async function saveFicha(id) {
+      const name = document.getElementById('mfName').value.trim();
+      if (!name) { toast('El nombre es obligatorio.','err'); return; }
+
+      const payload = {
+        user_id:   currentUser.id,
+        name,
+        brand:     document.getElementById('mfBrand').value.trim() || null,
+        category:  document.getElementById('mfCat').value || null,
+        dose:      document.getElementById('mfDose').value.trim() || null,
+        frequency: document.getElementById('mfFreq').value || null,
+        benefits:  document.getElementById('mfBenefits').value.trim() || null,
+        notes:     document.getElementById('mfNotes').value.trim() || null,
+        color:     document.getElementById('mfColor').value,
+      };
+
+      let error;
+      if (id) {
+        ({ error } = await sb.from('supplements').update(payload).eq('id', id));
+      } else {
+        ({ error } = await sb.from('supplements').insert(payload));
+      }
+
+      if (error) { toast('Error: ' + error.message,'err'); return; }
+      toast(id ? 'Ficha actualizada' : 'Ficha creada');
+      closeModal();
+      await loadAll();
+    }
+
+    async function deleteFicha(id) {
+      if (!confirm('¿Eliminar esta ficha? Se eliminarán también sus tomas del historial.')) return;
+      const { error } = await sb.from('supplements').delete().eq('id', id);
+      if (error) { toast('Error: ' + error.message,'err'); return; }
+      toast('Ficha eliminada');
+      await loadAll();
+    }
+
+    /* ============================================================
+       MODALS — INTAKE (Historial)
+    ============================================================ */
+    function openIntakeModal() {
+      if (supplements.length === 0) {
+        toast('Primero crea una ficha de suplemento.','err');
+        showTab('fichas');
+        return;
+      }
+
+      document.getElementById('modalTitle').textContent = 'Nueva Toma';
+      document.getElementById('modalBody').innerHTML = `
+        <div class="fg"><label class="form-label">Suplemento *</label>
+          <select id="miSupp" class="fi">
+            <option value="">— Seleccionar suplemento —</option>
+            ${supplements.map(s => `<option value="${s.id}">${s.name}${s.brand?' ('+s.brand+')':''}</option>`).join('')}
+          </select>
+        </div>
+        <div class="fg"><label class="form-label">Fecha de inicio *</label>
+          <input type="date" id="miStart" class="fi" value="${today()}"></div>
+        <div class="fg"><label class="form-label">Notas (opcional)</label>
+          <textarea id="miNotes" class="fi" rows="2" placeholder="Ej: Ciclo de 3 meses, por prescripción médica…"></textarea></div>`;
+
+      document.getElementById('modalFoot').innerHTML = `
+        <button class="btn-sm" onclick="closeModal()">Cancelar</button>
+        <button class="btn-accent" onclick="saveIntake()">Registrar toma</button>`;
+
+      document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    async function saveIntake() {
+      const suppId = document.getElementById('miSupp').value;
+      const start  = document.getElementById('miStart').value;
+      if (!suppId) { toast('Selecciona un suplemento.','err'); return; }
+      if (!start)  { toast('Selecciona la fecha de inicio.','err'); return; }
+
+      const payload = {
+        user_id:       currentUser.id,
+        supplement_id: suppId,
+        started_at:    start,
+        notes:         document.getElementById('miNotes').value.trim() || null,
+      };
+
+      const { error } = await sb.from('supplement_intakes').insert(payload);
+      if (error) { toast('Error: ' + error.message,'err'); return; }
+      toast('Toma registrada ✓');
+      closeModal();
+      await loadAll();
+    }
+
+    /* ============================================================
+       MODALS — STOP INTAKE
+    ============================================================ */
+    function openStopModal(id) {
+      const intake = intakes.find(i => i.id === id);
+      const name   = intake?.supplement?.name || 'este suplemento';
+
+      document.getElementById('modalTitle').textContent = 'Parar toma';
+      document.getElementById('modalBody').innerHTML = `
+        <p style="color:var(--text-2); font-size:13px; margin-bottom:18px">
+          Vas a finalizar el ciclo de <strong>${name}</strong> 
+          iniciado el ${fmtDate(intake?.started_at)}.
+        </p>
+        <div class="fg"><label class="form-label">Fecha de fin</label>
+          <input type="date" id="msStop" class="fi" value="${today()}"></div>`;
+
+      document.getElementById('modalFoot').innerHTML = `
+        <button class="btn-sm" onclick="closeModal()">Cancelar</button>
+        <button class="btn-accent" style="background:linear-gradient(135deg,var(--olive),var(--olive-light))" 
+          onclick="confirmStop('${id}')">Confirmar stop</button>`;
+
+      document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    async function confirmStop(id) {
+      const stopDate = document.getElementById('msStop').value;
+      const { error } = await sb.from('supplement_intakes').update({ stopped_at: stopDate }).eq('id', id);
+      if (error) { toast('Error: ' + error.message,'err'); return; }
+      toast('Toma finalizada. Queda en historial.');
+      closeModal();
+      await loadAll();
+    }
+
+    async function deleteIntake(id) {
+      if (!confirm('¿Eliminar este registro del historial?')) return;
+      const { error } = await sb.from('supplement_intakes').delete().eq('id', id);
+      if (error) { toast('Error: ' + error.message,'err'); return; }
+      toast('Registro eliminado');
+      await loadAll();
+    }
+
+    /* ============================================================
+       MODAL HELPERS
+    ============================================================ */
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+
+    /* ============================================================
+       PROFILE
+    ============================================================ */
+    async function saveProfile() {
+      const btn    = document.getElementById('btnSave');
+      const status = document.getElementById('saveStatus');
+      btn.disabled = true; btn.textContent = 'Guardando…'; status.className = 'save-status';
+
+      const payload = {
+        id:       currentUser.id,
+        name:     document.getElementById('fName').value.trim(),
+        surname:  document.getElementById('fSurname').value.trim(),
+        age:      parseInt(document.getElementById('fAge').value) || null,
+        weight:   parseFloat(document.getElementById('fWeight').value) || null,
+        height:   parseInt(document.getElementById('fHeight').value) || null,
+        gender:   document.getElementById('fGender').value || null,
+        goal:     document.getElementById('fGoal').value || null,
+        notes:    document.getElementById('fNotes').value.trim(),
+        updated_at: new Date().toISOString()
+      };
+
+      const { error } = await sb.from('profiles').upsert(payload);
+
+      if (error) {
+        toast('Error al guardar: ' + error.message,'err');
+        status.textContent = '❌ Error'; status.className = 'save-status err';
+      } else {
+        toast('Perfil guardado');
+        status.textContent = '✅ Guardado'; status.className = 'save-status ok';
+        const name = payload.name || currentUser.email.split('@')[0];
+        document.getElementById('profileAvatar').textContent     = initials(name);
+        document.getElementById('profileDisplayName').textContent = payload.name ? `${payload.name} ${payload.surname||''}`.trim() : name;
+        document.getElementById('topbarAvatar').textContent      = initials(name);
+        setTimeout(() => { status.className = 'save-status'; }, 3000);
+      }
+
+      btn.disabled = false; btn.textContent = 'Guardar cambios';
+    }
+
+    /* ============================================================
+       AI STACK ANALYSIS
+    ============================================================ */
+    async function analyzeStack() {
+      if (!ANTHROPIC_KEY) {
+        document.getElementById('aiResult').innerHTML = `
+          <div style="color:var(--text-3); font-size:13px; text-align:center; padding:20px">
+            ⚙️ Añade tu <strong>ANTHROPIC_KEY</strong> en el archivo index.html para activar el análisis IA.
+          </div>`;
+        return;
+      }
+
+      const activeIntakes = intakes.filter(i => !i.stopped_at);
+      if (activeIntakes.length === 0) {
+        document.getElementById('aiResult').innerHTML = `<div class="ai-placeholder">No tienes tomas activas para analizar.</div>`;
+        return;
+      }
+
+      const btn = document.getElementById('btnAnalyze');
+      btn.disabled = true; btn.textContent = 'Analizando…';
+
+      const stackDesc = activeIntakes.map(i => {
+        const s = i.supplement || {};
+        const cat = CATS[s.category]?.label || 'Sin categoría';
+        return `- ${s.name||'?'} (${cat})${s.dose?' · '+s.dose:''}${s.benefits?' · '+s.benefits:''}`;
+      }).join('\n');
+
+      // Get profile for context
+      const { data: p } = await sb.from('profiles').select('*').eq('id',currentUser.id).single();
+      const profileCtx = p ? `Perfil: ${p.age||'?'} años, ${p.weight||'?'}kg, ${p.height||'?'}cm, objetivo: ${p.goal||'no especificado'}.` : '';
+
+      const el = document.getElementById('aiResult');
+      el.className = 'ai-result ai-typing';
+      el.textContent = '';
+
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': ANTHROPIC_KEY,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 900,
+            stream: true,
+            system: 'Eres un experto en nutrición y suplementación deportiva. Analiza el stack del usuario de forma práctica, clara y concisa. Responde siempre en español.',
+            messages: [{
+              role: 'user',
+              content: `${profileCtx}\n\nMi stack activo:\n${stackDesc}\n\nAnaliza en 4-5 puntos:\n1. Sinergias destacadas entre suplementos\n2. Posibles redundancias o interacciones\n3. Momento óptimo de toma (mañana/noche/con comida)\n4. Suplementos relevantes que faltan según mis objetivos\n5. Valoración general del stack (1-10) y recomendación`
+            }]
+          })
+        });
+
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+
+        el.className = 'ai-result';
+        let text = '';
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value);
+          const lines = chunk.split('\n').filter(l => l.startsWith('data: '));
+          for (const line of lines) {
+            try {
+              const data = JSON.parse(line.slice(6));
+              if (data.type === 'content_block_delta' && data.delta?.text) {
+                text += data.delta.text;
+                el.textContent = text;
+              }
+            } catch {}
+          }
+        }
+
+      } catch (err) {
+        el.className = 'ai-result';
+        el.textContent = '❌ Error al conectar con la IA: ' + err.message;
+      }
+
+      btn.disabled = false; btn.textContent = 'Analizar';
+    }
+
+    /* ============================================================
+       AUTH STATE
+    ============================================================ */
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session?.user) { showApp(session.user); }
+      else { showLogin(); }
+    });
+  </script>
+</body>
+</html>
