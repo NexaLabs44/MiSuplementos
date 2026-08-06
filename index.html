@@ -440,6 +440,64 @@
     .btn-rpt-close{background:transparent;color:var(--text-3);border:1px solid var(--border-mid)!important;padding:7px 10px}
     .btn-rpt-close:hover{background:var(--danger-dim);color:var(--danger);border-color:rgba(192,53,40,.3)!important}
     #reportContent{padding:32px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#1a0e06}
+    /* ===== SEGURIDAD (v29) ===== */
+    .sec-disclaimer{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:var(--radius);background:rgba(200,160,96,.12);border:1px solid rgba(200,160,96,.3);margin-bottom:16px}
+    .sec-disclaimer-ico{flex-shrink:0;font-size:15px;line-height:1.3}
+    .sec-disclaimer-txt{font-size:11.5px;line-height:1.55;color:var(--text-2)}
+    .sec-disclaimer-txt strong{color:var(--text-1)}
+    .sec-profile-warn{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px;border-radius:var(--radius);background:var(--danger-dim);border:1px solid rgba(192,53,40,.28);margin-bottom:16px}
+    .sec-profile-warn-txt{flex:1;min-width:200px;font-size:12.5px;color:var(--text-1);line-height:1.5}
+    .sec-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:18px}
+    .sec-kpi{padding:14px;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);text-align:center}
+    .sec-kpi-val{font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1}
+    .sec-kpi-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-top:6px}
+    .sec-group{margin-bottom:22px}
+    .sec-group-title{display:flex;align-items:center;gap:7px;font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.03em;margin-bottom:10px}
+    .sec-group-count{font-family:var(--font-body);font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--bg-card2);color:var(--text-3);border:1px solid var(--border-mid)}
+    .nut-card{padding:13px 14px;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);margin-bottom:8px;border-left-width:3px;border-left-style:solid}
+    .nut-card.st-over{border-left-color:var(--danger);background:rgba(192,53,40,.05)}
+    .nut-card.st-near{border-left-color:var(--sand)}
+    .nut-card.st-ok{border-left-color:var(--olive)}
+    .nut-card.st-low{border-left-color:#5a6aa0}
+    .nut-card.st-nolimit{border-left-color:var(--border-strong)}
+    .nut-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .nut-name{font-size:13px;font-weight:600;color:var(--text-1)}
+    .nut-amount{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--text-1);white-space:nowrap}
+    .nut-amount small{font-family:var(--font-body);font-size:11px;font-weight:500;color:var(--text-3)}
+    .nut-bar{height:6px;border-radius:99px;background:var(--bg-input);margin:9px 0 7px;overflow:hidden;position:relative}
+    .nut-bar-fill{height:100%;border-radius:99px;transition:width .4s ease}
+    .nut-bar-mark{position:absolute;top:-2px;bottom:-2px;width:1.5px;background:var(--text-3);opacity:.45}
+    .nut-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--text-3)}
+    .nut-pill{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;letter-spacing:.03em}
+    .nut-pill-over{background:rgba(192,53,40,.12);color:var(--danger);border:1px solid rgba(192,53,40,.25)}
+    .nut-pill-near{background:rgba(200,160,96,.15);color:#8a6a1a;border:1px solid rgba(200,160,96,.3)}
+    .nut-pill-ok{background:var(--olive-dim);color:var(--olive);border:1px solid rgba(90,138,96,.22)}
+    .nut-pill-low{background:rgba(90,106,160,.12);color:#5a6aa0;border:1px solid rgba(90,106,160,.25)}
+    .nut-pill-info{background:var(--bg-card2);color:var(--text-3);border:1px solid var(--border-mid)}
+    .nut-note{font-size:11px;line-height:1.5;color:var(--text-2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+    .nut-src{font-size:11px;color:var(--text-3);margin-top:6px;line-height:1.5}
+    .nut-src b{color:var(--text-2);font-weight:600}
+    .sec-empty{text-align:center;padding:38px 20px;color:var(--text-3)}
+    .sec-empty-ico{font-size:34px;margin-bottom:10px;opacity:.55}
+    .sec-empty-title{font-family:var(--font-display);font-size:15px;color:var(--text-2);margin-bottom:6px}
+    .sec-empty-sub{font-size:12px;line-height:1.6;max-width:420px;margin:0 auto}
+    .sec-ai-panel{margin-top:10px;padding:14px;border-radius:var(--radius);background:var(--bg-card2);border:1px solid var(--border-mid);white-space:pre-wrap;font-size:12.5px;line-height:1.65;color:var(--text-1);display:none;max-height:420px;overflow-y:auto}
+    .sec-unknown-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:var(--radius-sm);background:var(--bg-card2);border:1px solid var(--border);margin-bottom:6px;font-size:12px}
+    .sec-unknown-item span:last-child{color:var(--text-3);font-size:11px;white-space:nowrap}
+    /* ===== ONBOARDING (v29) ===== */
+    .onb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:900;padding:18px;backdrop-filter:blur(5px)}
+    .onb-overlay.open{display:flex;animation:fadeIn .2s ease}
+    .onb-card{background:var(--bg-card);border:1px solid var(--border-strong);border-radius:var(--radius-lg);width:100%;max-width:480px;max-height:92vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+    .onb-head{padding:22px 24px 16px;border-bottom:1px solid var(--border);text-align:center}
+    .onb-head h3{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-1);margin-bottom:8px}
+    .onb-head p{font-size:12.5px;line-height:1.6;color:var(--text-2)}
+    .onb-body{padding:20px 24px}
+    .onb-foot{padding:14px 24px 20px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .btn-onb-later{background:none;border:none;color:var(--text-3);font-family:var(--font-body);font-size:12px;font-weight:500;cursor:pointer;text-decoration:underline;padding:6px 2px}
+    .btn-onb-later:hover{color:var(--text-2)}
+    .onb-req{color:var(--danger);font-weight:700}
+    .onb-progress{height:4px;border-radius:99px;background:var(--bg-input);overflow:hidden;margin-top:14px}
+    .onb-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-light));transition:width .3s ease;width:0}
   </style>
 </head>
 <body>
@@ -545,6 +603,7 @@
   <nav class="tab-nav">
     <button class="tab-btn active" data-tab="dashboard" onclick="showTab('dashboard')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="6" width="4" height="15"/><rect x="17" y="2" width="4" height="19"/></svg> Dashboard</button>
     <button class="tab-btn" data-tab="historial" onclick="showTab('historial')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Historial</button>
+    <button class="tab-btn" data-tab="seguridad" onclick="showTab('seguridad')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg> Seguridad</button>
     <button class="tab-btn" data-tab="fichas" onclick="showTab('fichas')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg> Fichas</button>
     <button class="tab-btn" data-tab="perfil" onclick="showTab('perfil')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> Perfil</button>
   </nav>
@@ -658,7 +717,7 @@
       </div>
 
 
-      <div class="dash-footer"><strong>MiSuplementos</strong><span>v28</span></div>
+      <div class="dash-footer"><strong>MiSuplementos</strong><span>v29</span></div>
     </section>
 
     <!-- HISTORIAL -->
@@ -685,6 +744,34 @@
     </section>
 
     <!-- PERFIL -->
+    <section id="sec-seguridad" class="section">
+      <div class="sec-head"><div><h2>Seguridad de dosis</h2><p>Cuánto llevas al día de cada nutriente y si te pasas del límite para tu perfil</p></div></div>
+
+      <div class="sec-disclaimer">
+        <div class="sec-disclaimer-ico">⚕️</div>
+        <div class="sec-disclaimer-txt">
+          <strong>Esto es información, no consejo médico.</strong> Los límites proceden de EFSA y NIH y son valores generales de población sana.
+          No tienen en cuenta tu medicación, tus analíticas ni tus patologías. Si algo aparece en rojo, o si tomas medicamentos,
+          consúltalo con tu médico o farmacéutico antes de cambiar nada. Tampoco incluye lo que aportan los alimentos.
+        </div>
+      </div>
+
+      <div class="sec-profile-warn" id="secProfileWarn" style="display:none">
+        <div style="font-size:19px">👤</div>
+        <div class="sec-profile-warn-txt" id="secProfileWarnTxt">—</div>
+        <button class="btn-accent" onclick="goToSeguridadProfile()">Completar perfil</button>
+      </div>
+
+      <div class="sec-kpis" id="secKpis">
+        <div class="sec-kpi"><div class="sec-kpi-val" id="secKpiEval" style="color:var(--accent)">0</div><div class="sec-kpi-lbl">Nutrientes evaluados</div></div>
+        <div class="sec-kpi"><div class="sec-kpi-val" id="secKpiOver">0</div><div class="sec-kpi-lbl">Sobre el límite</div></div>
+        <div class="sec-kpi"><div class="sec-kpi-val" id="secKpiNear">0</div><div class="sec-kpi-lbl">Cerca del límite</div></div>
+        <div class="sec-kpi"><div class="sec-kpi-val" id="secKpiUnk" style="color:var(--text-2)">0</div><div class="sec-kpi-lbl">No evaluables</div></div>
+      </div>
+
+      <div id="seguridadBody"></div>
+    </section>
+
     <section id="sec-perfil" class="section">
       <div class="sec-head"><div><h2>Perfil</h2><p>Datos personales y configuración</p></div></div>
 
@@ -722,11 +809,26 @@
           <div class="form-row">
             <div class="fg"><label class="form-label">Altura (cm)</label><input type="number" id="fHeight" class="fi" placeholder="175"></div>
             <div class="fg"><label class="form-label">Sexo</label>
-              <select id="fGender" class="fi">
+              <select id="fGender" class="fi" onchange="togglePregnancyField()">
                 <option value="">— Seleccionar —</option>
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
                 <option value="otro">Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg" id="fPregnancyGroup" style="display:none"><label class="form-label">Embarazo / Lactancia</label>
+              <select id="fPregnancy" class="fi">
+                <option value="no">No</option>
+                <option value="embarazo">Embarazo</option>
+                <option value="lactancia">Lactancia</option>
+              </select>
+            </div>
+            <div class="fg"><label class="form-label">¿Fumas?</label>
+              <select id="fSmoker" class="fi">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
               </select>
             </div>
           </div>
@@ -833,6 +935,59 @@
   </div>
 </div>
 
+<!-- ONBOARDING v29 -->
+<div class="onb-overlay" id="onbOverlay">
+  <div class="onb-card">
+    <div class="onb-head">
+      <div style="font-size:30px;margin-bottom:8px">🛡️</div>
+      <h3>Antes de empezar</h3>
+      <p>Con tu edad, peso y sexo puedo avisarte si algún suplemento de tu stack supera la dosis máxima recomendada para ti. Sin estos datos sólo puedo usar valores genéricos.</p>
+      <div class="onb-progress"><div class="onb-progress-fill" id="onbProgressFill"></div></div>
+    </div>
+    <div class="onb-body">
+      <div class="form-row">
+        <div class="fg"><label class="form-label">Edad <span class="onb-req">*</span></label>
+          <input type="number" id="onbAge" class="fi" placeholder="32" min="10" max="110" oninput="onbUpdateProgress()"></div>
+        <div class="fg"><label class="form-label">Peso (kg) <span class="onb-req">*</span></label>
+          <input type="number" id="onbWeight" class="fi" placeholder="70.5" step="0.1" min="25" max="300" oninput="onbUpdateProgress()"></div>
+      </div>
+      <div class="form-row">
+        <div class="fg"><label class="form-label">Sexo <span class="onb-req">*</span></label>
+          <select id="onbGender" class="fi" onchange="onbUpdateProgress()">
+            <option value="">— Seleccionar —</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="otro">Otro</option>
+          </select></div>
+        <div class="fg"><label class="form-label">Altura (cm)</label>
+          <input type="number" id="onbHeight" class="fi" placeholder="175" min="100" max="230" oninput="onbUpdateProgress()"></div>
+      </div>
+      <div class="fg" id="onbGenderExtra" style="display:none"><label class="form-label">¿Embarazo o lactancia?</label>
+        <select id="onbPregnancy" class="fi">
+          <option value="no">No</option>
+          <option value="embarazo">Embarazo</option>
+          <option value="lactancia">Lactancia</option>
+        </select>
+        <p style="font-size:10.5px;color:var(--text-3);margin-top:5px">Cambia los límites de vitamina A, yodo y cafeína, entre otros.</p>
+      </div>
+      <div class="fg"><label class="form-label">¿Fumas?</label>
+        <select id="onbSmoker" class="fi">
+          <option value="no">No</option>
+          <option value="si">Sí</option>
+        </select>
+        <p style="font-size:10.5px;color:var(--text-3);margin-top:5px">Relevante para el beta-caroteno.</p>
+      </div>
+      <p style="font-size:10.5px;color:var(--text-3);line-height:1.55;margin-top:12px">
+        Estos datos se guardan sólo en tu cuenta y se usan para calcular tus límites. Puedes editarlos o borrarlos en Perfil cuando quieras.
+      </p>
+    </div>
+    <div class="onb-foot">
+      <button class="btn-onb-later" onclick="onbLater()">Más tarde</button>
+      <button class="btn-accent" id="btnOnbSave" onclick="onbSave()">Guardar y continuar</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -868,6 +1023,500 @@ const USAGE_TYPES={
   necesidad:{label:'Según necesidad',icon:'⚡', color:'var(--text-2)',   bg:'rgba(0,0,0,.06)'},
 };
 const MONTHS=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+
+/* ============================================================
+   v29 — MOTOR DE SEGURIDAD DE DOSIS
+   Valores de referencia: EFSA (Autoridad Europea de Seguridad
+   Alimentaria) y NIH Office of Dietary Supplements.
+   UL = Nivel Máximo Tolerable de ingesta diaria (adultos).
+   Cuando EFSA y NIH difieren se toma el criterio más prudente.
+   ATENCIÓN: valores orientativos, NO son consejo médico.
+============================================================ */
+const NUT_DB=[
+/* ── VITAMINAS ── */
+{id:'vitA',label:'Vitamina A (retinol)',base:'mcg',ui:0.3,ul:3000,ulTeen:2600,ulChild:1100,rda:{hombre:900,mujer:700},
+ al:['vitamina a','vit a','vitamin a','retinol','acetato de retinilo','palmitato de retinilo','retinyl palmitate','retinyl acetate','retinil'],
+ note:'El exceso crónico se acumula en el hígado: cefaleas, daño hepático y pérdida de densidad ósea.',
+ pregUl:3000,pregWarn:'En embarazo el retinol en dosis altas es teratogénico. No suplementar sin indicación médica.'},
+
+{id:'betacar',label:'Beta-caroteno',base:'mg',ul:15,
+ al:['beta caroteno','betacaroteno','beta-caroteno','betacarotene','beta carotene','provitamina a'],
+ note:'Sin toxicidad aguda, pero EFSA recomienda no superar 15 mg/día en suplementos.',
+ smokerUl:7,smokerWarn:'En fumadores, dosis altas de beta-caroteno se han asociado a mayor riesgo de cáncer de pulmón.'},
+
+{id:'vitD',label:'Vitamina D',base:'mcg',ui:0.025,ul:100,ulTeen:100,ulChild:50,rda:{hombre:15,mujer:15},
+ al:['vitamina d','vitamina d3','vitamina d2','vit d','vit d3','vitamin d','vitamin d3','colecalciferol','cholecalciferol','ergocalciferol','calciferol'],
+ note:'Límite = 100 mcg (4.000 UI)/día. El exceso prolongado causa hipercalcemia (daño renal, cálculos).'},
+
+{id:'vitE',label:'Vitamina E',base:'mg',ui:0.67,ul:300,ulTeen:260,rda:{hombre:13,mujer:11},
+ al:['vitamina e','vit e','vitamin e','tocoferol','alfa tocoferol','alpha tocopherol','d alfa tocoferol','tocopherol','acetato de tocoferilo'],
+ note:'Por encima de 300 mg/día aumenta el riesgo de sangrado, sobre todo si tomas anticoagulantes.'},
+
+{id:'vitK',label:'Vitamina K',base:'mcg',rda:{hombre:70,mujer:70},
+ al:['vitamina k','vitamina k1','vitamina k2','vit k','vitamin k','filoquinona','menaquinona','mk 7','mk7','mk 4','phylloquinone'],
+ note:'Sin límite superior establecido, pero interfiere seriamente con anticoagulantes tipo warfarina/Sintrom.'},
+
+{id:'vitC',label:'Vitamina C',base:'mg',ul:2000,ulTeen:1800,ulChild:650,rda:{hombre:110,mujer:95},
+ al:['vitamina c','vit c','vitamin c','acido ascorbico','ácido ascórbico','ascorbato','ascorbic acid','ascorbato de sodio','ascorbato calcico','ester c'],
+ note:'Por encima de 2.000 mg/día: diarrea osmótica, molestias digestivas y más riesgo de cálculos de oxalato.'},
+
+{id:'b1',label:'Vitamina B1 (tiamina)',base:'mg',rda:{hombre:1.2,mujer:1.1},
+ al:['tiamina','vitamina b1','vit b1','vitamin b1','thiamine','benfotiamina','clorhidrato de tiamina'],
+ note:'Hidrosoluble, sin límite superior conocido: el excedente se elimina por orina.'},
+
+{id:'b2',label:'Vitamina B2 (riboflavina)',base:'mg',rda:{hombre:1.6,mujer:1.6},
+ al:['riboflavina','vitamina b2','vit b2','vitamin b2','riboflavin'],
+ note:'Sin límite superior establecido. Tiñe la orina de amarillo intenso, es inofensivo.'},
+
+{id:'b3',label:'Vitamina B3 (niacina)',base:'mg',ul:35,ulTeen:30,rda:{hombre:16,mujer:14},
+ al:['niacina','vitamina b3','vit b3','vitamin b3','acido nicotinico','ácido nicotínico','niacin','nicotinic acid'],
+ note:'Por encima de 35 mg/día aparece el "flush" (rubor, picor). Dosis muy altas y crónicas son hepatotóxicas.'},
+
+{id:'nicotinamida',label:'Nicotinamida / NMN / NR',base:'mg',ul:900,pri:2,
+ al:['nicotinamida','niacinamida','nicotinamide','niacinamide','nmn','nicotinamide mononucleotide','ribosido de nicotinamida','nicotinamide riboside','nr'],
+ note:'Forma sin flush de la B3. EFSA sitúa el límite en 900 mg/día por posible carga hepática.'},
+
+{id:'b5',label:'Vitamina B5 (ác. pantoténico)',base:'mg',rda:{hombre:5,mujer:5},
+ al:['acido pantotenico','ácido pantoténico','vitamina b5','vit b5','vitamin b5','pantotenato','pantothenic acid','pantetina'],
+ note:'Sin límite superior establecido.'},
+
+{id:'b6',label:'Vitamina B6 (piridoxina)',base:'mg',ul:12,ulTeen:10,ulChild:5,rda:{hombre:1.7,mujer:1.6},
+ al:['piridoxina','vitamina b6','vit b6','vitamin b6','pyridoxine','p5p','piridoxal 5 fosfato','pyridoxal','clorhidrato de piridoxina'],
+ note:'⚠️ Muy relevante: el exceso mantenido de B6 causa neuropatía periférica (hormigueos, entumecimiento). EFSA fija el límite en 12 mg/día — mucho más bajo de lo que llevan muchos complejos B.'},
+
+{id:'b7',label:'Vitamina B7 (biotina)',base:'mcg',rda:{hombre:40,mujer:40},
+ al:['biotina','vitamina b7','vitamina b8','vit b7','vitamin b7','biotin','vitamina h'],
+ note:'Sin límite superior, pero por encima de 5.000 mcg/día falsea análisis de sangre (tiroides, troponina). Avisa en el laboratorio.'},
+
+{id:'b9',label:'Folato / Ácido fólico',base:'mcg',ul:1000,ulTeen:800,ulChild:400,rda:{hombre:330,mujer:330},
+ al:['acido folico','ácido fólico','folato','vitamina b9','vit b9','vitamin b9','folic acid','folate','metilfolato','5 mthf','l metilfolato','quatrefolic'],
+ note:'Por encima de 1.000 mcg/día puede enmascarar una deficiencia de B12 y retrasar su diagnóstico.',
+ pregNote:'En embarazo la recomendación sube a 600 mcg/día (400 mcg de suplemento preconcepcional).'},
+
+{id:'b12',label:'Vitamina B12',base:'mcg',rda:{hombre:4,mujer:4},
+ al:['vitamina b12','vit b12','vitamin b12','cobalamina','cianocobalamina','metilcobalamina','hidroxocobalamina','adenosilcobalamina','cyanocobalamin','methylcobalamin'],
+ note:'Sin límite superior: no se ha demostrado toxicidad, se excreta el exceso.'},
+
+{id:'colina',label:'Colina',base:'mg',ul:3500,ulTeen:3000,rda:{hombre:400,mujer:400},
+ al:['colina','choline','bitartrato de colina','citicolina','alfa gpc','alpha gpc','cdp colina','fosfatidilcolina'],
+ note:'Por encima de 3.500 mg/día: olor corporal a pescado, sudoración, hipotensión.'},
+
+/* ── MINERALES ── */
+{id:'calcio',label:'Calcio',base:'mg',ul:2500,rda:{hombre:950,mujer:950},
+ al:['calcio','calcium','carbonato de calcio','citrato de calcio','ca'],
+ note:'Por encima de 2.500 mg/día: cálculos renales y peor absorción de hierro y zinc.'},
+
+{id:'hierro',label:'Hierro',base:'mg',ul:45,ulTeen:45,ulChild:40,rda:{hombre:11,mujer:16},
+ al:['hierro','iron','fe','sulfato ferroso','bisglicinato de hierro','fumarato ferroso','gluconato ferroso','hierro hemo','pirofosfato ferrico'],
+ note:'⚠️ Estrecho margen de seguridad. Por encima de 45 mg/día: náuseas, estreñimiento, daño hepático. Sólo suplementar con analítica de ferritina.'},
+
+{id:'magnesio',label:'Magnesio (suplementario)',base:'mg',ul:350,ulTeen:250,rda:{hombre:350,mujer:300},
+ al:['magnesio','magnesium','mg','citrato de magnesio','bisglicinato de magnesio','oxido de magnesio','óxido de magnesio','malato de magnesio','treonato de magnesio','cloruro de magnesio','carbonato de magnesio'],
+ note:'El límite de 350 mg/día es sólo para el magnesio de suplementos (el de la dieta no cuenta). Por encima: diarrea. Precaución con insuficiencia renal.'},
+
+{id:'zinc',label:'Zinc',base:'mg',ul:25,ulTeen:22,ulChild:13,rda:{hombre:11,mujer:8},
+ al:['zinc','zn','picolinato de zinc','gluconato de zinc','citrato de zinc','bisglicinato de zinc','oxido de zinc','monometionina de zinc'],
+ note:'Por encima de 25 mg/día de forma crónica provoca deficiencia de cobre, anemia y baja la inmunidad.'},
+
+{id:'cobre',label:'Cobre',base:'mg',ul:5,ulTeen:4,rda:{hombre:1.3,mujer:1.3},
+ al:['cobre','copper','cu','gluconato de cobre','bisglicinato de cobre','sulfato de cobre'],
+ note:'Por encima de 5 mg/día: molestias digestivas y, a largo plazo, daño hepático.'},
+
+{id:'selenio',label:'Selenio',base:'mcg',ul:300,ulTeen:250,ulChild:130,rda:{hombre:70,mujer:70},
+ al:['selenio','selenium','se','selenometionina','levadura de selenio','selenito de sodio'],
+ note:'⚠️ Margen muy estrecho. Por encima de 300 mcg/día: caída de pelo, uñas quebradizas, aliento a ajo, neuropatía.'},
+
+{id:'yodo',label:'Yodo',base:'mcg',ul:600,ulTeen:500,ulChild:300,rda:{hombre:150,mujer:150},
+ al:['yodo','iodo','iodine','yoduro de potasio','kelp','fucus','alga kelp'],
+ note:'Tanto el exceso como el defecto alteran la tiroides. Cuidado con las algas: pueden llevar dosis enormes y variables.',
+ pregNote:'En embarazo y lactancia la necesidad sube a 200-250 mcg/día.'},
+
+{id:'manganeso',label:'Manganeso',base:'mg',ul:11,rda:{hombre:3,mujer:3},
+ al:['manganeso','manganese','mn','bisglicinato de manganeso','gluconato de manganeso'],
+ note:'Por encima de 11 mg/día puede haber efectos neurológicos. Es fácil pasarse combinando multivitamínicos.'},
+
+{id:'molibdeno',label:'Molibdeno',base:'mcg',ul:600,rda:{hombre:65,mujer:65},
+ al:['molibdeno','molybdenum','mo','molibdato de sodio'],
+ note:'Por encima de 600 mcg/día puede interferir con el metabolismo del cobre.'},
+
+{id:'cromo',label:'Cromo',base:'mcg',rda:{hombre:35,mujer:25},
+ al:['cromo','chromium','cr','picolinato de cromo','chromium picolinate','polinicotinato de cromo'],
+ note:'Sin límite superior establecido. Precaución si tomas antidiabéticos: puede potenciar la bajada de glucosa.'},
+
+{id:'fosforo',label:'Fósforo',base:'mg',ul:4000,rda:{hombre:550,mujer:550},
+ al:['fosforo','fósforo','phosphorus','fosfato','p'],
+ note:'Por encima de 4.000 mg/día altera el equilibrio calcio-fósforo. Precaución con insuficiencia renal.'},
+
+{id:'potasio',label:'Potasio (suplementario)',base:'mg',ul:3000,rda:{hombre:3500,mujer:3500},
+ al:['potasio','potassium','k','cloruro de potasio','citrato de potasio','bicarbonato de potasio'],
+ note:'⚠️ El potasio en suplemento por encima de 3.000 mg/día puede provocar arritmias. Muy peligroso con problemas renales o con IECA/ARA-II (medicación para la tensión).'},
+
+{id:'boro',label:'Boro',base:'mg',ul:10,
+ al:['boro','boron','borato','fructoborato'],
+ note:'Límite 10 mg/día.'},
+
+{id:'fluor',label:'Flúor',base:'mg',ul:7,ulChild:2.2,
+ al:['fluor','flúor','fluoride','fluoruro'],
+ note:'Por encima de 7 mg/día: fluorosis dental y ósea.'},
+
+/* ── OMEGA Y GRASAS ── */
+{id:'omega3',label:'Omega-3 (EPA + DHA)',base:'mg',ul:5000,
+ al:['omega 3','omega3','epa','dha','epa dha','aceite de pescado','fish oil','aceite de krill','krill','acidos grasos omega 3','ácidos grasos omega 3','aceite de algas'],
+ note:'EFSA considera seguro hasta 5.000 mg/día de EPA+DHA. Por encima aumenta el tiempo de sangrado.'},
+
+/* ── AMINOÁCIDOS Y DEPORTIVOS ── */
+{id:'creatina',label:'Creatina',base:'mg',ul:5000,
+ al:['creatina','creatine','creatina monohidrato','creatine monohydrate','monohidrato de creatina','creapure','creatina hcl'],
+ note:'La dosis de mantenimiento habitual es 3.000-5.000 mg/día. Las fases de carga (20 g) son temporales (5-7 días). Bebe suficiente agua.'},
+
+{id:'proteina',label:'Proteína en polvo',base:'mg',perKg:2000,perKgOnly:true,ul:140000,
+ al:['proteina','proteína','protein','whey','suero de leche','caseina','caseína','proteina de guisante','aislado de proteina','concentrado de proteina','wpi','wpc'],
+ note:'Referencia: hasta ~2 g por kg de peso al día contando toda la dieta, no sólo el suplemento.'},
+
+{id:'betaalanina',label:'Beta-alanina',base:'mg',ul:6400,
+ al:['beta alanina','betaalanina','beta-alanina','beta alanine','carnosyn'],
+ note:'Dosis eficaz 3.200-6.400 mg/día. Produce parestesia (hormigueo) transitoria e inofensiva.'},
+
+{id:'citrulina',label:'L-Citrulina',base:'mg',ul:10000,
+ al:['citrulina','citrulline','l citrulina','malato de citrulina','citrulline malate'],
+ note:'Dosis habitual 6.000-8.000 mg pre-entreno. Bien tolerada.'},
+
+{id:'taurina',label:'Taurina',base:'mg',ul:6000,
+ al:['taurina','taurine','l taurina'],
+ note:'EFSA considera segura hasta 6.000 mg/día.'},
+
+{id:'glutamina',label:'L-Glutamina',base:'mg',ul:14000,
+ al:['glutamina','glutamine','l glutamina'],
+ note:'Bien tolerada. Precaución con enfermedad hepática o renal.'},
+
+{id:'bcaa',label:'BCAA / Leucina',base:'mg',ul:20000,
+ al:['bcaa','aminoacidos ramificados','aminoácidos ramificados','leucina','leucine','isoleucina','valina','hmb'],
+ note:'Sin toxicidad demostrada a dosis habituales. Poco útiles si ya llegas a la proteína diaria.'},
+
+/* ── ESTIMULANTES ── */
+{id:'cafeina',label:'Cafeína',base:'mg',ul:400,perKg:5.7,ulTeen:100,ulChild:45,
+ al:['cafeina','cafeína','caffeine','cafeina anhidra','anhydrous caffeine','extracto de guarana','guarana','guaraná','nuez de cola','teina'],
+ note:'⚠️ EFSA: hasta 400 mg/día en adultos sanos y no más de 200 mg de una vez. Recuerda sumar el café, té y refrescos que tomes.',
+ pregUl:200,pregWarn:'En embarazo y lactancia el límite baja a 200 mg/día.'},
+
+{id:'yohimbina',label:'Yohimbina',base:'mg',ul:20,
+ al:['yohimbina','yohimbine','yohimbe','alfa yohimbina','rauwolscina'],
+ note:'⚠️ Estimulante de margen muy estrecho: taquicardia, ansiedad, subida de tensión. Prohibida en suplementos en varios países de la UE.'},
+
+{id:'sinefrina',label:'Sinefrina',base:'mg',ul:30,
+ al:['sinefrina','synephrine','citrus aurantium','naranja amarga','p sinefrina'],
+ note:'⚠️ Estimulante cardiovascular. Combinada con cafeína aumenta el riesgo de arritmias e hipertensión.'},
+
+/* ── OTROS ACTIVOS ── */
+{id:'melatonina',label:'Melatonina',base:'mg',ul:5,
+ al:['melatonina','melatonin'],
+ note:'La dosis eficaz suele ser baja (0,5-2 mg, 30-60 min antes de dormir). Más no es mejor: puede dar somnolencia diurna y sueños vívidos.'},
+
+{id:'curcumina',label:'Curcumina / Cúrcuma',base:'mg',perKg:3,perKgOnly:true,ul:210,
+ al:['curcumina','curcuma','cúrcuma','curcumin','turmeric','extracto de curcuma','meriva','longvida','bcm 95'],
+ note:'La IDA de EFSA es 3 mg por kg de peso al día de curcumina. Se han descrito casos de hepatotoxicidad con extractos de alta absorción.'},
+
+{id:'ashwagandha',label:'Ashwagandha',base:'mg',ul:600,
+ al:['ashwagandha','withania','withania somnifera','ksm 66','sensoril','bufera'],
+ note:'⚠️ Dosis habitual 300-600 mg/día de extracto. Se han notificado casos de daño hepático y alteraciones tiroideas. Evitar en embarazo y en enfermedad autoinmune.'},
+
+{id:'coq10',label:'Coenzima Q10',base:'mg',ul:300,
+ al:['coenzima q10','coq10','co q10','ubiquinol','ubiquinona','coenzyme q10'],
+ note:'Bien tolerada hasta 300 mg/día. Puede reducir el efecto de anticoagulantes.'},
+
+{id:'alfalipoico',label:'Ácido alfa-lipoico',base:'mg',ul:600,
+ al:['acido alfa lipoico','ácido alfa lipoico','alpha lipoic acid','ala','acido tioctico','r ala','r lipoico'],
+ note:'Dosis habitual 300-600 mg/día. Puede bajar la glucosa: precaución si eres diabético.'},
+
+{id:'nac',label:'NAC (N-acetilcisteína)',base:'mg',ul:1800,
+ al:['nac','n acetilcisteina','n-acetilcisteína','acetilcisteina','n acetyl cysteine','cisteina'],
+ note:'Dosis habitual 600-1.800 mg/día. Puede causar molestias digestivas.'},
+
+{id:'berberina',label:'Berberina',base:'mg',ul:1500,
+ al:['berberina','berberine','berberis','agracejo'],
+ note:'⚠️ Interacciona con muchos medicamentos (metformina, estatinas, anticoagulantes) al inhibir el CYP3A4. Baja la glucosa.'},
+
+{id:'resveratrol',label:'Resveratrol',base:'mg',ul:1500,
+ al:['resveratrol','trans resveratrol','polygonum cuspidatum'],
+ note:'Por encima de 1.000-1.500 mg/día: molestias digestivas. Puede afectar a la coagulación.'},
+
+{id:'glucosamina',label:'Glucosamina',base:'mg',ul:1500,
+ al:['glucosamina','glucosamine','sulfato de glucosamina','clorhidrato de glucosamina'],
+ note:'Dosis estándar 1.500 mg/día. Precaución con anticoagulantes y alergia al marisco.'},
+
+{id:'colageno',label:'Colágeno',base:'mg',ul:20000,
+ al:['colageno','colágeno','collagen','peptidos de colageno','péptidos de colágeno','colageno hidrolizado','verisol','peptan'],
+ note:'Dosis habitual 5.000-10.000 mg/día. Muy bien tolerado.'},
+
+{id:'inositol',label:'Inositol',base:'mg',ul:12000,
+ al:['inositol','mio inositol','myo inositol','d chiro inositol'],
+ note:'Dosis habitual 2.000-4.000 mg/día (hasta 12 g en protocolos de SOP).'},
+
+{id:'htp5',label:'5-HTP',base:'mg',ul:300,
+ al:['5 htp','5htp','5-htp','hidroxitriptofano','griffonia'],
+ note:'⚠️ NO combinar con antidepresivos ISRS/IMAO ni triptanes: riesgo de síndrome serotoninérgico. Consulta antes de tomarlo.'},
+
+{id:'hiperico',label:'Hipérico (Hierba de San Juan)',base:'mg',ul:900,
+ al:['hiperico','hipérico','hierba de san juan','st johns wort','hypericum','hipericina'],
+ note:'⚠️ Una de las plantas con más interacciones que existen: anula anticonceptivos orales, anticoagulantes, antirretrovirales, inmunosupresores y antidepresivos. No la tomes sin avisar a tu médico.'},
+
+{id:'probiotico',label:'Probióticos',base:'mg',
+ al:['probiotico','probiótico','lactobacillus','bifidobacterium','saccharomyces','fermentos lacticos'],
+ note:'Se miden en UFC, no en mg: la app no puede evaluarlos numéricamente. Precaución en inmunodeprimidos.'},
+
+{id:'fibra',label:'Fibra / Psyllium',base:'mg',ul:30000,
+ al:['fibra','psyllium','plantago ovata','inulina','fos','glucomanano','salvado'],
+ note:'Aumenta la ingesta poco a poco y con mucha agua. Separa 2 h de la medicación: reduce su absorción.'},
+
+{id:'teanina',label:'L-Teanina',base:'mg',ul:400,pri:2,
+ al:['teanina','l teanina','theanine','l theanine','suntheanine'],
+ note:'Dosis habitual 100-400 mg. Muy bien tolerada; puede potenciar el efecto de sedantes.'},
+
+{id:'carnitina',label:'L-Carnitina',base:'mg',ul:2000,
+ al:['carnitina','l carnitina','carnitine','acetil l carnitina','alcar','tartrato de carnitina'],
+ note:'Dosis habitual 1.000-2.000 mg/día. Por encima: molestias digestivas y olor corporal.'},
+
+{id:'arginina',label:'L-Arginina',base:'mg',ul:9000,
+ al:['arginina','l arginina','arginine','aakg','alfa cetoglutarato de arginina'],
+ note:'Bien tolerada hasta ~9 g/día. Precaución si tomas medicación para la tensión o tienes herpes recurrente.'},
+
+{id:'tirosina',label:'L-Tirosina',base:'mg',ul:5000,
+ al:['tirosina','l tirosina','tyrosine','n acetil tirosina','nalt'],
+ note:'Dosis habitual 500-2.000 mg. Precaución con hipertiroidismo o IMAO.'},
+
+{id:'gaba',label:'GABA',base:'mg',ul:3000,
+ al:['gaba','acido gamma aminobutirico','ácido gamma aminobutírico','pharmagaba'],
+ note:'Dosis habitual 100-750 mg. Evitar combinar con sedantes o alcohol.'},
+
+{id:'msm',label:'MSM (metilsulfonilmetano)',base:'mg',ul:6000,
+ al:['msm','metilsulfonilmetano','methylsulfonylmethane','dimetilsulfona'],
+ note:'Dosis habitual 1.500-3.000 mg/día. Bien tolerado.'},
+
+{id:'condroitina',label:'Condroitina',base:'mg',ul:1200,
+ al:['condroitina','chondroitin','sulfato de condroitina'],
+ note:'Dosis estándar 800-1.200 mg/día. Precaución con anticoagulantes.'},
+
+{id:'quercetina',label:'Quercetina',base:'mg',ul:1000,
+ al:['quercetina','quercetin','dihidroquercetina'],
+ note:'Dosis habitual 500-1.000 mg/día. Inhibe enzimas hepáticas: puede alterar los niveles de otros medicamentos.'},
+
+{id:'luteina',label:'Luteína / Zeaxantina',base:'mg',ul:20,
+ al:['luteina','luteína','lutein','zeaxantina','zeaxanthin','meso zeaxantina'],
+ note:'Dosis habitual 10-20 mg/día para salud ocular.'},
+
+{id:'licopeno',label:'Licopeno',base:'mg',ul:15,
+ al:['licopeno','lycopene','extracto de tomate'],
+ note:'EFSA sitúa la ingesta aceptable en torno a 15 mg/día en suplementos.'},
+
+{id:'astaxantina',label:'Astaxantina',base:'mg',ul:8,
+ al:['astaxantina','astaxanthin','haematococcus'],
+ note:'Dosis habitual 4-8 mg/día. Puede bajar ligeramente la tensión arterial.'},
+
+{id:'rodiola',label:'Rhodiola rosea',base:'mg',ul:600,
+ al:['rodiola','rhodiola','rhodiola rosea','raiz artica','rosavina'],
+ note:'Dosis habitual 200-600 mg/día de extracto. Puede causar insomnio si se toma tarde. Evitar con estimulantes.'},
+
+{id:'ginseng',label:'Ginseng',base:'mg',ul:2000,
+ al:['ginseng','panax','panax ginseng','ginsenosidos','eleuterococo','ginseng siberiano'],
+ note:'Dosis habitual 200-400 mg de extracto. Interacciona con anticoagulantes y antidiabéticos.'},
+
+{id:'ginkgo',label:'Ginkgo biloba',base:'mg',ul:240,
+ al:['ginkgo','ginkgo biloba','gingko','egb 761'],
+ note:'⚠️ Dosis habitual 120-240 mg/día. Aumenta el riesgo de sangrado: no combinar con anticoagulantes ni antes de cirugía.'},
+
+{id:'valeriana',label:'Valeriana',base:'mg',ul:900,
+ al:['valeriana','valerian','valeriana officinalis'],
+ note:'Dosis habitual 300-600 mg antes de dormir. No combinar con alcohol ni sedantes.'},
+
+{id:'cardomariano',label:'Cardo mariano / Silimarina',base:'mg',ul:600,
+ al:['cardo mariano','silimarina','silybum','milk thistle','silybin','silimarin'],
+ note:'Dosis habitual 200-600 mg/día de silimarina. Puede alterar el metabolismo hepático de otros fármacos.'},
+
+{id:'sawpalmetto',label:'Saw Palmetto',base:'mg',ul:640,
+ al:['saw palmetto','serenoa','serenoa repens','sabal','palmito salvaje'],
+ note:'Dosis habitual 320 mg/día. Puede alterar los valores de PSA en analíticas de próstata: avísalo a tu médico.'},
+
+{id:'boswellia',label:'Boswellia',base:'mg',ul:1000,
+ al:['boswellia','boswellia serrata','incienso indio','acido boswelico','ácido boswélico','aflapin','5 loxin'],
+ note:'Dosis habitual 300-1.000 mg/día de extracto.'},
+
+{id:'maca',label:'Maca',base:'mg',ul:3000,
+ al:['maca','lepidium meyenii','maca andina','maca negra'],
+ note:'Dosis habitual 1.500-3.000 mg/día.'},
+
+{id:'espirulina',label:'Espirulina / Chlorella',base:'mg',ul:10000,
+ al:['espirulina','spirulina','chlorella','clorela','alga verdeazul'],
+ note:'Dosis habitual 3-6 g/día. Elige marcas con control de metales pesados y microcistinas. Evitar en enfermedad autoinmune.'}
+];
+
+/* ── Normalización de texto ── */
+function nutNorm(s){
+  return (s||'').toString().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,' ').trim();
+}
+/* Índice de alias ordenado de más largo a más corto (evita que "vitamina b1" capture "vitamina b12") */
+const NUT_ALIAS_INDEX=(()=>{
+  const arr=[];
+  NUT_DB.forEach(n=>n.al.forEach(a=>arr.push({alias:nutNorm(a),nut:n,pri:n.pri||1})));
+  return arr.sort((a,b)=>(b.pri-a.pri)||(b.alias.length-a.alias.length));
+})();
+function matchNutrient(name){
+  const n=nutNorm(name);
+  if(!n)return null;
+  for(const e of NUT_ALIAS_INDEX){
+    const re=new RegExp('(^|[^a-z0-9])'+e.alias.replace(/ /g,'[^a-z0-9]+')+'e?s?([^a-z0-9]|$)');
+    if(re.test(n))return e.nut;
+  }
+  return null;
+}
+
+/* ── Conversión de unidades a la unidad base del nutriente ── */
+function toBaseAmount(amount,unit,nut){
+  const a=parseFloat(amount);
+  if(!isFinite(a)||a<=0)return null;
+  const u=nutNorm(unit);
+  // nut.ui = unidades BASE del nutriente por cada UI (A:0,3 mcg · D:0,025 mcg · E:0,67 mg)
+  if(u==='ui'||u==='iu')return nut.ui?a*nut.ui:null;
+  let mcg=null;
+  if(u==='mcg'||u==='ug'||u==='mcg rae'||u==='mcg dfe')mcg=a;
+  else if(u==='mg')mcg=a*1000;
+  else if(u==='g')mcg=a*1000000;
+  else return null;                      // %VRN, CFU, ml, otro → no evaluable
+  return nut.base==='mcg'?mcg:mcg/1000;
+}
+function fmtPct(v){return String(Math.round(v*10)/10).replace('.',',');}
+function fmtNum(v){
+  const r=Math.round(v*100)/100;
+  return (r>=1000?r.toLocaleString('es-ES',{maximumFractionDigits:2}):String(r).replace('.',','));
+}
+function fmtNut(v,unit){
+  if(v==null)return'—';
+  if(unit==='mg'&&v>=1000)return fmtNum(v/1000)+' g';
+  if(v>=100)return Math.round(v).toLocaleString('es-ES')+' '+unit;
+  return fmtNum(v)+' '+unit;
+}
+
+/* ── Límite personalizado según perfil ── */
+function personalLimit(nut,prof){
+  const age=parseInt(prof.age)||null;
+  const w=parseFloat(prof.weight)||null;
+  const gender=prof.gender||null;
+  const preg=prof.pregnancy||'no';
+  const smoker=!!prof.smoker;
+  const warns=[];
+  let ul=nut.ul!=null?nut.ul:null;
+  let src='adulto';
+
+  if(age!=null&&age<11&&nut.ulChild!=null){ul=nut.ulChild;src='infantil';}
+  else if(age!=null&&age<18){
+    if(nut.ulTeen!=null){ul=nut.ulTeen;src='adolescente';}
+    else if(ul!=null){ul=Math.round(ul*0.7*100)/100;src='adolescente (estimado)';}
+  }
+  if(preg&&preg!=='no'){
+    if(nut.pregUl!=null&&(ul==null||nut.pregUl<ul)){ul=nut.pregUl;src=preg==='embarazo'?'embarazo':'lactancia';}
+    if(nut.pregWarn)warns.push(nut.pregWarn);
+    if(nut.pregNote)warns.push(nut.pregNote);
+  }
+  if(smoker&&nut.smokerUl!=null){
+    if(ul==null||nut.smokerUl<ul){ul=nut.smokerUl;src='fumador';}
+    if(nut.smokerWarn)warns.push(nut.smokerWarn);
+  }
+  if(nut.perKg!=null&&w){
+    const byW=Math.round(nut.perKg*w*100)/100;
+    if(nut.perKgOnly){ul=byW;src='según tu peso ('+nut.perKg+'/kg)';}
+    else if(ul==null||byW<ul){ul=byW;src='según tu peso ('+nut.perKg+'/kg)';}
+  }
+  let rda=null;
+  if(nut.rda){
+    rda=gender==='mujer'?nut.rda.mujer:nut.rda.hombre;
+    if(gender==='otro')rda=Math.round(((nut.rda.hombre+nut.rda.mujer)/2)*10)/10;
+  }
+  return {ul,rda,src,warns};
+}
+
+/* ── Cálculo de la ingesta diaria agregada ── */
+function computeIntakeReport(){
+  const todayStr=today();
+  const active=intakes.filter(i=>(!i.stopped_at||i.stopped_at>=todayStr));
+  const agg={}, unknown=[], nonNumeric=[];
+  let approxUsed=false;
+
+  active.forEach(i=>{
+    const s=i.supplement||{};
+    const comps=parseComps(s.components);
+    if(!comps.length)return;
+    const dut=i.daily_units_type||'uds';
+    const du=parseFloat(i.daily_units)||null;
+    // Base de la composición: 'unidad' (por cápsula/scoop) o 'dosis' (por dosis diaria completa)
+    let basis=s.comp_basis;
+    if(!basis)basis=(dut==='uds')?'unidad':'dosis';   // por defecto sensato para polvos
+    let mult=1,approx=false;
+    if(basis==='unidad'){
+      if(du&&dut==='uds')mult=du;
+      else if(du){mult=du;approx=true;}
+      else {mult=1;approx=true;}
+    }
+    if(approx)approxUsed=true;
+    const occasional=(i.usage_type==='necesidad'||i.usage_type==='entreno');
+
+    comps.forEach(c=>{
+      const nut=matchNutrient(c.name);
+      const amtRaw=parseFloat(c.amount);
+      if(!nut){
+        unknown.push({name:(c.name||'').trim()||'—',amount:c.amount,unit:c.unit,from:s.name||'—'});
+        return;
+      }
+      const base=isFinite(amtRaw)?toBaseAmount(amtRaw,c.unit,nut):null;
+      if(base==null){
+        nonNumeric.push({name:(c.name||'').trim(),unit:c.unit||'—',from:s.name||'—',nut:nut.label});
+        return;
+      }
+      const daily=base*mult;
+      if(!agg[nut.id])agg[nut.id]={nut,total:0,sources:[],approx:false,occasionalOnly:true};
+      agg[nut.id].total+=daily;
+      agg[nut.id].sources.push({name:s.name||'—',amount:daily,occasional,approx});
+      if(approx)agg[nut.id].approx=true;
+      if(!occasional)agg[nut.id].occasionalOnly=false;
+    });
+  });
+
+  const prof=userProfile||{};
+  const rows=Object.values(agg).map(a=>{
+    const lim=personalLimit(a.nut,prof);
+    const pctUl=lim.ul?Math.round((a.total/lim.ul)*1000)/10:null;
+    const pctRda=lim.rda?Math.round((a.total/lim.rda)*1000)/10:null;
+    let status='nolimit';
+    if(pctUl!=null){
+      if(pctUl>=100)status='over';
+      else if(pctUl>=70)status='near';
+      else status='ok';
+    }
+    if(status==='ok'&&pctRda!=null&&pctRda<50)status='low';
+    return {...a,...lim,pctUl,pctRda,status};
+  });
+  const order={over:0,near:1,low:2,ok:3,nolimit:4};
+  rows.sort((x,y)=>(order[x.status]-order[y.status])||((y.pctUl||0)-(x.pctUl||0)));
+  return {rows,unknown,nonNumeric,approxUsed,activeCount:active.length};
+}
+
+/* ── Estado del perfil ── */
+function profileCompleteness(){
+  const p=userProfile||{};
+  const req=[
+    {k:'age',   ok:!!parseInt(p.age),      label:'Edad'},
+    {k:'weight',ok:!!parseFloat(p.weight), label:'Peso'},
+    {k:'gender',ok:!!p.gender,             label:'Sexo'}
+  ];
+  const opt=[
+    {k:'height',ok:!!parseInt(p.height),   label:'Altura'},
+    {k:'pregnancy',ok:!!p.pregnancy,       label:'Embarazo/lactancia'}
+  ];
+  const missing=req.filter(r=>!r.ok).map(r=>r.label);
+  const done=req.filter(r=>r.ok).length+opt.filter(o=>o.ok).length;
+  return {ok:missing.length===0,missing,pct:Math.round((done/(req.length+opt.length))*100)};
+}
+
 
 /* ── Helpers ── */
 function toast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=(type==='ok'?'✅ ':'❌ ')+msg;t.className=`toast show ${type}`;clearTimeout(t._to);t._to=setTimeout(()=>t.classList.remove('show'),3200);}
@@ -1052,7 +1701,7 @@ async function loadAll(){
   }
   const[rs,ri,rp,rpu]=await Promise.all([
     sb.from('supplements').select('*').eq('user_id',uid).order('created_at'),
-    sb.from('supplement_intakes').select('*,supplement:supplement_id(id,name,category,dose,daily_amount,color,brand,components,total_units,total_units_type,store_url)').eq('user_id',uid).order('started_at',{ascending:false}),
+    sb.from('supplement_intakes').select('*,supplement:supplement_id(id,name,category,dose,daily_amount,color,brand,components,comp_basis,total_units,total_units_type,store_url)').eq('user_id',uid).order('started_at',{ascending:false}),
     sb.from('profiles').select('*').eq('id',uid).single(),
     sb.from('supplement_purchases').select('*').eq('user_id',uid).order('purchased_at',{ascending:false})
   ]);
@@ -1079,6 +1728,9 @@ async function loadAll(){
     document.getElementById('fGender').value=p.gender||'';
     document.getElementById('fGoal').value=p.goal||'';
     document.getElementById('fNotes').value=p.notes||'';
+    document.getElementById('fPregnancy').value=p.pregnancy||'no';
+    document.getElementById('fSmoker').value=p.smoker?'si':'no';
+    togglePregnancyField();
     document.getElementById('fApiKey').value=p.anthropic_key||'';
     activeAiKey=p.anthropic_key||'';
     const name=p.name||currentUser.email.split('@')[0];
@@ -1086,7 +1738,8 @@ async function loadAll(){
     document.getElementById('profileDisplayName').textContent=p.name?`${p.name} ${p.surname||''}`.trim():name;
   }
   loadSavedAnalyses();
-  renderDashboard();renderHistorial();renderFichas();
+  renderDashboard();renderHistorial();renderFichas();renderSeguridad();
+  setTimeout(maybeShowOnboarding,600);
 }
 function setAvatar(name,url){
   const pa=document.getElementById('profileAvatar');
@@ -1104,6 +1757,8 @@ function setAvatar(name,url){
 function showTab(name){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));
   document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===`sec-${name}`));
+  if(name==='seguridad')renderSeguridad();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 function setFilter(el,filter){
   document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
@@ -1552,6 +2207,13 @@ function openFichaModal(id=null){
     </div>
 
     <div class="section-title" style="margin-top:4px">Componentes activos</div>
+    <div class="fg" style="margin-bottom:12px"><label class="form-label">Las cantidades de abajo son…</label>
+      <select id="mfCompBasis" class="fi">
+        <option value="unidad" ${(ficha?.comp_basis||'unidad')==='unidad'?'selected':''}>Por unidad (1 cápsula / 1 scoop)</option>
+        <option value="dosis" ${ficha?.comp_basis==='dosis'?'selected':''}>Por dosis diaria completa</option>
+      </select>
+      <p style="font-size:10px;color:var(--text-3);margin-top:3px">Necesario para calcular bien tu ingesta diaria en la pestaña Seguridad.</p>
+    </div>
     <div class="comp-header"><span>Componente</span><span>Cantidad</span><span>Unidad</span><span></span></div>
     <div id="compRows"></div>
     <button class="btn-add-comp" onclick="addCompRow()">+ Añadir componente</button>
@@ -1598,6 +2260,7 @@ async function saveFicha(id){
     notes:document.getElementById('mfNotes').value.trim()||null,
     color:document.getElementById('mfColor').value,
     components:validComps,
+    comp_basis:document.getElementById('mfCompBasis')?.value||'unidad',
     total_units:parseFloat(document.getElementById('mfTotalUnits').value)||null,
     total_units_type:document.getElementById('mfTotalUnitsType').value||'uds',
     store_url:document.getElementById('mfStoreUrl').value.trim()||null,
@@ -1892,6 +2555,8 @@ async function saveProfile(){
     height:parseInt(document.getElementById('fHeight').value)||null,
     gender:document.getElementById('fGender').value||null,
     goal:document.getElementById('fGoal').value||null,
+    pregnancy:(document.getElementById('fGender').value==='mujer')?(document.getElementById('fPregnancy').value||'no'):'no',
+    smoker:document.getElementById('fSmoker').value==='si',
     notes:document.getElementById('fNotes').value.trim(),
     anthropic_key:document.getElementById('fApiKey').value.trim()||null,
     updated_at:new Date().toISOString()
@@ -1903,6 +2568,8 @@ async function saveProfile(){
     toast('Perfil guardado');status.textContent='✅ Guardado';status.className='save-status ok';
     const name=payload.name||currentUser.email.split('@')[0];
     document.getElementById('profileDisplayName').textContent=payload.name?`${payload.name} ${payload.surname||''}`.trim():name;
+    Object.assign(userProfile,payload);
+    renderSeguridad();
     setTimeout(()=>{status.textContent='';status.className='save-status';},3000);
   }
   if(saveBtn){saveBtn.disabled=false;saveBtn.textContent='Guardar cambios';}
@@ -2001,6 +2668,273 @@ function saveAnalysis(){
   try{localStorage.setItem('ms_analyses_'+currentUser.id,JSON.stringify(_savedAnalyses.slice(0,20)));}catch{}
   toast('Análisis guardado ✓');cancelAnalysis();renderSavedAnalyses();
 }
+
+
+/* ============================================================
+   v29 — RENDER PESTAÑA SEGURIDAD
+============================================================ */
+let _lastSafetyReport=null;
+
+function statusMeta(st){
+  return{
+    over:{pill:'nut-pill-over',txt:'Por encima del límite',bar:'var(--danger)'},
+    near:{pill:'nut-pill-near',txt:'Cerca del límite',bar:'var(--sand)'},
+    ok:{pill:'nut-pill-ok',txt:'Dentro de rango',bar:'var(--olive)'},
+    low:{pill:'nut-pill-low',txt:'Por debajo de lo recomendado',bar:'#5a6aa0'},
+    nolimit:{pill:'nut-pill-info',txt:'Sin límite establecido',bar:'var(--text-3)'}
+  }[st];
+}
+
+function renderNutCard(r){
+  const m=statusMeta(r.status);
+  const unit=r.nut.base;
+  const pct=r.pctUl!=null?Math.min(140,r.pctUl):null;
+  const barW=pct!=null?Math.min(100,(pct/140)*100):0;
+  const markPos=(100/140)*100; // marca del 100% del UL
+  const srcTxt=r.sources.map(s=>`<b>${s.name}</b> ${fmtNut(s.amount,unit)}${s.occasional?' (ocasional)':''}`).join(' · ');
+  const notes=[];
+  if(r.nut.note)notes.push(r.nut.note);
+  (r.warns||[]).forEach(w=>notes.push(w));
+  if(r.approx)notes.push('Cálculo aproximado: revisa en la ficha si la composición es por unidad o por dosis diaria.');
+  if(r.occasionalOnly)notes.push('Sólo lo tomas de forma ocasional o en días de entreno, así que la exposición diaria real es menor.');
+  if(r.status==='low')notes.push('Ojo: este cálculo NO cuenta lo que aportan los alimentos, así que es muy probable que ya cubras la recomendación con la dieta.');
+  return `
+  <div class="nut-card st-${r.status}">
+    <div class="nut-top">
+      <div class="nut-name">${r.nut.label}</div>
+      <div class="nut-amount">${fmtNut(r.total,unit)}<small>/día</small></div>
+    </div>
+    ${r.ul!=null?`
+    <div class="nut-bar">
+      <div class="nut-bar-fill" style="width:${barW}%;background:${m.bar}"></div>
+      <div class="nut-bar-mark" style="left:${markPos}%"></div>
+    </div>`:'<div style="height:8px"></div>'}
+    <div class="nut-meta">
+      <span class="nut-pill ${m.pill}">${m.txt}</span>
+      ${r.ul!=null?`<span>${fmtPct(r.pctUl)}% del límite (${fmtNut(r.ul,unit)}${r.src&&r.src!=='adulto'?' · '+r.src:''})</span>`:''}
+      ${r.rda!=null?`<span>· ${fmtPct(r.pctRda)}% de la recomendación diaria</span>`:''}
+    </div>
+    <div class="nut-src">Aporta: ${srcTxt}</div>
+    ${notes.length?`<div class="nut-note">${notes.join('<br>')}</div>`:''}
+  </div>`;
+}
+
+function renderSeguridad(){
+  const host=document.getElementById('seguridadBody');
+  if(!host)return;
+  const comp=profileCompleteness();
+  document.getElementById('secProfileWarn').style.display=comp.ok?'none':'flex';
+  if(!comp.ok){
+    document.getElementById('secProfileWarnTxt').innerHTML=
+      `Para ajustar los límites a tu caso necesito <strong>${comp.missing.join(', ')}</strong>. Sin esos datos sólo puedo usar valores genéricos de adulto.`;
+  }
+
+  const rep=computeIntakeReport();
+  _lastSafetyReport=rep;
+
+  if(!rep.activeCount){
+    host.innerHTML=`<div class="sec-empty">
+      <div class="sec-empty-ico">🛡️</div>
+      <div class="sec-empty-title">Aún no hay nada que revisar</div>
+      <div class="sec-empty-sub">Cuando actives tomas en el <strong>Historial</strong> y sus fichas tengan componentes con cantidades, aquí verás cuánto llevas al día de cada nutriente y si te pasas del límite recomendado para tu perfil.</div>
+    </div>`;
+    document.getElementById('secKpis').style.display='none';
+    return;
+  }
+  document.getElementById('secKpis').style.display='grid';
+
+  const over=rep.rows.filter(r=>r.status==='over');
+  const near=rep.rows.filter(r=>r.status==='near');
+  const low=rep.rows.filter(r=>r.status==='low');
+  const ok=rep.rows.filter(r=>r.status==='ok');
+  const nolim=rep.rows.filter(r=>r.status==='nolimit');
+
+  document.getElementById('secKpiEval').textContent=rep.rows.length;
+  document.getElementById('secKpiOver').textContent=over.length;
+  document.getElementById('secKpiOver').style.color=over.length?'var(--danger)':'var(--olive)';
+  document.getElementById('secKpiNear').textContent=near.length;
+  document.getElementById('secKpiNear').style.color=near.length?'var(--sand)':'var(--text-3)';
+  document.getElementById('secKpiUnk').textContent=rep.unknown.length;
+
+  let html='';
+  const grp=(title,color,arr)=>arr.length?`
+    <div class="sec-group">
+      <div class="sec-group-title" style="color:${color}">${title}<span class="sec-group-count">${arr.length}</span></div>
+      ${arr.map(renderNutCard).join('')}
+    </div>`:'';
+
+  html+=grp('⛔ Por encima del límite','var(--danger)',over);
+  html+=grp('⚠️ Cerca del límite','#8a6a1a',near);
+  html+=grp('🔵 Por debajo de lo recomendado','#5a6aa0',low);
+  html+=grp('✅ Dentro de rango','var(--olive)',ok);
+  html+=grp('ℹ️ Sin límite superior establecido','var(--text-2)',nolim);
+
+  if(rep.unknown.length||rep.nonNumeric.length){
+    const items=[
+      ...rep.unknown.map(u=>({n:u.name,d:`${u.amount||'?'} ${u.unit||''} · ${u.from}`})),
+      ...rep.nonNumeric.map(u=>({n:u.name+' ('+u.nut+')',d:`unidad "${u.unit}" no convertible · ${u.from}`}))
+    ];
+    html+=`
+    <div class="sec-group">
+      <div class="sec-group-title" style="color:var(--text-2)">❓ No evaluables con la tabla local<span class="sec-group-count">${items.length}</span></div>
+      <div class="card"><div class="card-body">
+        <p style="font-size:11.5px;color:var(--text-3);line-height:1.6;margin-bottom:12px">
+          Estos componentes no están en mi tabla de referencia o usan unidades que no puedo convertir (%VRN, UFC, ml).
+          Puedes pedir una revisión con IA para que los analice uno a uno.
+        </p>
+        ${items.map(i=>`<div class="sec-unknown-item"><span>${i.n}</span><span>${i.d}</span></div>`).join('')}
+        <button class="btn-accent" id="btnSafetyAi" style="margin-top:12px" onclick="analyzeSafetyAI()">🤖 Revisar con IA</button>
+        <div class="sec-ai-panel" id="secAiPanel"></div>
+      </div></div>
+    </div>`;
+  } else {
+    html+=`
+    <div class="sec-group">
+      <div class="card"><div class="card-body" style="text-align:center">
+        <p style="font-size:12px;color:var(--text-3);line-height:1.6;margin-bottom:12px">
+          ¿Quieres una segunda lectura del conjunto (interacciones, solapamientos, orden de prioridad)?
+        </p>
+        <button class="btn-accent" id="btnSafetyAi" onclick="analyzeSafetyAI()">🤖 Revisión completa con IA</button>
+        <div class="sec-ai-panel" id="secAiPanel"></div>
+      </div></div>
+    </div>`;
+  }
+
+  if(rep.approxUsed){
+    html+=`<div class="sec-disclaimer" style="background:rgba(90,106,160,.1);border-color:rgba(90,106,160,.25)">
+      <div class="sec-disclaimer-ico">📐</div>
+      <div class="sec-disclaimer-txt">Algún suplemento tiene la composición en unidades que no coinciden con su dosis diaria. Abre su ficha y marca si los valores son <strong>por unidad</strong> o <strong>por dosis diaria completa</strong> para afinar el cálculo.</div>
+    </div>`;
+  }
+  host.innerHTML=html;
+}
+
+/* ── Revisión con IA (parte "híbrida") ── */
+async function analyzeSafetyAI(){
+  const key=activeAiKey||document.getElementById('fApiKey')?.value?.trim();
+  if(!key){toast('Añade tu API Key en Perfil → Integración IA','err');return;}
+  const rep=_lastSafetyReport||computeIntakeReport();
+  const btn=document.getElementById('btnSafetyAi');
+  const panel=document.getElementById('secAiPanel');
+  if(btn){btn.disabled=true;btn.textContent='Analizando…';}
+  panel.style.display='block';panel.textContent='';
+
+  const p=userProfile||{};
+  const ctx=`Perfil: ${p.age||'?'} años, ${p.gender||'?'}, ${p.weight||'?'} kg, ${p.height||'?'} cm.`
+    +(p.pregnancy&&p.pregnancy!=='no'?` Estado: ${p.pregnancy}.`:'')
+    +(p.smoker?' Fumador.':'')
+    +(p.goal?` Objetivo: ${p.goal}.`:'')
+    +(p.notes?` Notas de salud: ${p.notes}.`:'');
+  const evaluated=rep.rows.map(r=>`- ${r.nut.label}: ${fmtNut(r.total,r.nut.base)}/día`
+    +(r.ul!=null?` (${r.pctUl}% del límite ${fmtNut(r.ul,r.nut.base)})`:' (sin límite establecido)')).join('\n')||'ninguno';
+  const unknown=[...rep.unknown.map(u=>`- ${u.name}: ${u.amount||'?'} ${u.unit||''} (en ${u.from})`),
+                 ...rep.nonNumeric.map(u=>`- ${u.name}: unidad ${u.unit} (en ${u.from})`)].join('\n')||'ninguno';
+
+  const prompt=`${ctx}
+
+Ingesta diaria ya calculada con tabla de referencia (EFSA/NIH):
+${evaluated}
+
+Componentes que NO he podido evaluar con mi tabla local:
+${unknown}
+
+Tarea:
+1. Para cada componente no evaluado, indica la dosis diaria habitual y el límite superior orientativo, y si la cantidad que toma está por encima, dentro o por debajo de lo razonable para este perfil.
+2. Señala interacciones o solapamientos relevantes entre todo el conjunto.
+3. Prioriza: ¿qué 1-3 cosas debería corregir primero y por qué?
+4. Indica si algo requiere consultar con un médico o farmacéutico antes de seguir.
+
+Sé concreto y breve. Usa cifras. No repitas lo que ya está calculado salvo que aporte algo.`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:1400,stream:true,
+        system:'Eres farmacéutico especializado en suplementación y nutrición clínica. Respondes en español, con datos concretos y prudencia clínica. Nunca sustituyes el criterio médico: cuando algo sea dudoso o de riesgo, recomiendas consultar con un profesional sanitario. No diagnosticas.',
+        messages:[{role:'user',content:prompt}]})});
+    if(!res.ok)throw new Error('API '+res.status);
+    let text='';
+    const reader=res.body.getReader(),dec=new TextDecoder();
+    while(true){
+      const{done,value}=await reader.read();if(done)break;
+      const lines=dec.decode(value).split('\n').filter(l=>l.startsWith('data: '));
+      for(const ln of lines){try{const d=JSON.parse(ln.slice(6));if(d.type==='content_block_delta'&&d.delta?.text){text+=d.delta.text;panel.textContent=text;panel.scrollTop=panel.scrollHeight;}}catch{}}
+    }
+  }catch(err){panel.textContent='❌ Error: '+err.message;}
+  if(btn){btn.disabled=false;btn.textContent='🤖 Revisar con IA';}
+}
+
+/* ============================================================
+   v29 — ONBOARDING DE DATOS PERSONALES
+============================================================ */
+function onbUpdateProgress(){
+  const ids=['onbAge','onbWeight','onbGender','onbHeight'];
+  const filled=ids.filter(id=>{const el=document.getElementById(id);return el&&el.value.trim();}).length;
+  document.getElementById('onbProgressFill').style.width=Math.round((filled/ids.length)*100)+'%';
+  document.getElementById('onbGenderExtra').style.display=
+    document.getElementById('onbGender').value==='mujer'?'block':'none';
+}
+function maybeShowOnboarding(){
+  const comp=profileCompleteness();
+  if(comp.ok)return;
+  const uid=currentUser?.id||'anon';
+  let snooze=0;
+  try{snooze=parseInt(localStorage.getItem('ms_onb_later_'+uid))||0;}catch{}
+  if(Date.now()<snooze)return;
+  const p=userProfile||{};
+  document.getElementById('onbAge').value=p.age||'';
+  document.getElementById('onbWeight').value=p.weight||'';
+  document.getElementById('onbHeight').value=p.height||'';
+  document.getElementById('onbGender').value=p.gender||'';
+  document.getElementById('onbPregnancy').value=p.pregnancy||'no';
+  document.getElementById('onbSmoker').value=p.smoker?'si':'no';
+  onbUpdateProgress();
+  document.getElementById('onbOverlay').classList.add('open');
+}
+function onbLater(){
+  const uid=currentUser?.id||'anon';
+  try{localStorage.setItem('ms_onb_later_'+uid,String(Date.now()+24*60*60*1000));}catch{}
+  document.getElementById('onbOverlay').classList.remove('open');
+  toast('Puedes rellenarlos cuando quieras en Perfil → Datos Personales');
+}
+async function onbSave(){
+  const age=parseInt(document.getElementById('onbAge').value)||null;
+  const weight=parseFloat(document.getElementById('onbWeight').value)||null;
+  const gender=document.getElementById('onbGender').value||null;
+  if(!age||!weight||!gender){toast('Edad, peso y sexo son necesarios para calcular tus límites.','err');return;}
+  if(age<10||age>110){toast('Revisa la edad introducida.','err');return;}
+  if(weight<25||weight>300){toast('Revisa el peso introducido.','err');return;}
+  const btn=document.getElementById('btnOnbSave');
+  btn.disabled=true;btn.textContent='Guardando…';
+  const payload={
+    id:currentUser.id,age,weight,gender,
+    height:parseInt(document.getElementById('onbHeight').value)||null,
+    pregnancy:gender==='mujer'?(document.getElementById('onbPregnancy').value||'no'):'no',
+    smoker:document.getElementById('onbSmoker').value==='si',
+    onboarding_done:true,
+    updated_at:new Date().toISOString()
+  };
+  const{error}=await sb.from('profiles').upsert(payload);
+  btn.disabled=false;btn.textContent='Guardar y continuar';
+  if(error){toast('Error al guardar: '+error.message,'err');return;}
+  Object.assign(userProfile,payload);
+  document.getElementById('fAge').value=payload.age||'';
+  document.getElementById('fWeight').value=payload.weight||'';
+  document.getElementById('fHeight').value=payload.height||'';
+  document.getElementById('fGender').value=payload.gender||'';
+  document.getElementById('fPregnancy').value=payload.pregnancy||'no';
+  document.getElementById('fSmoker').value=payload.smoker?'si':'no';
+  togglePregnancyField();
+  document.getElementById('onbOverlay').classList.remove('open');
+  toast('Datos guardados ✓ Ya puedo calcular tus límites');
+  renderSeguridad();
+}
+function togglePregnancyField(){
+  const g=document.getElementById('fGender')?.value;
+  const el=document.getElementById('fPregnancyGroup');
+  if(el)el.style.display=(g==='mujer')?'block':'none';
+}
+function goToSeguridadProfile(){showTab('perfil');setTimeout(()=>document.getElementById('fAge')?.focus(),200);}
 
 function extractScore(text){const m=text.match(/(\d+(?:\.\d+)?)\s*\/\s*10/);return m?m[1]+'/10':'';}
 
