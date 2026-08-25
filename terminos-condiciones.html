@@ -1,86 +1,532 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c45e2a'/%3E%3Crect x='9' y='5' width='14' height='22' rx='7' fill='none' stroke='white' stroke-width='2'/%3E%3Cline x1='9' y1='16' x2='23' y2='16' stroke='white' stroke-width='1.8'/%3E%3Cpath d='M9 16 C9 9 12 5 16 5 C20 5 23 9 23 16Z' fill='white' fill-opacity='0.38'/%3E%3Ccircle cx='16' cy='22' r='1.6' fill='white' opacity='0.75'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#c45e2a">
 <title>Términos y Condiciones — MiSuplementos</title>
+<meta name="description" content="Condiciones de uso y contratación de MiSuplementos: planes, precios, renovación, derecho de desistimiento, cancelación, responsabilidad y advertencia sanitaria.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://misuplementos.app/terminos-condiciones.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#ebe4d8; --bg-card:#ffffff; --bg-card2:#faf7f3;
-  --accent:#c45e2a; --accent-light:#d9763e; --accent-dim:rgba(196,94,42,.10); --accent-glow:rgba(196,94,42,.22);
-  --text-1:#1a0e06; --text-2:#7a5a38; --text-3:#b8a088;
+  --accent:#c45e2a; --accent-light:#d9763e;
+  --accent-dim:rgba(196,94,42,.10); --accent-glow:rgba(196,94,42,.22);
+  --olive:#5a8a60; --olive-dim:rgba(90,138,96,.12);
+  --danger:#c03528; --danger-dim:rgba(192,53,40,.08);
+  --text-1:#1a0e06; --text-2:#5f4526; --text-3:#746050;
   --border:rgba(0,0,0,.07); --border-mid:rgba(0,0,0,.10); --border-strong:rgba(0,0,0,.14);
-  --radius-sm:6px; --radius:10px; --radius-lg:14px;
+  --shadow-sm:0 1px 6px rgba(0,0,0,.06); --shadow:0 3px 16px rgba(0,0,0,.08);
+  --radius:10px; --radius-lg:14px; --radius-xl:20px;
   --font-display:'Cinzel',Georgia,serif; --font-body:'Raleway','Trebuchet MS',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text-1);font-size:15px;line-height:1.7}
-a{color:inherit}
-.container{max-width:760px;margin:0 auto;padding:0 24px}
-.nav{position:sticky;top:0;z-index:50;background:rgba(235,228,216,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-mid)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1080px;margin:0 auto}
-.brand{display:flex;align-items:center;gap:10px}
-.brand-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--accent),var(--accent-light));border-radius:8px;display:flex;align-items:center;justify-content:center}
-.brand-name{font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--accent)}
-.back-link{font-size:12.5px;color:var(--text-2);border:1px solid var(--border-strong);padding:8px 15px;border-radius:99px;transition:.2s}
-.back-link:hover{border-color:var(--accent);color:var(--accent)}
-main{padding:52px 0 70px}
-.legal-eyebrow{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-h1{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--text-1);margin-bottom:8px}
-.updated{font-size:12px;color:var(--text-3);margin-bottom:34px}
-.notice{background:var(--accent-dim);border:1px solid rgba(196,94,42,.2);border-radius:var(--radius);padding:14px 18px;font-size:12.5px;color:var(--text-2);margin-bottom:36px;line-height:1.6}
-section.legal-sec{margin-bottom:26px}
-section.legal-sec h2{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--text-1);margin-bottom:8px}
-section.legal-sec p{font-size:13.5px;color:var(--text-2)}
-footer{border-top:1px solid var(--border-mid);padding:28px 0;text-align:center}
-.footer-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;font-size:11px;color:var(--text-3);margin-top:8px}
-.footer-legal a:hover{color:var(--accent)}
-.footer-legal .sep{color:var(--border-strong)}
-.footer-copy{font-size:11.5px;color:var(--text-3)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text-1);
+  font-size:15px;line-height:1.72;overflow-x:hidden}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--accent-light)}
+svg{display:block}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(235,228,216,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border-mid)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  max-width:820px;margin:0 auto;padding:13px 22px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--accent-light));
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 12px var(--accent-glow);flex-shrink:0}
+.brand-name{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.03em}
+.nav-back{font-size:13px;font-weight:600;color:var(--text-2);text-decoration:none;white-space:nowrap}
+.nav-back:hover{color:var(--accent)}
+
+.wrap{max-width:820px;margin:0 auto;padding:44px 22px 24px}
+.doc-eyebrow{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px}
+h1{font-family:var(--font-display);font-size:30px;line-height:1.25;font-weight:700;
+  color:var(--text-1);margin-bottom:12px;letter-spacing:.005em}
+@media(min-width:640px){h1{font-size:36px}}
+.doc-meta{font-size:13px;color:var(--text-3);padding-bottom:28px;border-bottom:1px solid var(--border-mid);margin-bottom:8px}
+
+.toc{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius-lg);
+  padding:22px 24px;margin:28px 0 36px;box-shadow:var(--shadow-sm)}
+.toc b{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--text-1);
+  display:block;margin-bottom:12px;letter-spacing:.02em}
+.toc ol{margin:0;padding-left:20px;font-size:13.5px;line-height:2}
+.toc a{color:var(--text-2);text-decoration:none;font-weight:500}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+
+h2{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text-1);
+  margin:44px 0 14px;padding-top:8px;letter-spacing:.01em;scroll-margin-top:80px}
+h2 .num{color:var(--accent);margin-right:8px}
+h3{font-family:var(--font-display);font-size:15.5px;font-weight:600;color:var(--text-1);margin:26px 0 9px}
+p{margin-bottom:14px;color:var(--text-2)}
+strong{color:var(--text-1);font-weight:700}
+ul,ol.body{margin:0 0 16px 22px;color:var(--text-2)}
+li{margin-bottom:8px}
+li::marker{color:var(--accent)}
+
+.card{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius-lg);
+  padding:22px 24px;margin:18px 0 22px;box-shadow:var(--shadow-sm)}
+.kv{display:grid;grid-template-columns:1fr;gap:2px;padding:11px 0;border-bottom:1px solid var(--border)}
+@media(min-width:560px){.kv{grid-template-columns:190px 1fr;gap:16px;align-items:baseline}}
+.kv:last-child{border-bottom:none;padding-bottom:0}
+.kv:first-child{padding-top:0}
+.kv dt{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3)}
+.kv dd{font-size:14.5px;color:var(--text-1);margin:0}
+
+.callout{display:flex;gap:13px;align-items:flex-start;border-radius:var(--radius-lg);
+  padding:18px 20px;margin:20px 0 24px;border-left:4px solid var(--accent)}
+.callout.warn{background:var(--danger-dim);border-left-color:var(--danger)}
+.callout.info{background:var(--accent-dim)}
+.callout.ok{background:var(--olive-dim);border-left-color:var(--olive)}
+.callout .ci{flex-shrink:0;margin-top:2px}
+.callout.warn .ci{color:var(--danger)}
+.callout.info .ci{color:var(--accent)}
+.callout.ok .ci{color:var(--olive)}
+.callout p{margin-bottom:0;font-size:14px}
+.callout p+p{margin-top:9px}
+.callout b{display:block;font-family:var(--font-display);font-size:14.5px;color:var(--text-1);margin-bottom:4px}
+
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0 24px;
+  border:1px solid var(--border-mid);border-radius:var(--radius-lg);background:var(--bg-card)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+thead th{background:var(--bg-card2);text-align:left;font-size:11.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);
+  padding:13px 15px;border-bottom:1px solid var(--border-mid);white-space:nowrap}
+tbody td{padding:13px 15px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.6}
+tbody tr:last-child td{border-bottom:none}
+tbody td:first-child{color:var(--text-1);font-weight:600}
+
+.todo{background:#fff8e6;border:1.5px dashed #d9a441;border-radius:var(--radius);
+  padding:14px 16px;margin:16px 0;font-size:13.5px;color:#7a5a1e;line-height:1.6}
+.todo b{color:#7a5a1e;display:block;margin-bottom:3px;font-family:var(--font-body);font-size:12px;
+  text-transform:uppercase;letter-spacing:.06em}
+
+footer{border-top:1px solid var(--border-mid);margin-top:52px;padding:30px 22px 44px}
+.foot-inner{max-width:820px;margin:0 auto;text-align:center}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font-size:12.5px;margin-bottom:12px}
+.foot-links a{color:var(--text-2);text-decoration:none;font-weight:500}
+.foot-links a:hover{color:var(--accent)}
+.foot-links .sep{color:var(--border-strong)}
+.foot-copy{font-size:12.5px;color:var(--text-3)}
 </style>
 </head>
 <body>
+
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="landing.html">
-      <div class="brand-icon"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a class="brand" href="index.html">
+      <span class="brand-icon"><svg width="17" height="17" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="9" y="5" width="14" height="22" rx="7" stroke="white" stroke-width="2.2"/>
         <line x1="9" y1="16" x2="23" y2="16" stroke="white" stroke-width="2"/>
         <path d="M9 16 C9 9 12 5 16 5 C20 5 23 9 23 16Z" fill="white" fill-opacity="0.35"/>
-      </svg></div>
+      </svg></span>
       <span class="brand-name">MiSuplementos</span>
     </a>
-    <a class="back-link" href="landing.html">← Volver al inicio</a>
+    <a class="nav-back" href="index.html">&larr; Volver al inicio</a>
   </div>
 </nav>
-<main>
-  <div class="container">
-    <div class="legal-eyebrow">Condiciones del servicio</div>
-    <h1>Términos y Condiciones</h1>
-    <div class="updated">Última actualización: pendiente de publicación</div>
-    <div class="notice">⚠️ Página en preparación. Este contenido es una plantilla provisional y debe revisarse con un gestor o asesor legal antes de publicar la web con registro y pagos activos.</div>
-    <section class="legal-sec"><h2>1. Aceptación de los términos</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>2. Descripción del servicio</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>3. Registro y cuenta de usuario</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>4. Planes, precios y facturación (Stripe)</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>5. Cancelación y reembolsos</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>6. Uso aceptable de la plataforma</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>7. Modificaciones del servicio</h2><p>Contenido pendiente de redactar.</p></section>
-<section class="legal-sec"><h2>8. Contacto</h2><p>Contenido pendiente de redactar.</p></section>
+
+<main class="wrap">
+
+<div class="doc-eyebrow">Condiciones del servicio</div>
+<h1>Términos y Condiciones</h1>
+<p class="doc-meta">Última actualización: 24 de agosto de 2026 · Versión 1.0</p>
+
+<div class="todo">
+  <b>Pendiente de completar antes de publicar</b>
+  1) Solo falta el <strong>domicilio</strong> en el cuadro del apartado 1.<br>
+  2) <strong>Revisa el apartado 7 (desistimiento) con tu gestor antes de activar Stripe en modo
+  real.</strong> La renuncia al desistimiento debe recogerse mediante una casilla explícita en el
+  proceso de pago; si no la implementas, tendrás que devolver el importe íntegro durante los
+  14 días.<br>
+  3) Confirma el tratamiento del IVA en la venta de servicios digitales a consumidores de la UE
+  (régimen OSS) según tu situación censal.<br>
+  Elimina este recuadro cuando lo hayas hecho.
+</div>
+
+<div class="callout warn">
+  <svg class="ci" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  <div>
+    <p><b>Antes de nada: esto no es consejo médico</b>
+    MiSuplementos es una herramienta de registro e información. <strong>No diagnostica, no trata y
+    no sustituye a tu médico o farmacéutico.</strong> Los límites que mostramos son valores
+    poblacionales generales que no conocen tu medicación, tus analíticas ni tus patologías.
+    El apartado 10 desarrolla esta advertencia y forma parte esencial de estas condiciones.</p>
   </div>
+</div>
+
+<div class="toc">
+  <b>Contenido</b>
+  <ol>
+    <li><a href="#s1">Identificación y objeto</a></li>
+    <li><a href="#s2">Aceptación de las condiciones</a></li>
+    <li><a href="#s3">Registro y cuenta de usuario</a></li>
+    <li><a href="#s4">Descripción del servicio y planes</a></li>
+    <li><a href="#s5">Precios, impuestos y facturación</a></li>
+    <li><a href="#s6">Contratación, pago y renovación</a></li>
+    <li><a href="#s7">Derecho de desistimiento</a></li>
+    <li><a href="#s8">Cancelación y baja</a></li>
+    <li><a href="#s9">Uso aceptable</a></li>
+    <li><a href="#s10">Naturaleza del servicio y advertencia sanitaria</a></li>
+    <li><a href="#s11">Funcionalidades asistidas por IA</a></li>
+    <li><a href="#s12">Fase beta y disponibilidad</a></li>
+    <li><a href="#s13">Propiedad intelectual y tus contenidos</a></li>
+    <li><a href="#s14">Responsabilidad</a></li>
+    <li><a href="#s15">Suspensión y terminación</a></li>
+    <li><a href="#s16">Modificación de las condiciones</a></li>
+    <li><a href="#s17">Protección de datos</a></li>
+    <li><a href="#s18">Ley aplicable y resolución de conflictos</a></li>
+  </ol>
+</div>
+
+<h2 id="s1"><span class="num">1.</span>Identificación y objeto</h2>
+<div class="card">
+  <dl>
+    <div class="kv"><dt>Nombre comercial</dt><dd><strong>NexaLabs44</strong></dd></div>
+    <div class="kv"><dt>Servicio</dt><dd><strong>MiSuplementos</strong> — aplicación web accesible en misuplementos.app</dd></div>
+    <div class="kv"><dt>Correo electrónico</dt><dd><a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a></dd></div>
+    <div class="kv"><dt>Prestador del servicio</dt><dd>Raúl Báguena Cabanes</dd></div>
+    <div class="kv"><dt>NIF</dt><dd>46364970Y</dd></div>
+    <div class="kv"><dt>NIF-IVA (ROI)</dt><dd>ES46364970Y</dd></div>
+    <div class="kv"><dt>Domicilio</dt><dd><em style="color:#a8926f">[pendiente de completar]</em></dd></div>
+  </dl>
+</div>
+<p>Los presentes Términos y Condiciones regulan el acceso y el uso de la aplicación
+<strong>MiSuplementos</strong> (en adelante, «el Servicio»), así como la contratación de la
+suscripción de pago, entre el prestador identificado arriba y cualquier persona que se registre
+como usuario (en adelante, «el Usuario»).</p>
+<p><strong>NexaLabs44</strong> y <strong>MiSuplementos</strong> son nombres comerciales; el
+prestador es una <strong>persona física</strong>, identificada en el cuadro anterior, a cuyo
+nombre se emitirá toda factura.</p>
+
+<h2 id="s2"><span class="num">2.</span>Aceptación de las condiciones</h2>
+<p>El registro en el Servicio implica la aceptación plena y sin reservas de estos Términos, del
+<a href="aviso-legal.html">Aviso Legal</a>, de la
+<a href="politica-privacidad.html">Política de Privacidad</a> y de la
+<a href="cookies.html">Política de Cookies</a>, que forman un conjunto único e indivisible.</p>
+<p>Si no aceptas alguna de estas condiciones, debes abstenerte de registrarte y de utilizar el
+Servicio.</p>
+<p>Se recomienda al Usuario conservar una copia de estos Términos en el momento de la
+contratación. Puede solicitar una copia en formato duradero escribiendo a
+<a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a>.</p>
+
+<h2 id="s3"><span class="num">3.</span>Registro y cuenta de usuario</h2>
+<ul>
+  <li>Para registrarse es necesario ser mayor de <strong>14 años</strong> y facilitar una
+      dirección de correo electrónico válida, que deberá verificarse.</li>
+  <li>El Usuario se compromete a facilitar información <strong>veraz y actualizada</strong>,
+      especialmente en los datos de perfil (edad, sexo y peso), de los que dependen directamente
+      los cálculos que muestra la aplicación.</li>
+  <li>La cuenta es <strong>personal e intransferible</strong>. El Usuario es responsable de la
+      custodia de sus credenciales y de toda la actividad realizada desde su cuenta.</li>
+  <li>Debe comunicar de inmediato cualquier acceso no autorizado a
+      <a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a>.</li>
+</ul>
+
+<h2 id="s4"><span class="num">4.</span>Descripción del servicio y planes</h2>
+<p>El Servicio permite registrar los complementos alimenticios que consume el Usuario, organizar
+sus periodos de toma y ciclos, controlar el inventario y visualizar la suma de cada nutriente
+frente a valores de referencia publicados por la EFSA y los NIH.</p>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>Funcionalidad</th><th>Plan Free</th><th>Plan Premium</th></tr></thead>
+  <tbody>
+    <tr><td>Suplementos activos</td><td>Hasta 5</td><td>Ilimitados</td></tr>
+    <tr><td>Historial e inventario</td><td>Incluido</td><td>Incluido</td></tr>
+    <tr><td>Control de dosis (EFSA/NIH)</td><td>Incluido</td><td>Incluido</td></tr>
+    <tr><td>Avisos de stock por correo</td><td>Incluido</td><td>Incluido</td></tr>
+    <tr><td>Informe del stack para tu médico</td><td>No incluido</td><td>Incluido</td></tr>
+    <tr><td>Análisis del stack asistido por IA</td><td>No incluido</td><td>Incluido</td></tr>
+    <tr><td>Soporte prioritario</td><td>No incluido</td><td>Incluido</td></tr>
+  </tbody>
+</table>
+</div>
+<p>El plan Free es gratuito y no exige la aportación de datos de pago. El prestador se reserva el
+derecho de modificar el alcance de los planes, comunicándolo con una antelación mínima de
+<strong>30 días</strong> cuando la modificación resulte desfavorable para suscriptores en vigor.</p>
+<p>El uso de las funcionalidades asistidas por IA está sujeto a <strong>límites razonables de uso</strong>
+destinados a evitar abusos y a contener el coste de la infraestructura. Dichos límites se
+comunicarán en la propia aplicación cuando resulten aplicables.</p>
+
+<h2 id="s5"><span class="num">5.</span>Precios, impuestos y facturación</h2>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>Plan</th><th>Precio</th><th>Periodo</th></tr></thead>
+  <tbody>
+    <tr><td>Free</td><td>0 €</td><td>Sin caducidad</td></tr>
+    <tr><td>Premium mensual</td><td>2,49 €</td><td>Renovación cada mes</td></tr>
+    <tr><td>Premium anual</td><td>24,99 €</td><td>Renovación cada 12 meses</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Los precios se expresan en <strong>euros (€)</strong> e incluyen los impuestos indirectos
+aplicables según la normativa vigente y el país de residencia del Usuario. El importe final,
+desglosado, se muestra siempre antes de confirmar el pago.</p>
+<p>Al tratarse de servicios prestados por vía electrónica, el IVA aplicable es el del país de
+residencia del Usuario dentro de la Unión Europea, conforme al artículo 58 de la Directiva
+2006/112/CE. En operaciones con empresarios o profesionales establecidos en otros Estados
+miembros e identificados a efectos de IVA, resultará de aplicación el mecanismo de
+<strong>inversión del sujeto pasivo</strong>, emitiéndose la factura sin repercusión de IVA.</p>
+<p>La factura correspondiente a cada periodo se emitirá a nombre del prestador identificado en el
+apartado 1 y se remitirá o pondrá a disposición del Usuario por medios electrónicos, que el
+Usuario acepta expresamente.</p>
+<p>El prestador podrá modificar los precios. Cualquier variación se comunicará con al menos
+<strong>30 días</strong> de antelación y <strong>no afectará al periodo ya abonado</strong>. Si el
+Usuario no acepta el nuevo precio, podrá cancelar la suscripción antes de la siguiente renovación
+sin coste alguno.</p>
+
+<h2 id="s6"><span class="num">6.</span>Contratación, pago y renovación</h2>
+<h3>6.1. Proceso de contratación</h3>
+<ol class="body">
+  <li>El Usuario crea una cuenta gratuita. <strong>En este paso no se solicita ningún dato de pago
+      ni se realiza ningún cargo</strong>, con independencia del plan que haya seleccionado en la
+      página de inicio.</li>
+  <li>Desde su perfil, el Usuario elige la modalidad mensual o anual e inicia la contratación.</li>
+  <li>Se le redirige a una pasarela segura operada por <strong>Stripe Payments Europe, Ltd.</strong>,
+      donde revisa el importe total, acepta las condiciones e introduce sus datos de pago.</li>
+  <li>Confirmado el cobro, el plan Premium se activa de forma inmediata y se remite la
+      confirmación por correo electrónico.</li>
+</ol>
+<h3>6.2. Medios de pago</h3>
+<p>Los aceptados por Stripe en cada momento (tarjeta de crédito o débito y otros métodos que
+Stripe habilite). <strong>El prestador no accede, no recibe y no almacena en ningún momento los
+datos completos de la tarjeta del Usuario.</strong></p>
+<h3>6.3. Renovación automática</h3>
+<p>La suscripción se renueva <strong>automáticamente</strong> al final de cada periodo, por el
+mismo plazo y precio vigente, salvo que el Usuario la cancele antes de la fecha de renovación.</p>
+<h3>6.4. Impago</h3>
+<p>Si un cobro resulta rechazado, se realizarán reintentos conforme a la configuración de la
+pasarela y se avisará al Usuario. Transcurridos <strong>14 días</strong> sin regularizar el pago,
+la cuenta pasará automáticamente al plan Free.</p>
+<div class="callout info">
+  <svg class="ci" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <div>
+    <p><b>Tus datos no se borran al bajar de plan</b>
+    Si pasas de Premium a Free, <strong>no se elimina nada</strong>. Tus fichas y tu historial se
+    conservan íntegros; simplemente dejarás de poder activar más de cinco suplementos a la vez y
+    de usar las funciones exclusivas de Premium hasta que vuelvas a suscribirte.</p>
+  </div>
+</div>
+
+<h2 id="s7"><span class="num">7.</span>Derecho de desistimiento</h2>
+<p>Conforme al Real Decreto Legislativo 1/2007 (texto refundido de la Ley General para la Defensa
+de los Consumidores y Usuarios), el Usuario que tenga la condición de <strong>consumidor</strong>
+dispone de un plazo de <strong>14 días naturales</strong> desde la contratación para desistir del
+contrato sin necesidad de justificación y sin penalización.</p>
+<h3>7.1. Cómo ejercerlo</h3>
+<p>Basta con comunicarlo de forma inequívoca a
+<a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a> desde la dirección de
+correo asociada a la cuenta, indicando la fecha de contratación. El reembolso se realizará por el
+mismo medio de pago empleado, en un plazo máximo de <strong>14 días</strong> desde la recepción de
+la comunicación.</p>
+<h3>7.2. Excepción por inicio inmediato de la prestación</h3>
+<p>El artículo 103.m) del citado texto refundido excluye del derecho de desistimiento el
+suministro de contenido digital que comienza a ejecutarse con el consentimiento expreso del
+consumidor y con su reconocimiento de que, en consecuencia, pierde dicho derecho.</p>
+<div class="callout ok">
+  <svg class="ci" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+  <div>
+    <p><b>Política aplicada por MiSuplementos</b>
+    Aunque la ley permitiría acogerse a esa excepción, <strong>el prestador renuncia a invocarla
+    de forma automática</strong>: si desistes dentro de los 14 días naturales siguientes a la
+    contratación, se te devolverá el importe íntegro aunque ya hayas utilizado las funciones
+    Premium. Esta política es una mejora voluntaria sobre el mínimo legal.</p>
+  </div>
+</div>
+<h3>7.3. Formulario de desistimiento</h3>
+<p>El Usuario puede utilizar, si lo desea, el siguiente modelo (su uso no es obligatorio):</p>
+<div class="card">
+  <p style="margin-bottom:6px"><em>A la atención del prestador del servicio MiSuplementos
+  (datos identificativos completos en el apartado 1 de estas condiciones),
+  correo electrónico contacto@misuplementos.app:</em></p>
+  <p style="margin-bottom:6px">Por la presente le comunico que desisto del contrato de prestación
+  del servicio MiSuplementos.</p>
+  <p style="margin-bottom:6px">— Fecha de contratación: ____________________<br>
+  — Nombre del consumidor: ____________________<br>
+  — Correo electrónico de la cuenta: ____________________<br>
+  — Fecha: ____________________</p>
+</div>
+
+<h2 id="s8"><span class="num">8.</span>Cancelación y baja</h2>
+<h3>8.1. Cancelar la suscripción</h3>
+<p>El Usuario puede cancelar la renovación automática en cualquier momento desde el apartado
+<strong>Perfil → Suscripción</strong> de la aplicación, o escribiendo a
+<a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a>. No existe permanencia
+mínima ni penalización.</p>
+<p>La cancelación surte efecto <strong>al final del periodo ya abonado</strong>: el Usuario
+conserva el acceso Premium hasta esa fecha y, a partir de entonces, la cuenta pasa al plan Free.
+Fuera del plazo de desistimiento, <strong>no se reembolsan los periodos ya iniciados</strong>.</p>
+<h3>8.2. Eliminar la cuenta</h3>
+<p>El Usuario puede solicitar la eliminación completa de su cuenta y de todos sus datos escribiendo
+a <a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a> desde la dirección
+asociada a la cuenta. La supresión se ejecutará en un plazo máximo de <strong>30 días</strong> y
+es <strong>irreversible</strong>: se recomienda exportar previamente la información que se desee
+conservar. Las facturas se mantendrán bloqueadas durante los plazos legales de conservación.</p>
+
+<h2 id="s9"><span class="num">9.</span>Uso aceptable</h2>
+<p>El Usuario se compromete a no:</p>
+<ul>
+  <li>Utilizar el Servicio con fines ilícitos o contrarios a la buena fe.</li>
+  <li>Compartir sus credenciales, revender el acceso o utilizar una misma cuenta para varias personas.</li>
+  <li>Realizar extracción automatizada de contenidos, ingeniería inversa o intentos de acceso a
+      datos de otros usuarios.</li>
+  <li>Sobrecargar deliberadamente la infraestructura o eludir los límites de uso de las funciones
+      asistidas por IA.</li>
+  <li>Introducir contenido ilícito, ofensivo o que vulnere derechos de terceros.</li>
+  <li>Emplear el Servicio para prestar asesoramiento sanitario a terceros o para cualquier
+      finalidad clínica o profesional.</li>
+</ul>
+
+<h2 id="s10"><span class="num">10.</span>Naturaleza del servicio y advertencia sanitaria</h2>
+<div class="callout warn">
+  <svg class="ci" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+  <div>
+    <p><b>Cláusula esencial del contrato</b>
+    El Usuario reconoce haber leído y comprendido lo siguiente, que constituye elemento esencial
+    de estas condiciones.</p>
+  </div>
+</div>
+<ul>
+  <li>MiSuplementos <strong>no es un producto sanitario</strong> conforme al Reglamento (UE)
+      2017/745, ni un dispositivo de diagnóstico, ni una herramienta de prescripción.</li>
+  <li>El Servicio <strong>no proporciona consejo médico, farmacéutico ni nutricional
+      individualizado</strong>, y no sustituye en ningún caso la consulta con un profesional
+      sanitario colegiado.</li>
+  <li>Los límites de referencia proceden de publicaciones de la EFSA y los NIH y son
+      <strong>valores poblacionales generales para adultos sanos</strong>. No contemplan la
+      medicación del Usuario, sus analíticas, sus patologías, sus alergias, un embarazo o
+      lactancia en curso ni sus circunstancias individuales.</li>
+  <li>Los cálculos <strong>no incluyen la ingesta procedente de los alimentos</strong>, que puede
+      ser significativa para muchos nutrientes.</li>
+  <li>Los resultados dependen íntegramente de la <strong>exactitud de los datos introducidos por
+      el propio Usuario</strong>. Un error en la composición, en la unidad de medida o en la base
+      de cálculo puede alterar sustancialmente los resultados mostrados.</li>
+  <li>La ausencia de una alerta <strong>no debe interpretarse como confirmación de que la
+      suplementación es segura</strong>.</li>
+  <li>El Usuario <strong>no debe iniciar, modificar ni suspender ningún tratamiento</strong> ni
+      pauta de suplementación basándose exclusivamente en la información mostrada.</li>
+</ul>
+<p>Ante cualquier síntoma o duda —y especialmente si toma medicamentos, padece alguna patología,
+está embarazada o en periodo de lactancia— el Usuario debe consultar a su médico o farmacéutico.
+<strong>En caso de urgencia, debe llamar al 112.</strong></p>
+
+<h2 id="s11"><span class="num">11.</span>Funcionalidades asistidas por IA</h2>
+<p>El autorrelleno de fichas y el análisis del stack se apoyan en modelos de lenguaje de terceros.
+El Usuario acepta que:</p>
+<ul>
+  <li>Los resultados son <strong>orientativos</strong> y pueden contener errores, omisiones o
+      afirmaciones incorrectas.</li>
+  <li>Es <strong>responsabilidad del Usuario verificar</strong> los datos autorrellenados frente a
+      la etiqueta real del producto antes de guardarlos, especialmente las cantidades y las
+      unidades de medida.</li>
+  <li>El análisis del stack <strong>no constituye una valoración clínica</strong> ni una revisión
+      de interacciones farmacológicas.</li>
+  <li>Estas funciones pueden verse temporalmente interrumpidas por causas ajenas al prestador
+      (incidencias del proveedor, límites de uso o mantenimiento).</li>
+</ul>
+<p>El detalle sobre qué información se envía al proveedor de IA figura en el apartado 8 de la
+<a href="politica-privacidad.html">Política de Privacidad</a>.</p>
+
+<h2 id="s12"><span class="num">12.</span>Fase beta y disponibilidad</h2>
+<p>El Servicio se encuentra en <strong>fase beta</strong>. El Usuario acepta expresamente que
+pueden existir errores, funcionalidades incompletas, cambios frecuentes de interfaz e
+interrupciones puntuales.</p>
+<p>NexaLabs44 realizará esfuerzos razonables para mantener el Servicio disponible, pero
+<strong>no garantiza un nivel de servicio determinado</strong> ni la ausencia de interrupciones.
+Se recomienda al Usuario conservar copia de la información que considere relevante, para lo cual
+dispone de la función de exportación en PDF.</p>
+
+<h2 id="s13"><span class="num">13.</span>Propiedad intelectual y tus contenidos</h2>
+<p>El software, el diseño y las denominaciones <strong>«NexaLabs44»</strong> y
+<strong>«MiSuplementos»</strong>, junto con sus logotipos, son propiedad del prestador y están
+protegidos por la normativa de propiedad intelectual e industrial.</p>
+<p><strong>Los datos que el Usuario introduce le pertenecen íntegramente.</strong> El prestador no
+adquiere derecho de propiedad alguno sobre ellos y únicamente los trata para prestar el Servicio,
+en los términos de la <a href="politica-privacidad.html">Política de Privacidad</a>. No se
+utilizan para entrenar modelos, no se comercializan y no se ceden a terceros con fines
+publicitarios.</p>
+<p>El Usuario puede exportar su información en cualquier momento mediante la función de informe en
+PDF.</p>
+
+<h2 id="s14"><span class="num">14.</span>Responsabilidad</h2>
+<p>El prestador responderá de los daños y perjuicios que cause al Usuario como consecuencia del
+incumplimiento de estas condiciones, en los términos previstos por la legislación aplicable.</p>
+<p>En la máxima medida permitida por la ley, <strong>no responderá</strong> de:</p>
+<ul>
+  <li>Los daños derivados de decisiones adoptadas por el Usuario sobre su suplementación,
+      su salud o su medicación con base en la información mostrada.</li>
+  <li>La inexactitud de los datos introducidos por el propio Usuario ni de sus consecuencias.</li>
+  <li>Las imprecisiones de las funcionalidades asistidas por IA.</li>
+  <li>Interrupciones, fallos técnicos o pérdidas de datos imputables a proveedores de
+      infraestructura, a la red o a causas de fuerza mayor.</li>
+  <li>El uso del Servicio para finalidades distintas de las previstas en estas condiciones.</li>
+</ul>
+<p>Cuando el Usuario tenga la condición de consumidor, <strong>ninguna de las limitaciones
+anteriores afectará a los derechos que la normativa le reconoce con carácter imperativo</strong>,
+ni excluirá la responsabilidad por dolo, culpa grave, muerte o daños personales.</p>
+
+<h2 id="s15"><span class="num">15.</span>Suspensión y terminación</h2>
+<p>El prestador podrá suspender o cancelar la cuenta del Usuario, previo aviso salvo urgencia
+justificada, en caso de incumplimiento grave de estas condiciones, uso fraudulento, impago
+reiterado o actividad que comprometa la seguridad del Servicio o de otros usuarios.</p>
+<p>Si la cancelación no es imputable al Usuario, se le reembolsará la parte proporcional del
+periodo abonado y no disfrutado. En todo caso, se le concederá un plazo razonable para exportar
+su información antes de la supresión definitiva.</p>
+<p>El prestador podrá asimismo discontinuar el Servicio en su totalidad, comunicándolo con una
+antelación mínima de <strong>60 días</strong> y reembolsando la parte proporcional no disfrutada
+de las suscripciones en vigor.</p>
+
+<h2 id="s16"><span class="num">16.</span>Modificación de las condiciones</h2>
+<p>Estas condiciones podrán modificarse para adaptarlas a cambios legislativos, técnicos o de
+funcionamiento del Servicio. Las modificaciones sustanciales se comunicarán por correo electrónico
+con al menos <strong>30 días</strong> de antelación.</p>
+<p>Si el Usuario no está de acuerdo, podrá cancelar su suscripción antes de la entrada en vigor,
+con reembolso de la parte proporcional no disfrutada. El uso continuado del Servicio tras la
+entrada en vigor implicará su aceptación.</p>
+
+<h2 id="s17"><span class="num">17.</span>Protección de datos</h2>
+<p>El tratamiento de los datos personales del Usuario se rige por la
+<a href="politica-privacidad.html">Política de Privacidad</a>, que forma parte integrante de estas
+condiciones. El Usuario reconoce haber sido informado de que la información sobre los complementos
+que consume constituye <strong>dato de salud</strong> y se trata con las garantías reforzadas del
+artículo 9 del RGPD, sobre la base de su consentimiento explícito.</p>
+
+<h2 id="s18"><span class="num">18.</span>Ley aplicable y resolución de conflictos</h2>
+<p>Estas condiciones se rigen por la <strong>legislación española</strong>, sin perjuicio de las
+normas imperativas de protección al consumidor del Estado miembro de residencia del Usuario.</p>
+<p>Las partes se someten a los juzgados y tribunales que resulten competentes conforme a Derecho.
+Cuando el Usuario tenga la condición de <strong>consumidor</strong>, serán competentes los de su
+lugar de domicilio.</p>
+<p>Antes de acudir a la vía judicial, se invita al Usuario a contactar en
+<a href="mailto:contacto@misuplementos.app">contacto@misuplementos.app</a> para intentar una
+solución amistosa. Asimismo, conforme al Reglamento (UE) 524/2013, dispone de la plataforma
+europea de resolución de litigios en línea:
+<a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+
+<h2 id="s19"><span class="num">19.</span>Nulidad parcial</h2>
+<p>Si alguna cláusula de estas condiciones fuera declarada nula o inaplicable, dicha nulidad no
+afectará a la validez del resto, que continuará en vigor. La cláusula afectada se sustituirá por
+otra válida que persiga la misma finalidad en la mayor medida posible.</p>
 </main>
+
 <footer>
-  <div class="container">
-    <div class="footer-copy">© <span id="yr"></span> NexaLabs44 · MiSuplementos</div>
-    <div class="footer-legal">
+  <div class="foot-inner">
+    <div class="foot-links">
+      <a href="index.html">Inicio</a><span class="sep">|</span>
       <a href="aviso-legal.html">Aviso Legal</a><span class="sep">|</span>
       <a href="politica-privacidad.html">Política de Privacidad</a><span class="sep">|</span>
       <a href="cookies.html">Cookies</a><span class="sep">|</span>
-      <a href="terminos-condiciones.html">Términos y condiciones</a>
+      <a href="terminos-condiciones.html">Términos y Condiciones</a>
     </div>
+    <div class="foot-copy">© <span id="yr"></span> NexaLabs44 · MiSuplementos</div>
   </div>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
