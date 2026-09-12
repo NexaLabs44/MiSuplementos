@@ -113,6 +113,7 @@ footer{border-top:1px solid var(--border-mid);margin-top:52px;padding:30px 22px 
 .foot-links .sep{color:var(--border-strong)}
 .foot-copy{font-size:12.5px;color:var(--text-3)}
 </style>
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
 </head>
 <body>
 
@@ -235,16 +236,17 @@ acceso. El prestador podrá suspender o cancelar cuentas que incumplan estos Té
 está embarazada o en periodo de lactancia— el Usuario debe consultar a su médico o farmacéutico.
 <strong>En caso de urgencia, debe llamar al 112.</strong></p>
 
-<h2 id="s8"><span class="num">8.</span>Funciones con IA y fase beta</h2>
+<h2 id="s8"><span class="num">8.</span>Funciones con IA y disponibilidad</h2>
 <p>El autorrelleno de fichas y el análisis del stack se apoyan en modelos de lenguaje de terceros.
 Sus resultados son <strong>orientativos</strong>, pueden contener errores y no constituyen una
 valoración clínica ni una revisión de interacciones farmacológicas: es responsabilidad del Usuario
 verificar los datos autorrellenados frente a la etiqueta real del producto, en especial las
 cantidades y unidades.</p>
-<p>El Servicio se encuentra en <strong>fase beta</strong>. Pueden existir errores, funcionalidades
-incompletas e interrupciones. El prestador realizará esfuerzos razonables para mantenerlo
-disponible, pero no garantiza un nivel de servicio determinado; se recomienda al Usuario exportar
-periódicamente la información que considere relevante.</p>
+<p>El prestador realizará esfuerzos razonables para mantener el Servicio disponible y para
+corregir los errores que se detecten, pero no garantiza un nivel de servicio determinado ni la
+ausencia de interrupciones, que pueden derivarse de mantenimientos, actualizaciones o incidencias
+de proveedores externos. Se recomienda al Usuario exportar periódicamente la información que
+considere relevante.</p>
 
 <h2 id="s9"><span class="num">9.</span>Responsabilidad y propiedad intelectual</h2>
 <p>El prestador responde de los daños previsibles derivados del incumplimiento de sus obligaciones
@@ -275,6 +277,7 @@ afectará a la validez del resto.</p>
     <div class="foot-copy">© <span id="yr"></span> MiSuplementos · misuplementos.app</div>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();
+if(!location.hash)window.scrollTo(0,0);</script>
 </body>
 </html>

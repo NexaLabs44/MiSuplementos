@@ -113,6 +113,7 @@ footer{border-top:1px solid var(--border-mid);margin-top:52px;padding:30px 22px 
 .foot-links .sep{color:var(--border-strong)}
 .foot-copy{font-size:12.5px;color:var(--text-3)}
 </style>
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
 </head>
 <body>
 
@@ -180,7 +181,7 @@ del titular. Los datos y contenidos que introduce el usuario le pertenecen ínte
 <h2 id="s5"><span class="num">5.</span>Responsabilidad y enlaces</h2>
 <p>El titular actúa con diligencia razonable para que la información publicada sea correcta, pero
 no puede garantizar la ausencia de errores, omisiones o desactualizaciones, ni la disponibilidad
-ininterrumpida del servicio, que se encuentra en fase beta. Los resultados dependen de la
+ininterrumpida del servicio. Los resultados dependen de la
 exactitud de los datos que introduce el propio usuario. El sitio puede incluir enlaces a páginas
 de terceros sobre cuyo contenido el titular no ejerce control alguno.</p>
 
@@ -206,6 +207,7 @@ consumidor, será competente el tribunal de su domicilio.</p>
     <div class="foot-copy">© <span id="yr"></span> MiSuplementos · misuplementos.app</div>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();
+if(!location.hash)window.scrollTo(0,0);</script>
 </body>
 </html>
