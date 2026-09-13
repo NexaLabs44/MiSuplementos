@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Límites máximos diarios de vitaminas y minerales, según EFSA</title>
+<meta name="description" content="Cuánto es demasiado: el límite máximo diario de 31 vitaminas y minerales según EFSA y NIH, junto a la cantidad recomendada, qué pasa si te pasas y el valor para adolescentes.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://misuplementos.app/limites/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MiSuplementos">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://misuplementos.app/limites/">
+<meta property="og:title" content="Límites máximos diarios de vitaminas y minerales, según EFSA">
+<meta property="og:description" content="La vitamina B6 tiene un límite de 12 mg al día. El magnesio de suplementos, 250 mg. Tabla completa con fuente oficial.">
+<meta property="og:image" content="https://misuplementos.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Límites máximos diarios de vitaminas y minerales, según EFSA">
+<meta name="twitter:description" content="Cuánto es demasiado, nutriente por nutriente, con la fuente oficial de cada cifra.">
+<meta name="twitter:image" content="https://misuplementos.app/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#ebe4d8; --bg-card:#ffffff; --bg-card2:#faf7f3; --bg-input:#f4efe8;
+  --accent:#c45e2a; --accent-light:#d9763e;
+  --accent-dim:rgba(196,94,42,.10);
+  --olive:#5a8a60; --olive-dim:rgba(90,138,96,.12);
+  --sand:#c8a060; --danger:#c03528; --danger-dim:rgba(192,53,40,.09);
+  --text-1:#1a0e06; --text-2:#5f4526; --text-3:#746050;
+  --border:rgba(0,0,0,.07); --border-mid:rgba(0,0,0,.10); --border-strong:rgba(0,0,0,.14);
+  --shadow-sm:0 1px 6px rgba(0,0,0,.06);
+  --radius-sm:6px; --radius:10px; --radius-lg:14px;
+  --font-display:'Cinzel',Georgia,serif; --font-body:'Raleway','Trebuchet MS',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text-1);font-family:var(--font-body);line-height:1.65;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 22px}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--bg-card);padding:10px 16px;border-radius:var(--radius);z-index:99}
+.skip-link:focus{left:12px;top:12px}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(235,228,216,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:9px;margin-right:auto}
+.brand-icon{width:32px;height:32px;border-radius:9px;background:linear-gradient(140deg,var(--accent),var(--accent-light));display:flex;align-items:center;justify-content:center;flex:none}
+.brand-name{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--text-1)}
+.nav-links{display:flex;gap:20px;font-size:13.5px;font-weight:500}
+.nav-links a{color:var(--text-2)}
+.btn{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14px;padding:10px 18px;border-radius:var(--radius);border:1px solid transparent;cursor:pointer}
+.btn-primary{background:linear-gradient(140deg,var(--accent),var(--accent-light));color:#fff}
+.btn-primary:hover{filter:brightness(1.07);text-decoration:none}
+.btn-lg{padding:13px 24px;font-size:15px}
+@media(max-width:880px){.nav-links{display:none}}
+
+.head{padding:52px 0 10px}
+.crumbs{font-size:12.5px;color:var(--text-3);margin-bottom:20px}
+.crumbs a{color:var(--text-3)}
+h1{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.18;letter-spacing:-.01em;max-width:20em}
+.lead{font-size:17.5px;color:var(--text-2);max-width:34em;margin-top:18px}
+.meta-line{margin-top:22px;font-size:13px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:14px}
+
+.principio{margin:38px 0 6px;background:var(--bg-card);border:1px solid var(--border-mid);border-left:4px solid var(--accent);border-radius:var(--radius-lg);padding:24px 26px;box-shadow:var(--shadow-sm)}
+.principio h2{font-family:var(--font-display);font-size:19px;font-weight:600;margin-bottom:10px}
+.principio p{color:var(--text-2);font-size:15.5px;max-width:56em}
+.principio p + p{margin-top:10px}
+.principio strong{color:var(--text-1)}
+
+.group{padding:44px 0 0}
+.group h2{font-family:var(--font-display);font-size:clamp(21px,2.6vw,27px);font-weight:600;margin-bottom:14px}
+.group > p{color:var(--text-2);font-size:15.5px;max-width:56em}
+.group > p + p{margin-top:12px}
+
+.tw{margin-top:26px;background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+table{width:100%;border-collapse:collapse;text-align:left}
+caption{font-family:var(--font-display);font-size:15px;font-weight:600;text-align:left;padding:16px 20px 0;color:var(--text-2)}
+thead th{font-size:12.5px;font-weight:700;color:var(--text-3);padding:14px 20px 10px;border-bottom:1px solid var(--border-mid);vertical-align:bottom}
+tbody tr + tr{border-top:1px solid var(--border)}
+tbody th,tbody td{padding:15px 20px;font-size:15px;vertical-align:top;color:var(--text-2);font-weight:400}
+tbody th{max-width:24em}
+.nname{display:block;font-weight:700;color:var(--text-1);font-size:15.5px}
+.nnote{display:block;font-size:13.5px;color:var(--text-3);margin-top:4px;line-height:1.5}
+.nrow.warnrow th{box-shadow:inset 3px 0 0 var(--danger)}
+.iu{display:block;font-size:12.5px;color:var(--text-3);font-weight:600;margin-top:2px}
+.nolim{color:var(--text-3);font-style:italic}
+.src-efsa,.src-nih{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.src-efsa{background:var(--olive-dim);color:var(--olive)}
+.src-nih{background:var(--accent-dim);color:var(--accent)}
+@media(max-width:780px){
+  thead{position:absolute;left:-9999px}
+  tbody tr{display:block;padding:6px 0 14px;border-top:1px solid var(--border-mid)}
+  tbody th,tbody td{display:block;padding:4px 20px}
+  tbody th{max-width:none;padding-top:14px}
+  tbody td::before{content:attr(data-l) ": ";font-size:12.5px;font-weight:700;color:var(--text-3)}
+  .iu{display:inline;margin-left:6px}
+}
+
+.plain-list{margin-top:16px;display:grid;gap:9px}
+.plain-list li{list-style:none;color:var(--text-2);font-size:15px;padding-left:14px;position:relative}
+.plain-list li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.plain-list strong{color:var(--text-1)}
+
+.preg{margin-top:26px;background:var(--bg-card2);border:1px solid var(--border-mid);border-left:4px solid var(--sand);border-radius:var(--radius-lg);padding:22px 26px}
+.preg h3{font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:10px}
+.preg li{font-size:15px}
+
+.cta-inline{margin:34px 0 0;background:linear-gradient(140deg,rgba(196,94,42,.07),rgba(90,138,96,.06));border:1px solid var(--border-mid);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta-inline p{font-size:15.5px;color:var(--text-2);flex:1 1 24em;min-width:0}
+.cta-inline strong{color:var(--text-1)}
+
+.faq{margin-top:20px;display:grid;gap:12px}
+.qa{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius);padding:18px 22px}
+.qa h3{font-size:16px;font-weight:700;margin-bottom:7px}
+.qa p{font-size:15px;color:var(--text-2)}
+
+.med-note{margin:40px 0 0;display:flex;gap:12px;background:var(--bg-card2);border:1px solid var(--border-mid);border-radius:var(--radius);padding:16px 18px}
+.med-note p{font-size:14px;color:var(--text-2)}
+.med-note svg{flex:none;color:var(--text-3);margin-top:3px}
+
+footer{margin-top:56px;border-top:1px solid var(--border-mid);padding:28px 0 40px}
+.footer-inner{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-3)}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a{color:var(--text-2)}
+.footer-legal{margin-top:6px}
+.footer-legal a{color:var(--text-3)}
+.footer-legal .sep{margin:0 7px;opacity:.5}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Límites máximos diarios de vitaminas y minerales, según EFSA",
+  "description":"Límite máximo tolerable de ingesta diaria de 31 vitaminas y minerales según EFSA y NIH, con la cantidad recomendada y los efectos del exceso.",
+  "inLanguage":"es-ES",
+  "datePublished":"2026-09-13",
+  "dateModified":"2026-09-13",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://misuplementos.app/limites/"},
+  "publisher":{"@type":"Organization","name":"MiSuplementos","url":"https://misuplementos.app/"},
+  "author":{"@type":"Organization","name":"MiSuplementos","url":"https://misuplementos.app/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"¿Cuál es el límite máximo de vitamina B6 al día?",
+     "acceptedAnswer":{"@type":"Answer","text":"EFSA fija el límite en 12 mg al día para adultos. Es uno de los más bajos que existen y muchos complejos de vitamina B lo superan en una sola cápsula. El exceso mantenido puede provocar neuropatía periférica."}},
+    {"@type":"Question","name":"¿Cuánta vitamina D se puede tomar al día como máximo?",
+     "acceptedAnswer":{"@type":"Answer","text":"El límite máximo tolerable para adultos es de 100 microgramos al día, equivalentes a 4.000 UI. Por encima de forma prolongada puede causar hipercalcemia."}},
+    {"@type":"Question","name":"¿El límite de magnesio incluye el de los alimentos?",
+     "acceptedAnswer":{"@type":"Answer","text":"No. El límite de 250 mg al día se refiere solo al magnesio procedente de suplementos: EFSA excluye expresamente el que viene de la dieta. Es una excepción, porque en el resto de nutrientes el límite se refiere al total del día."}},
+    {"@type":"Question","name":"¿Qué diferencia hay entre la cantidad recomendada y el límite máximo?",
+     "acceptedAnswer":{"@type":"Answer","text":"La cantidad recomendada es la que cubre las necesidades de la mayoría de la población. El límite máximo es el techo por encima del cual aumenta el riesgo de efectos adversos. No es un objetivo: entre las dos cifras hay un rango amplio y seguro."}},
+    {"@type":"Question","name":"¿Sin límite fijado significa que no tiene riesgo?",
+     "acceptedAnswer":{"@type":"Answer","text":"No. Significa que no hay datos suficientes para fijar una cifra. La vitamina K no tiene límite establecido pero interfiere de forma importante con los anticoagulantes, y la biotina por encima de 5.000 microgramos al día puede falsear análisis de sangre."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="MiSuplementos, inicio">
+      <span class="brand-icon"><svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="9" y="5" width="14" height="22" rx="7" stroke="white" stroke-width="2.2"/>
+        <line x1="9" y1="16" x2="23" y2="16" stroke="white" stroke-width="2"/>
+        <path d="M9 16 C9 9 12 5 16 5 C20 5 23 9 23 16Z" fill="white" fill-opacity="0.35"/>
+        <circle cx="16" cy="22" r="1.6" fill="white" opacity="0.75"/>
+      </svg></span>
+      <span class="brand-name">MiSuplementos</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#funciones">Funciones</a>
+      <a href="/combinaciones/">Combinaciones</a>
+      <a href="/limites/">Límites</a>
+      <a href="/#planes">Planes</a>
+    </div>
+    <a class="btn btn-primary" href="/app/?plan=free">Empezar gratis</a>
+  </div>
+</nav>
+
+<main class="container" id="contenido">
+
+<div class="head">
+  <nav class="crumbs" aria-label="Ruta de navegación">
+    <a href="/">Inicio</a> › Límites máximos diarios
+  </nav>
+  <h1>Cuánto es demasiado: límites máximos diarios de vitaminas y minerales</h1>
+  <p class="lead">Casi toda la información sobre suplementos habla de cuánto necesitas. Esta página habla del techo: la cantidad por encima de la cual el riesgo empieza a subir. Con la cifra oficial, su fuente y qué ocurre exactamente si la superas.</p>
+  <p class="meta-line">
+    <span>Revisado en septiembre de 2026</span>
+    <span>31 nutrientes con límite oficial</span>
+    <span>Fuentes: EFSA y NIH ODS</span>
+  </p>
+</div>
+
+<section class="principio">
+  <h2>Recomendado y máximo no son lo mismo</h2>
+  <p>Son dos cifras distintas y se confunden todo el tiempo. La <strong>cantidad recomendada</strong> es la que cubre las necesidades de casi toda la población: es un suelo. El <strong>límite máximo tolerable</strong> es el techo a partir del cual aumenta el riesgo de efectos adversos. Entre las dos hay un rango amplio, y estar dentro de él es lo normal y lo deseable.</p>
+  <p>El límite no es un objetivo. Nadie debería intentar acercarse a él. Sirve para una cosa muy concreta: comprobar que la suma de todos tus productos no lo cruza sin que te hayas dado cuenta. Y ahí está el problema real, porque <strong>casi nadie se pasa con un solo suplemento</strong>: se pasa sumando un multivitamínico, un complejo B y un magnesio que también lleva B6.</p>
+  <p>Salvo donde se indique lo contrario, el límite se refiere al <strong>total del día de todas las fuentes</strong>, comida incluida. La excepción más importante es el magnesio: su límite cuenta solo lo que viene de suplementos.</p>
+</section>
+
+<section class="group" id="vitaminas">
+  <h2>Vitaminas y minerales</h2>
+  <p>Las cifras son para adultos sanos. La columna de 11 a 17 años recoge el límite que EFSA establece para adolescentes cuando publica un valor específico; donde aparece un guion, no hay cifra propia para ese grupo. Las filas con marca roja a la izquierda son las que tienen el margen más estrecho: son las que conviene mirar dos veces.</p>
+<div class="tw">
+    <table>
+      <caption>Vitaminas</caption>
+      <thead>
+        <tr><th scope="col">Nutriente</th><th scope="col">Recomendado al día</th><th scope="col">Límite máximo al día</th><th scope="col">11-17 años</th><th scope="col">Fuente</th></tr>
+      </thead>
+      <tbody>
+      <tr id="vitamina-a" class="nrow">
+        <th scope="row"><span class="nname">Vitamina A (retinol)</span><span class="nnote">El exceso crónico se acumula en el hígado: cefaleas, daño hepático y pérdida de densidad ósea.</span></th>
+        <td data-l="Recomendado">900 / 700 mcg</td>
+        <td data-l="Límite máximo"><strong>3.000 mcg</strong><span class='iu'>10.000 UI</span></td>
+        <td data-l="11-17 años">2.600 mcg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="beta-caroteno" class="nrow">
+        <th scope="row"><span class="nname">Beta-caroteno</span><span class="nnote">Sin toxicidad aguda, pero EFSA recomienda no superar 15 mg/día en suplementos.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-d" class="nrow">
+        <th scope="row"><span class="nname">Vitamina D</span><span class="nnote">Límite = 100 mcg (4.000 UI)/día. El exceso prolongado causa hipercalcemia (daño renal, cálculos).</span></th>
+        <td data-l="Recomendado">15 mcg</td>
+        <td data-l="Límite máximo"><strong>100 mcg</strong><span class='iu'>4.000 UI</span></td>
+        <td data-l="11-17 años">100 mcg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-e" class="nrow">
+        <th scope="row"><span class="nname">Vitamina E</span><span class="nnote">Por encima de 300 mg/día aumenta el riesgo de sangrado, sobre todo si tomas anticoagulantes.</span></th>
+        <td data-l="Recomendado">13 / 11 mg</td>
+        <td data-l="Límite máximo"><strong>300 mg</strong><span class='iu'>448 UI</span></td>
+        <td data-l="11-17 años">260 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-k" class="nrow">
+        <th scope="row"><span class="nname">Vitamina K</span><span class="nnote">Sin límite superior establecido, pero interfiere seriamente con anticoagulantes tipo warfarina/Sintrom.</span></th>
+        <td data-l="Recomendado">70 mcg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-c" class="nrow">
+        <th scope="row"><span class="nname">Vitamina C</span><span class="nnote">Por encima de 2.000 mg/día: diarrea osmótica, molestias digestivas y más riesgo de cálculos de oxalato.</span></th>
+        <td data-l="Recomendado">110 / 95 mg</td>
+        <td data-l="Límite máximo"><strong>2.000 mg</strong></td>
+        <td data-l="11-17 años">1.800 mg</td>
+        <td data-l="Fuente"><span class="src-nih">NIH ODS</span></td>
+      </tr>
+      <tr id="vitamina-b1" class="nrow">
+        <th scope="row"><span class="nname">Vitamina B1 (tiamina)</span><span class="nnote">Hidrosoluble, sin límite superior conocido: el excedente se elimina por orina.</span></th>
+        <td data-l="Recomendado">1,2 / 1,1 mg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-b2" class="nrow">
+        <th scope="row"><span class="nname">Vitamina B2 (riboflavina)</span><span class="nnote">Sin límite superior establecido. Tiñe la orina de amarillo intenso, es inofensivo.</span></th>
+        <td data-l="Recomendado">1,6 mg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="niacina" class="nrow">
+        <th scope="row"><span class="nname">Niacina (ácido nicotínico)</span><span class="nnote">EFSA fija el límite en 10 mg/día para el ácido nicotínico, la forma que provoca el "flush" (rubor, picor). La nicotinamida y el NMN tienen su propia entrada, con un límite mucho más alto. Dosis altas y crónicas son hepatotóxicas.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><strong>10 mg</strong></td>
+        <td data-l="11-17 años">8 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="nicotinamida-nmn-nr" class="nrow">
+        <th scope="row"><span class="nname">Nicotinamida / NMN / NR</span><span class="nnote">Forma sin flush de la B3. EFSA sitúa el límite en 900 mg/día por posible carga hepática.</span></th>
+        <td data-l="Recomendado">2 mg</td>
+        <td data-l="Límite máximo"><strong>900 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-b5" class="nrow">
+        <th scope="row"><span class="nname">Vitamina B5 (ác. pantoténico)</span><span class="nnote">Sin límite superior establecido.</span></th>
+        <td data-l="Recomendado">5 mg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-b6" class="nrow warnrow">
+        <th scope="row"><span class="nname">Vitamina B6 (piridoxina)</span><span class="nnote">Muy relevante: el exceso mantenido de B6 causa neuropatía periférica (hormigueos, entumecimiento). EFSA fija el límite en 12 mg/día — mucho más bajo de lo que llevan muchos complejos B.</span></th>
+        <td data-l="Recomendado">1,7 / 1,6 mg</td>
+        <td data-l="Límite máximo"><strong>12 mg</strong></td>
+        <td data-l="11-17 años">10 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-b7" class="nrow">
+        <th scope="row"><span class="nname">Vitamina B7 (biotina)</span><span class="nnote">Sin límite superior, pero por encima de 5.000 mcg/día falsea análisis de sangre (tiroides, troponina). Avisa en el laboratorio.</span></th>
+        <td data-l="Recomendado">40 mcg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="folato-acido-folico" class="nrow">
+        <th scope="row"><span class="nname">Folato / Ácido fólico</span><span class="nnote">Por encima de 1.000 mcg/día puede enmascarar una deficiencia de B12 y retrasar su diagnóstico.</span></th>
+        <td data-l="Recomendado">330 mcg</td>
+        <td data-l="Límite máximo"><strong>1.000 mcg</strong></td>
+        <td data-l="11-17 años">800 mcg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="vitamina-b12" class="nrow">
+        <th scope="row"><span class="nname">Vitamina B12</span><span class="nnote">Sin límite superior: no se ha demostrado toxicidad, se excreta el exceso.</span></th>
+        <td data-l="Recomendado">4 mcg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="colina" class="nrow">
+        <th scope="row"><span class="nname">Colina</span><span class="nnote">Por encima de 3.500 mg/día: olor corporal a pescado, sudoración, hipotensión.</span></th>
+        <td data-l="Recomendado">400 mg</td>
+        <td data-l="Límite máximo"><strong>3.500 mg</strong></td>
+        <td data-l="11-17 años">3.000 mg</td>
+        <td data-l="Fuente"><span class="src-nih">NIH ODS</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tw">
+    <table>
+      <caption>Minerales</caption>
+      <thead>
+        <tr><th scope="col">Nutriente</th><th scope="col">Recomendado al día</th><th scope="col">Límite máximo al día</th><th scope="col">11-17 años</th><th scope="col">Fuente</th></tr>
+      </thead>
+      <tbody>
+      <tr id="calcio" class="nrow">
+        <th scope="row"><span class="nname">Calcio</span><span class="nnote">Por encima de 2.500 mg/día: cálculos renales y peor absorción de hierro y zinc.</span></th>
+        <td data-l="Recomendado">950 mg</td>
+        <td data-l="Límite máximo"><strong>2.500 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="hierro" class="nrow warnrow">
+        <th scope="row"><span class="nname">Hierro</span><span class="nnote">Estrecho margen de seguridad. Por encima de 45 mg/día: náuseas, estreñimiento, daño hepático. Sólo suplementar con analítica de ferritina.</span></th>
+        <td data-l="Recomendado">11 / 16 mg</td>
+        <td data-l="Límite máximo"><strong>40 mg</strong></td>
+        <td data-l="11-17 años">35 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA (nivel seguro)</span></td>
+      </tr>
+      <tr id="magnesio" class="nrow">
+        <th scope="row"><span class="nname">Magnesio (suplementario)</span><span class="nnote">El límite de 250 mg/día es sólo para el magnesio de suplementos: EFSA excluye expresamente el que viene de los alimentos. Por encima: diarrea. Precaución con insuficiencia renal.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><strong>250 mg</strong></td>
+        <td data-l="11-17 años">250 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="zinc" class="nrow">
+        <th scope="row"><span class="nname">Zinc</span><span class="nnote">Por encima de 25 mg/día de forma crónica provoca deficiencia de cobre, anemia y baja la inmunidad.</span></th>
+        <td data-l="Recomendado">11 / 8 mg</td>
+        <td data-l="Límite máximo"><strong>25 mg</strong></td>
+        <td data-l="11-17 años">22 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="cobre" class="nrow">
+        <th scope="row"><span class="nname">Cobre</span><span class="nnote">Por encima de 5 mg/día: molestias digestivas y, a largo plazo, daño hepático.</span></th>
+        <td data-l="Recomendado">1,3 mg</td>
+        <td data-l="Límite máximo"><strong>5 mg</strong></td>
+        <td data-l="11-17 años">4 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="selenio" class="nrow warnrow">
+        <th scope="row"><span class="nname">Selenio</span><span class="nnote">Margen muy estrecho. Por encima de 300 mcg/día: caída de pelo, uñas quebradizas, aliento a ajo, neuropatía.</span></th>
+        <td data-l="Recomendado">70 mcg</td>
+        <td data-l="Límite máximo"><strong>255 mcg</strong></td>
+        <td data-l="11-17 años">230 mcg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="yodo" class="nrow">
+        <th scope="row"><span class="nname">Yodo</span><span class="nnote">Tanto el exceso como el defecto alteran la tiroides. Cuidado con las algas: pueden llevar dosis enormes y variables.</span></th>
+        <td data-l="Recomendado">150 mcg</td>
+        <td data-l="Límite máximo"><strong>600 mcg</strong></td>
+        <td data-l="11-17 años">500 mcg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="manganeso" class="nrow">
+        <th scope="row"><span class="nname">Manganeso</span><span class="nnote">Por encima de 11 mg/día puede haber efectos neurológicos. Es fácil pasarse combinando multivitamínicos.</span></th>
+        <td data-l="Recomendado">3 mg</td>
+        <td data-l="Límite máximo"><strong>8 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA (nivel seguro)</span></td>
+      </tr>
+      <tr id="molibdeno" class="nrow">
+        <th scope="row"><span class="nname">Molibdeno</span><span class="nnote">Por encima de 600 mcg/día puede interferir con el metabolismo del cobre.</span></th>
+        <td data-l="Recomendado">65 mcg</td>
+        <td data-l="Límite máximo"><strong>600 mcg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="cromo" class="nrow">
+        <th scope="row"><span class="nname">Cromo</span><span class="nnote">Sin límite superior establecido. Precaución si tomas antidiabéticos: puede potenciar la bajada de glucosa.</span></th>
+        <td data-l="Recomendado">35 / 25 mcg</td>
+        <td data-l="Límite máximo"><span class='nolim'>Sin límite fijado</span></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="fosforo" class="nrow">
+        <th scope="row"><span class="nname">Fósforo</span><span class="nnote">Por encima de 4.000 mg/día altera el equilibrio calcio-fósforo. Precaución con insuficiencia renal.</span></th>
+        <td data-l="Recomendado">550 mg</td>
+        <td data-l="Límite máximo"><strong>4.000 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-nih">NIH ODS</span></td>
+      </tr>
+      <tr id="boro" class="nrow">
+        <th scope="row"><span class="nname">Boro</span><span class="nnote">Límite 10 mg/día.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><strong>10 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      <tr id="fluor" class="nrow">
+        <th scope="row"><span class="nname">Flúor</span><span class="nnote">Por encima de 7 mg/día: fluorosis dental y ósea.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><strong>3,3 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA (nivel seguro)</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tw">
+    <table>
+      <caption>Omega-3 y cafeína</caption>
+      <thead>
+        <tr><th scope="col">Nutriente</th><th scope="col">Recomendado al día</th><th scope="col">Límite máximo al día</th><th scope="col">11-17 años</th><th scope="col">Fuente</th></tr>
+      </thead>
+      <tbody>
+      <tr id="omega-3" class="nrow">
+        <th scope="row"><span class="nname">Omega-3 (EPA + DHA)</span><span class="nnote">EFSA considera seguro hasta 5.000 mg/día de EPA+DHA. Por encima aumenta el tiempo de sangrado.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><strong>5.000 mg</strong></td>
+        <td data-l="11-17 años">—</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA (nivel seguro)</span></td>
+      </tr>
+      <tr id="cafeina" class="nrow warnrow">
+        <th scope="row"><span class="nname">Cafeína</span><span class="nnote">EFSA: hasta 400 mg/día en adultos sanos y no más de 200 mg de una vez. Recuerda sumar el café, té y refrescos que tomes.</span></th>
+        <td data-l="Recomendado">—</td>
+        <td data-l="Límite máximo"><strong>400 mg</strong></td>
+        <td data-l="11-17 años">100 mg</td>
+        <td data-l="Fuente"><span class="src-efsa">EFSA</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:18px">«Sin límite fijado» no significa «sin riesgo»: significa que no hay datos suficientes para poner una cifra. La vitamina K no tiene límite establecido y aun así interfiere de forma importante con los anticoagulantes, y la biotina por encima de 5.000 mcg al día puede falsear un análisis de sangre y llevar a un diagnóstico equivocado.</p>
+</section>
+
+<div class="preg">
+  <h3>Embarazo, lactancia y casos especiales</h3>
+  <ul class="plain-list">
+    <li><strong>Vitamina A (retinol).</strong> En embarazo, el retinol en dosis altas es teratogénico. No suplementar sin indicación médica.</li>
+    <li><strong>Cafeína.</strong> En embarazo y lactancia el límite baja de 400 a 200 mg al día.</li>
+    <li><strong>Folato.</strong> En embarazo la recomendación sube a 600 mcg al día, con 400 mcg de suplemento preconcepcional.</li>
+    <li><strong>Yodo.</strong> En embarazo y lactancia la necesidad sube a 200-250 mcg al día.</li>
+    <li><strong>Beta-caroteno y tabaco.</strong> EFSA recomienda que los fumadores eviten los complementos con beta-caroteno: en este grupo las dosis altas se han asociado a mayor riesgo de cáncer de pulmón.</li>
+  </ul>
+</div>
+
+<div class="cta-inline">
+  <p><strong>El riesgo no está en un producto, está en la suma.</strong> MiSuplementos lee las etiquetas de todo lo que tomas, suma cada nutriente entre productos y te avisa cuando el total se acerca a estos límites.</p>
+  <a class="btn btn-primary btn-lg" href="/app/?plan=free">Sumar mis suplementos gratis</a>
+</div>
+
+<section class="group" id="sin-limite-oficial">
+  <h2>Extractos de plantas y ayudas deportivas: aquí no hay cifra oficial</h2>
+  <p>EFSA no ha fijado un límite máximo para la mayoría de extractos de plantas, aminoácidos y ayudas ergogénicas. No es un descuido: en muchos casos no existen los estudios de dosis-respuesta necesarios para establecerlo.</p>
+  <p>Por eso <strong>en esta página no publicamos una cifra para ellos</strong>. Poner un número sin fuente oficial al lado de los que sí la tienen sería mezclar dos cosas muy distintas. Dentro de la app sí evaluamos estos ingredientes, con un criterio propio basado en literatura científica, y cada ficha declara expresamente que la fuente es literatura y no EFSA. Es la misma información, con la etiqueta que le corresponde.</p>
+  <p>Los que la app cubre con ese criterio:</p>
+<ul class='plain-list'>
+      <li><strong>Minerales:</strong> Potasio (suplementario).</li>
+      <li><strong>Aminoácidos y deportivos:</strong> Creatina, Proteína en polvo, Beta-alanina, L-Citrulina, Taurina, L-Glutamina, BCAA / Leucina.</li>
+      <li><strong>Estimulantes:</strong> Yohimbina, Sinefrina.</li>
+      <li><strong>Otros activos:</strong> Melatonina, Curcumina / Cúrcuma, Ashwagandha, Coenzima Q10, Ácido alfa-lipoico, NAC (N-acetilcisteína), Berberina, Resveratrol, Glucosamina, Colágeno, Inositol, 5-HTP, Hipérico (Hierba de San Juan), Probióticos y otros.</li>
+</ul>
+</section>
+
+<section class="group" id="preguntas">
+  <h2>Preguntas frecuentes</h2>
+  <div class="faq">
+    <div class="qa">
+      <h3>¿Cuál es el límite de vitamina B6 al día?</h3>
+      <p>12 mg para adultos, según EFSA. Es uno de los más bajos de la tabla y muchos complejos B lo superan en una sola cápsula. Si tomas complejo B y además un magnesio con B6, revisa la suma.</p>
+    </div>
+    <div class="qa">
+      <h3>¿Cuánta vitamina D puedo tomar al día?</h3>
+      <p>El límite máximo para adultos es 100 mcg, es decir 4.000 UI. Mucha gente maneja la cifra en UI y el envase en mcg, y ahí es fácil equivocarse por un factor de 40.</p>
+    </div>
+    <div class="qa">
+      <h3>¿Por qué el límite de magnesio es tan bajo?</h3>
+      <p>Porque cuenta solo el magnesio de suplementos, no el de la comida, y porque el efecto que marca el límite es digestivo —diarrea— y aparece pronto. No es un límite de toxicidad grave.</p>
+    </div>
+    <div class="qa">
+      <h3>¿Y si me he pasado un día?</h3>
+      <p>Los límites están pensados como ingesta habitual, no como dosis única. Un exceso puntual no equivale a un problema, salvo en los pocos nutrientes de margen estrecho. Lo que importa es el patrón mantenido en el tiempo.</p>
+    </div>
+    <div class="qa">
+      <h3>¿Por qué unas cifras son de EFSA y otras de NIH?</h3>
+      <p>Usamos EFSA, la autoridad europea, siempre que haya publicado un valor. Para los tres nutrientes en los que no lo ha hecho —vitamina C, colina y fósforo— usamos el de NIH, y lo indicamos en la tabla. Cuando las dos difieren, aplicamos la más prudente.</p>
+    </div>
+  </div>
+</section>
+
+<div class="med-note">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <p>Estas cifras son orientativas y no constituyen consejo médico. MiSuplementos es una herramienta de <strong>información y organización</strong>, no de diagnóstico. Si estás embarazada, en lactancia, en tratamiento farmacológico, tienes insuficiencia renal o hepática o cualquier patología crónica, consulta tu pauta con un profesional sanitario antes de suplementar. Más detalle en el <a href="/aviso-legal.html">Aviso Legal</a>.</p>
+</div>
+
+<p style="margin-top:30px;font-size:15.5px;color:var(--text-2)">Si además tomas varios productos a la vez, la otra mitad del problema es cuáles chocan entre sí: <a href="/combinaciones/">las 17 combinaciones de suplementos y a partir de qué dosis importan</a>.</p>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-links">
+      <a href="/">Inicio</a>
+      <a href="/combinaciones/">Combinaciones</a>
+      <a href="/limites/">Límites</a>
+      <a href="/app/">Iniciar sesión</a>
+    </div>
+    <div>
+      © <span id="yr">2026</span> MiSuplementos
+      <div class="footer-legal">
+        <a href="/aviso-legal.html">Aviso Legal</a><span class="sep">|</span>
+        <a href="/politica-privacidad.html">Política de Privacidad</a><span class="sep">|</span>
+        <a href="/cookies.html">Cookies</a><span class="sep">|</span>
+        <a href="/terminos-condiciones.html">Términos y condiciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
